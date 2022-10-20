@@ -51,9 +51,9 @@
 </template>
 
 <script>
-// import 'mind-ar/dist/mindar-image.prod.js'
-// import 'aframe'
-// import 'mind-ar/dist/mindar-image-aframe.prod.js'
+// import '~/static/js/mindar-image.prod.js'
+// import '~/static/js/aframe.min.js'
+// import '~/static/js/mindar-image-aframe.prod.js'
 // import 'aframe-transparent-video-shader'
 export default {
   data() {
@@ -64,9 +64,9 @@ export default {
   },
   mounted() {
     console.log('yo')
-    setTimeout(() => {
-      window.location.reload(true)
-    }, 3000)
+    // setTimeout(() => {
+    //   window.location.reload(true)
+    // }, 3000)
 
     const exampleTarget = document.querySelector('#example-target')
     exampleTarget.addEventListener('targetFound', (event) => {
@@ -96,7 +96,7 @@ a-scene {
 .aframe-wrapper > video {
   opacity: 1;
   position: absolute;
-  z-index: -10 !important;
+  z-index: 10 !important;
 }
 .aframe-wrapper {
   /* border: 6px solid green; */

@@ -19,6 +19,10 @@
               "type": "rapport"
             },
             {
+              "type": "scan"
+            },
+
+            {
               "type": "question",
               "roles": [0, 1],
               "info": {},

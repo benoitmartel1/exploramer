@@ -21,6 +21,7 @@
         v-if="stepContent.step.type == 'rapport'"
         :content="stepContent.step"
       />
+      <Scan v-if="stepContent.step.type == 'scan'" />
       <Question
         v-if="stepContent.step.type == 'question'"
         :content="stepContent.step"
