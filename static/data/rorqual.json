@@ -1,0 +1,50 @@
+{
+  "themes": [
+    {
+      "fr": "Roquo",
+      "en": "Morphology",
+      "subthemes": [
+        {
+          "fr": "Peser la baleine",
+          "steps": [
+            {
+              "type": "",
+              "roles": [0, 1],
+              "info": {}
+            },
+            {
+              "type": "question",
+              "roles": [0, 1],
+              "info": {},
+              "question": {
+                "fr": "Quel est le poids du béluga?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "8 000 kg"
+                },
+                {
+                  "fr": "14 000 kg",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "25 000 kg"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bravo! Tu as trouvé le poids de la baleine!"
+                },
+                "wrong": {
+                  "fr": "As - tu  bien ajusté ta balance? Essaie de nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

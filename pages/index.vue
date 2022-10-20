@@ -1,0 +1,180 @@
+<template>
+  <div class="setup">
+    <ul>
+      <li v-for="(t, index) in themes" :key="'t' + index">{{ t.fr }}</li>
+    </ul>
+    <div
+      v-if="!$fetchState.pending && settings"
+      :class="['wrapper', 'exp-' + settings.experience]"
+    >
+      <div
+        :class="['button circle langue', settings.langue]"
+        @click="updateSettings('langue', settings.langue == 'fr' ? 'en' : 'fr')"
+      >
+        {{ settings.langue }}
+      </div>
+      <div
+        class="button experience"
+        @click="updateSettings('experience', settings.experience == 0 ? 1 : 0)"
+      ></div>
+      <div
+        class="button circle parcours"
+        @click="
+          updateSettings(
+            'parcours',
+            parseInt(settings.parcours) + 1 > themes.length
+              ? 1
+              : parseInt(settings.parcours) + 1
+          )
+        "
+      >
+        {{ settings.parcours }}
+      </div>
+      <div class="button ok" @click="$router.push('/home')">OK ></div>
+    </div>
+    <div
+      v-else-if="$fetchState.error || settings == null || settings == undefined"
+    >
+      Erreur : Le serveur SQLITE n'est pas en service.
+    </div>
+
+    <img src="/images/elements/beluga.png" alt="" />
+    <img src="/images/elements/rorqual.png" alt="" />
+  </div>
+</template>
+
+<script>
+//Load local JSON content
+import beluga from '~/static/data/beluga.json'
+import rorqual from '~/static/data/rorqual.json'
+
+export default {
+  layout: 'default',
+  data() {
+    return {
+      settings: null,
+    }
+  },
+  //On load, fetch settings from local SQLITE server
+  async fetch() {
+    this.settings = await this.$axios
+      .$get('/api/settings')
+      .then((res) => {
+        this.$store.commit('setSettings', res.settings[0])
+        return res.settings[0]
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
+  computed: {
+    themes() {
+      return this.$store.state.content.themes
+    },
+  },
+  watch: {
+    //If settings change, store the appropriate JSON content in the store
+    settings() {
+      if (this.settings.experience) {
+        this.$store.commit(
+          'setContent',
+          this.settings.experience == 0 ? beluga : rorqual
+        )
+      }
+    },
+    content(val) {
+      console.log('new content')
+      console.log(val)
+    },
+  },
+  methods: {
+    //Update settings in SQLITE server
+    async updateSettings(setting, value) {
+      await this.$axios
+        .$post('/api/settings', { setting, value })
+        .then((res) => {
+          if (res.settings) {
+            this.settings = res.settings[0]
+            this.$store.commit('setSettings', res.settings[0])
+          }
+        })
+    },
+  },
+  mounted() {
+    //Try to fetch settings from SQLITE server every 2 secs
+    const fetchInterval = setInterval(() => {
+      if (this.settings == null || this.settings == undefined) {
+        this.$fetch()
+      } else {
+        clearInterval(fetchInterval)
+      }
+    }, 2000)
+  },
+}
+</script>
+
+<style>
+.wrapper {
+  font-size: 3em;
+  width: 100%;
+  height: 100%;
+  min-height: 1920px;
+  padding: 15% 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.wrapper .button {
+  /* margin-bottom: 100px; */
+}
+.wrapper.exp-0 {
+  background-color: darkmagenta;
+}
+.wrapper.exp-1 {
+  background-color: darkblue;
+}
+.button {
+  /* text-transform: uppercase; */
+  cursor: pointer;
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+.langue {
+  border: none;
+}
+.langue.fr {
+  background-color: blue;
+}
+.langue.en {
+  background-color: red;
+}
+.setup .experience {
+  width: 100%;
+  height: 300px;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.exp-0 .experience {
+  background-image: url('/images/elements/rorqual.png');
+}
+.exp-1 .experience {
+  background-image: url('/images/elements/beluga.png');
+}
+.ok {
+  /* margin-top: auto; */
+  margin-top: 100px;
+  align-self: flex-end;
+}
+img {
+  display: none;
+}
+</style>

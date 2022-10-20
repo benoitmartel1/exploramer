@@ -1,0 +1,125 @@
+{
+  "themes": [
+    {
+      "fr": "Morphologie",
+      "en": "Morphology",
+      "subthemes": [
+        {
+          "fr": "Peser la baleine",
+          "prop": {
+            "key": {
+              "fr": "Poids"
+            },
+            "value": {
+              "fr": "14 000kg"
+            }
+          },
+          "steps": [
+            {
+              "type": "rapport"
+            },
+            {
+              "type": "question",
+              "roles": [0, 1],
+              "info": {},
+              "question": {
+                "fr": "Quel est le poids du béluga?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "8 000 kg"
+                },
+                {
+                  "fr": "14 000 kg",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "25 000 kg"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bravo! Tu as trouvé le poids de la baleine!"
+                },
+                "wrong": {
+                  "fr": "As - tu  bien ajusté ta balance? Essaie de nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Déterminer si son poids est normal pour son âge",
+          "prop": {
+            "key": {
+              "fr": "note"
+            },
+            "value": {
+              "fr": "Poids normal pour son âge."
+            }
+          },
+          "info": {
+            "fr": "RAPPEL Le béluga pèse 1 400 kg.Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans. La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie."
+          },
+          "steps": [
+            {
+              "type": "action",
+              "roles": ["t", "b"],
+              "hasInfo": true,
+              "fr": "Comparez maintenant le poids et l'âge du béluga pour établir s'il a un poids santé pour son âge."
+            },
+            {
+              "type": "question",
+              "roles": [0, 1],
+              "hasInfo": true,
+              "question": {
+                "fr": "Est-ce que son poids est normal pour un béluga adulte? "
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Non"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "En effet! Le poids du béluga est bien normal pour son âge."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain de ta réponse? Essaie de nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fr": "Theme2",
+      "subthemes": [
+        {
+          "fr": "Manger",
+          "steps": [
+            {
+              "type": "rapport"
+            },
+            {},
+            {}
+          ]
+        },
+        { "fr": "Boire", "steps": [{}, {}, {}] }
+      ]
+    },
+    {
+      "fr": "Theme3",
+      "subthemes": [{ "steps": [{}] }, { "steps": [{}] }]
+    }
+  ]
+}

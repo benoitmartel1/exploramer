@@ -1,0 +1,57 @@
+{
+  "settings": {
+    "screen_width": 1920,
+    "screen_height": 1080,
+    "show_red_outline": false,
+    "kiosk_mode": true,
+    "borne": 0,
+    "letters_countdown_time": 2,
+    "home_countdown_time": 0.3,
+    "rfid_A_posX": 310,
+    "rfid_B_posX": 870,
+    "rfid_C_posX": 1430,
+    "rfid_HOME_posY": 680,
+    "rfid_plante_A_posX": 210,
+    "rfid_plante_B_posX": 490,
+    "rfid_plante_C_posX": 770,
+    "rfid_plante_HOME_posY": 1520,
+    "font_size": 30,
+    "skip_idleTimer": false,
+    "skip_sleepTimer": false,
+    "wake_time": 7,
+    "sleep_time": 23,
+    "bezel_scaleDown": [1, 1],
+    "colors": [
+      {
+        "borne": 1,
+        "bgColor": "b14c24",
+        "bgLightColor": "c88f7b"
+      },
+      {
+        "borne": 2,
+        "bgColor": "006882",
+        "bgLightColor": "92a0af"
+      },
+      {
+        "borne": 3,
+        "bgColor": "cc9e19",
+        "bgLightColor": "f1d27a"
+      },
+      {
+        "borne": 4,
+        "bgColor": "a7597a",
+        "bgLightColor": "bfa0a4"
+      },
+      {
+        "borne": 5,
+        "bgColor": "51a090",
+        "bgLightColor": "bed6ce"
+      },
+      {
+        "borne": 6,
+        "bgColor": "595959",
+        "bgLightColor": "bcb3a1"
+      }
+    ]
+  }
+}
