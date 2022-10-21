@@ -36,6 +36,15 @@ export const mutations = {
       state.status.theme = 0
     }
   },
+  decrementTheme(state) {
+    const max = state.content.themes.length
+    const prev = state.status.theme - 1
+    if (prev >= 0) {
+      state.status.theme--
+    } else {
+      state.status.theme = max - 1
+    }
+  },
   incrementSubtheme(state) {
     const max = state.content.themes[state.status.theme].subthemes.length
     const next = state.status.subtheme + 1
@@ -44,6 +53,16 @@ export const mutations = {
     } else {
       this.commit('incrementTheme')
       state.status.subtheme = 0
+    }
+  },
+  decrementSubtheme(state) {
+    const prev = state.status.subtheme - 1
+    if (prev >= 0) {
+      state.status.subtheme--
+    } else {
+      this.commit('decrementTheme')
+      const max = state.content.themes[state.status.theme].subthemes.length
+      state.status.subtheme = max - 1
     }
   },
   incrementStep(state) {
@@ -56,6 +75,19 @@ export const mutations = {
     } else {
       this.commit('incrementSubtheme')
       state.status.step = 0
+    }
+  },
+  decrementStep(state) {
+    const prev = state.status.step - 1
+    if (prev >= 0) {
+      state.status.step--
+    } else {
+      this.commit('decrementSubtheme')
+      const max =
+        state.content.themes[state.status.theme].subthemes[
+          state.status.subtheme
+        ].steps.length
+      state.status.step = max - 1
     }
   },
   setSettings(state, settings) {

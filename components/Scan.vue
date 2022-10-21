@@ -1,8 +1,5 @@
 <template>
   <div class="aframe-wrapper">
-    <!-- <div class="button ok" @touchend="$router.push('/')">OK ></div>
-    {{ settings.langue }}
-    {{ targetTracked }} -->
     <a-scene
       id="scene"
       mindar-image="imageTargetSrc: mind/targets_(1).mind;filterMinCF:0.1; filterBeta: 1000;warmupTolerance:2;uiError:no; uiLoading:no; uiScanning:no;"
@@ -18,9 +15,6 @@
           loop="true"
         ></video>
       </a-assets>
-      <!-- <a-sky color="#6EBAA7" material="" geometry="" scale=""></a-sky> -->
-      <!-- <canvas data-aframe-canvas="true" width="1920" height="977"></canvas> -->
-
       <a-entity
         id="example-target"
         mindar-image-target="targetIndex: 0"
@@ -31,30 +25,15 @@
         position="0 0 0"
       >
       </a-entity>
-      <!-- <a-entity mindar-image-target="targetIndex: 0" id="example-target">
-        <a-plane
-          color="blue"
-          opacity="0.5"
-          position="0 0 0"
-          height="0.5"
-          width="1"
-          rotation="0 0 0"
-        ></a-plane>
-      </a-entity> -->
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <!-- <a-entity id="example-target" mindar-image-target="targetIndex: 0">
-			<a-video src="#poissons" autoplay="true"></a-video>
 
-		</a-entity> -->
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     </a-scene>
   </div>
 </template>
 
 <script>
-// import '~/static/js/mindar-image.prod.js'
-// import '~/static/js/aframe.min.js'
-// import '~/static/js/mindar-image-aframe.prod.js'
-// import 'aframe-transparent-video-shader'
+var scanInterval
+
 export default {
   data() {
     return {
@@ -63,13 +42,11 @@ export default {
     }
   },
   mounted() {
-    console.log('yo')
-    // setTimeout(() => {
-    //   window.location.reload(true)
-    // }, 3000)
-
     const exampleTarget = document.querySelector('#example-target')
     exampleTarget.addEventListener('targetFound', (event) => {
+      scanInterval = setTimeout(() => {
+        this.done()
+      }, 3000)
       this.targetTracked = true
       const video = document.querySelector('#poissons')
       video.pause()
@@ -77,6 +54,7 @@ export default {
       video.play()
     })
     exampleTarget.addEventListener('targetLost', (event) => {
+      clearTimeout(scanInterval)
       this.targetTracked = false
       const video = document.querySelector('#poissons')
       video.pause()
@@ -84,25 +62,37 @@ export default {
       video.play()
     })
   },
+  methods: {
+    done() {
+      this.$parent.increment()
+    },
+  },
 }
 </script>
 
 <style>
 a-scene {
-  position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 20;
 }
 .aframe-wrapper > video {
   opacity: 1;
   position: absolute;
   z-index: 10 !important;
 }
+.aframe-wrapper,
+.a-canvas {
+  width: calc(var(--app-width) - 100px);
+  height: 1200px;
+}
 .aframe-wrapper {
   /* border: 6px solid green; */
   overflow: hidden;
   position: absolute;
-  width: 1200px;
-  height: 1920px;
+  left: 50px;
+  bottom: 50px;
 }
+/* .a-canvas {
+  border: 2px yellow solid;
+  position: absolute;
+} */
 </style>

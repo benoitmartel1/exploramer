@@ -16,14 +16,14 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
       {
-        src: ' https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js',
+        src: '/js/mindar-image.prod.js',
       },
-      { src: ' https://aframe.io/releases/1.2.0/aframe.min.js' },
+      { src: '/js/aframe.min.js' },
       {
-        src: ' https://unpkg.com/aframe-transparent-video-shader@1.0.3/dist/aframe-transparent-video-shader.umd.js',
+        src: '/js/aframe-transparent-video-shader.umd.js',
       },
       {
-        src: ' https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js',
+        src: '/js/mindar-image-aframe.prod.js',
       },
     ],
   },

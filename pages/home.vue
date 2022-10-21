@@ -30,22 +30,28 @@
         v-if="stepContent.step.type == 'action'"
         :content="stepContent.step"
       />
+      <Admin v-if="showAdmin" />
     </Main>
   </div>
 </template>
 
 <script>
+import { onMounted } from 'vue'
 export default {
   components: true,
   data() {
     return {
       content: this.$store.state.content,
       settings: this.$store.state.settings,
-      lang: this.$store.state.settings.langue,
+
       showInfo: false,
+      showAdmin: false,
     }
   },
   computed: {
+    lang() {
+      return this.$store.state.settings.langue
+    },
     status() {
       return this.$store.state.status
     },
@@ -53,9 +59,27 @@ export default {
       return this.$store.getters.getStepContent
     },
   },
+  mounted() {
+    var that = this
+    document.addEventListener('keydown', function (event) {
+      if (event.code == 'ArrowRight') {
+        that.increment()
+      }
+      if (event.code == 'ArrowLeft') {
+        that.decrement()
+      }
+      if (event.code == 'KeyA') {
+        console.log('a')
+        that.showAdmin = true
+      }
+    })
+  },
   methods: {
     increment() {
       this.$store.commit('incrementStep')
+    },
+    decrement() {
+      this.$store.commit('decrementStep')
     },
   },
 }
