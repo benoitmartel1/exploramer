@@ -59,6 +59,7 @@ export default {
       return this.$store.getters.getStepContent
     },
   },
+
   mounted() {
     var that = this
     document.addEventListener('keydown', function (event) {

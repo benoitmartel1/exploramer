@@ -2,7 +2,7 @@
   <div class="aframe-wrapper">
     <a-scene
       id="scene"
-      mindar-image="imageTargetSrc: mind/targets_(1).mind;filterMinCF:0.1; filterBeta: 1000;warmupTolerance:2;uiError:no; uiLoading:no; uiScanning:no;"
+      mindar-image="imageTargetSrc: mind/gui.mind;filterMinCF:0.1; filterBeta: 1000;warmupTolerance:2;uiError:no; uiLoading:no; uiScanning:no;"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
     >
