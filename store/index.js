@@ -92,17 +92,20 @@ export const mutations = {
   },
   setSettings(state, settings) {
     state.settings = settings
+    this.commit('resetStatus')
+  },
+  resetStatus(state) {
+    state.status.step = 0
+    state.status.done = false
+    state.status.theme = 0
+    state.status.subtheme = 0
   },
   setContent(state, content) {
     //const arr = state.content.themes
     state.content = JSON.parse(JSON.stringify(content))
-    state.content.themes.push.apply(
-      state.content.themes,
-      state.content.themes.splice(0, state.settings.parcours - 1)
-    )
-
-    // state.content = content
-    //
+    var offset = state.settings.parcours - 1
+    var arr = state.content.themes
+    state.content.themes = [...arr.slice(offset), ...arr.slice(0, offset)]
   },
 }
 

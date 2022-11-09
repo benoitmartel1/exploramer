@@ -25,6 +25,6 @@ body {
 }
 .appro {
   transform: scale(0.4);
-  transform-origin: center 20px;
+  transform-origin: 0 0;
 }
 </style>

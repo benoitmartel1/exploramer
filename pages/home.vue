@@ -1,6 +1,7 @@
 <template>
   <div>
     <Nav />
+    <Home />
     <Header v-if="stepContent.step.type !== 'rapport'">
       <h1>{{ stepContent.theme }}</h1>
       <h4>{{ stepContent.subtheme[lang] }}</h4>

@@ -29,20 +29,6 @@ const path = require('path')
 const fs = require('fs')
 
 const isDev = false
-//process.env.NODE_ENV !== "production";
-//Tell location of external Settings file for onsite modifications
-
-const SETTINGS_PATH = path.join(
-  process.resourcesPath,
-  'extraResources',
-  'settings.json'
-)
-
-//Load external settings
-// const data = fs.readFileSync(SETTINGS_PATH)
-// const { settings } = JSON.parse(data)
-// const settingsStringified = JSON.stringify(JSON.parse(data))
-// console.log(settings)
 
 //Define entry point with settings as args
 const _NUXT_URL_ = `http://localhost:${server.address().port}`
@@ -50,10 +36,10 @@ const _NUXT_URL_ = `http://localhost:${server.address().port}`
 const app = electron.app
 const newWin = () => {
   win = new electron.BrowserWindow({
-    width: 600,
-    height: 600,
-    // frame: false,
-    // autoHideMenuBar: true,
+    width: 1280 * 0.4,
+    height: 1920 * 0.4,
+    frame: true,
+    autoHideMenuBar: true,
     //  fullscreen: settings.kiosk_mode,
     //  kiosk: settings.kiosk_mode,
     webPreferences: {

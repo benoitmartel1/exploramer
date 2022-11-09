@@ -1,43 +1,51 @@
 <template>
   <div class="setup">
-    <ul>
-      <li v-for="(t, index) in themes" :key="'t' + index">{{ t.fr }}</li>
-    </ul>
-    <div
-      v-if="!$fetchState.pending && settings"
-      :class="['wrapper', 'exp-' + settings.experience]"
-    >
+    <transition name="fade">
       <div
-        :class="['button circle langue', settings.langue]"
-        @click="updateSettings('langue', settings.langue == 'fr' ? 'en' : 'fr')"
+        v-if="!$fetchState.pending && settings"
+        :class="['wrapper', 'exp-' + settings.experience]"
       >
-        {{ settings.langue }}
+        <div
+          :class="['button circle langue', settings.langue]"
+          @click="
+            updateSettings('langue', settings.langue == 'fr' ? 'en' : 'fr')
+          "
+        >
+          {{ settings.langue }}
+        </div>
+        <div
+          class="button experience"
+          @click="
+            updateSettings('experience', settings.experience == 0 ? 1 : 0)
+          "
+        ></div>
+        <div
+          class="button circle parcours"
+          @click="
+            updateSettings(
+              'parcours',
+              parseInt(settings.parcours) + 1 > themes.length
+                ? 1
+                : parseInt(settings.parcours) + 1
+            )
+          "
+        >
+          {{ settings.parcours }}
+        </div>
+        <div class="confirmation">
+          <ol class="listing">
+            <li v-for="(t, index) in themes" :key="'t' + index">
+              {{ t[settings.langue] }}
+            </li>
+          </ol>
+          <div class="button ok" @click="$router.push('/home')">OK ></div>
+        </div>
       </div>
-      <div
-        class="button experience"
-        @click="updateSettings('experience', settings.experience == 0 ? 1 : 0)"
-      ></div>
-      <div
-        class="button circle parcours"
-        @click="
-          updateSettings(
-            'parcours',
-            parseInt(settings.parcours) + 1 > themes.length
-              ? 1
-              : parseInt(settings.parcours) + 1
-          )
-        "
-      >
-        {{ settings.parcours }}
+      <div v-else-if="settings == null || settings == undefined"></div>
+      <div v-else-if="$fetchState.error">
+        Erreur : Le serveur SQLITE n'est pas en service.
       </div>
-      <div class="button ok" @click="$router.push('/home')">OK ></div>
-    </div>
-    <div
-      v-else-if="$fetchState.error || settings == null || settings == undefined"
-    >
-      Erreur : Le serveur SQLITE n'est pas en service.
-    </div>
-
+    </transition>
     <img src="/images/elements/beluga.png" alt="" />
     <img src="/images/elements/rorqual.png" alt="" />
   </div>
@@ -124,6 +132,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  /* transition: background-color 0.3s; */
 }
 .wrapper .button {
   /* margin-bottom: 100px; */
@@ -137,6 +146,10 @@ export default {
 .button {
   /* text-transform: uppercase; */
   cursor: pointer;
+}
+.experience,
+.ok {
+  border: none;
 }
 .circle {
   display: flex;
@@ -169,12 +182,20 @@ export default {
 .exp-1 .experience {
   background-image: url('/images/elements/beluga.png');
 }
+.confirmation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 .ok {
   /* margin-top: auto; */
-  margin-top: 100px;
+  /* margin-top: 100px; */
   align-self: flex-end;
 }
 img {
   display: none;
+}
+.listing {
+  font-size: 0.2em;
 }
 </style>

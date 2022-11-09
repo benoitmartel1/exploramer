@@ -6,7 +6,6 @@
         <div v-else>{{ i }}</div>
       </div>
     </div>
-    <div class="experience">{{ settings.experience }}</div>
   </div>
 </template>
 
