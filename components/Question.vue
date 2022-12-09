@@ -4,6 +4,7 @@
       {{ content.question[lang] }}
       <ul>
         <li
+          class="button"
           v-for="(c, index) in content.choices"
           :key="c + index"
           @click="select(index)"
@@ -50,7 +51,8 @@ export default {
     select(index) {
       this.selectedChoice = index
       if (this.content.validate) {
-        this.showValidation = true
+        this.$parent.showValidate = true
+        // this.showValidation = true
       }
     },
     validate() {
@@ -58,7 +60,7 @@ export default {
         this.rightAnswer = true
       }
       this.showResolve = true
-      this.showValidation = false
+      //   this.showValidation = false
     },
     done() {
       this.$parent.increment()
@@ -69,5 +71,10 @@ export default {
 
 <style>
 .question {
+  position: relative;
+}
+.question .button {
+  display: block;
+  margin-bottom: 30px;
 }
 </style>

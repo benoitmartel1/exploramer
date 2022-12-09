@@ -1,8 +1,10 @@
 <template>
   <div class="action">
     <Icons v-if="content.roles" :roles="content.roles" />
-    {{ content[lang] }}
-    <div class="button" @click="done()">Continuer</div>
+    <div class="frame">{{ content[lang] }}</div>
+    <div class="center">
+      <div class="button" @click="done()">Continuer</div>
+    </div>
   </div>
 </template>
 
@@ -22,4 +24,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.frame {
+  background-color: #c5ebf3;
+  border-radius: 44px;
+  width: 100%;
+  padding: 30px;
+  padding-top: 100px;
+  border: 3px #606060 solid;
+  margin-bottom: 20px;
+}
+</style>

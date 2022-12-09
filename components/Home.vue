@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div @mousedown="startTimer()" @mouseup="stopTimer()" class="home-button">
+    <div
+      @touchstart="startTimer()"
+      @touchend="stopTimer()"
+      @mousedown="startTimer()"
+      @mouseup="stopTimer()"
+      class="home-button"
+    >
       Tenir 3 sec pour changer params
     </div>
   </div>

@@ -38,11 +38,9 @@ module.exports = {
 
   plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],
 
-  components: true,
-
   buildModules: [],
   router: {
-    // base: '/dist/',
+    // base: '/exploramer/',
   },
 
   modules: ['@nuxtjs/axios'],
@@ -56,6 +54,10 @@ module.exports = {
         fs: 'empty',
       }
     },
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 80,
   },
   dev: process.env.NODE_ENV === 'dev',
 }

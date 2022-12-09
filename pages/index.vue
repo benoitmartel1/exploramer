@@ -192,9 +192,9 @@ export default {
   /* margin-top: 100px; */
   align-self: flex-end;
 }
-img {
+/* img {
   display: none;
-}
+} */
 .listing {
   font-size: 0.2em;
 }

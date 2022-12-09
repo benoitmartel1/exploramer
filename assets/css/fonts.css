@@ -1,12 +1,22 @@
 @font-face {
-  font-family: "Lato";
-  src: url("@/assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-family: 'Lato';
+  src: url('@/assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
   font-weight: 400;
 }
 @font-face {
-  font-family: "Lato";
-  src: url("@/assets/fonts/Lato/Lato-Black.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito/Nunito-Black.ttf') format('truetype');
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito/Nunito-Bold.ttf') format('truetype');
   font-weight: 700;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito/Nunito-Regular.ttf') format('truetype');
+  font-weight: 400;
 }
 /* @font-face {
   font-family: "Lato";
@@ -14,12 +24,12 @@
   font-weight: 700;
 } */
 @font-face {
-  font-family: "Karma";
-  src: url("@/assets/fonts/Karma/Karma-Regular.ttf") format("truetype");
+  font-family: 'Karma';
+  src: url('@/assets/fonts/Karma/Karma-Regular.ttf') format('truetype');
   font-weight: 400;
 }
 @font-face {
-  font-family: "Karma";
-  src: url("@/assets/fonts/Karma/Karma-Bold.ttf") format("truetype");
+  font-family: 'Karma';
+  src: url('@/assets/fonts/Karma/Karma-Bold.ttf') format('truetype');
   font-weight: 700;
 }

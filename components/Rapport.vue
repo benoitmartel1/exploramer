@@ -21,7 +21,9 @@
         </li>
       </ul>
     </div>
-    <div class="button" @click="done()">Continuer</div>
+    <div class="center">
+      <div class="button" @click="done()">Continuer</div>
+    </div>
   </div>
 </template>
 
@@ -44,14 +46,39 @@ export default {
 </script>
 
 <style>
-.prop div {
-  display: inline-block;
+h3 {
+  background-color: #c9ebf4;
+  padding: 5px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 45px;
+  padding-left: 10px;
+  margin: 60px 0 10px 0;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+.prop {
+  font-size: 38px;
+  margin: 20px 0;
+  display: flex;
+}
+.key {
+  /* display: inline-block; */
+  /* width: auto; */
+  /* padding: 10px; */
   white-space: nowrap;
+  margin-right: 20px;
 }
 .value {
-  max-width: 90%;
+  /* display: inline-block; */
+  color: #003072;
+  font-weight: 700;
+  flex-grow: 1;
 }
-.empty {
-  border-bottom: 1px solid white;
+.value.empty {
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 </style>
