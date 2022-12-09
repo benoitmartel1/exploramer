@@ -40,7 +40,7 @@ ul {
 }
 .question,
 .action,
-.rapport,
+.rapport:not(.theme),
 header {
   padding: 50px;
   width: 100%;
@@ -53,18 +53,33 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.popup > div {
+.popup .content {
+  position: absolute;
+  z-index: 250;
   width: 1124px;
-  min-height: 40%;
+  /* min-height: 40%; */
   background-color: white;
   border-radius: 44px;
   color: black;
-  padding: 10px;
+  padding: 40px 10px 60px 10px;
+}
+.blurZone {
+  width: var(--app-width);
+  height: var(--app-height);
+  position: absolute;
+  z-index: 0;
+  backdrop-filter: blur(6px);
+}
+.popup.info > div {
+  padding-top: 10px;
+}
+.blurred {
+  filter: blur(6px);
 }
 .info.button {
   font-weight: 700;

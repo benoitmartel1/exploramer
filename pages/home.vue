@@ -1,17 +1,15 @@
 <template>
   <div>
     <Info
-      v-if="showInfo && stepContent.subtheme.info"
+      v-if="showInfo && stepContent.step.hasInfo == true"
       :info="stepContent.subtheme.info"
     />
-    <Validate v-if="showValidate" :info="stepContent.subtheme.info" />
     <div class="main-wrapper">
-      {{ stepContent.step.type }}
-      <Nav :class="{ blurred: showInfo }" />
+      <Nav />
       <Home />
-      <Main :class="{ blurred: showInfo }">
+      <Main>
         <div>
-          <Header v-if="stepContent.step.type !== 'rapport'">
+          <Header v-if="stepContent.step.type !== 'rapport' && !showRapport">
             <div class="experience">
               <img
                 v-if="settings.experience == 0"
@@ -36,16 +34,22 @@
           </Header>
 
           <Rapport
-            v-if="stepContent.step.type == 'rapport'"
+            v-if="stepContent.step.type == 'rapport' || showRapport"
             :content="stepContent.step"
           />
-          <Scan v-if="stepContent.step.type == 'scan'" />
+          <Scan
+            v-if="stepContent.step.type == 'scan'"
+            v-show="!showRapport"
+            :content="stepContent.step"
+          />
           <Question
             v-if="stepContent.step.type == 'question'"
+            v-show="!showRapport"
             :content="stepContent.step"
           />
           <Action
             v-if="stepContent.step.type == 'action'"
+            v-show="!showRapport"
             :content="stepContent.step"
           />
           <Admin v-if="showAdmin" />
@@ -64,9 +68,10 @@ export default {
       content: this.$store.state.content,
       settings: this.$store.state.settings,
 
+      showRapport: false,
       showInfo: false,
       showAdmin: false,
-      showValidate: false,
+      blurred: false,
     }
   },
   computed: {
@@ -109,11 +114,10 @@ export default {
 
 <style>
 .main-wrapper {
-  position: relative;
+  /* position: relative; */
+  /* border: 1px red solid; */
 }
-.blurred {
-  filter: blur(6px);
-}
+
 h1 {
   text-transform: uppercase;
   font-weight: 900;
@@ -123,7 +127,7 @@ button {
   font-size: 96px;
 }
 main > div {
-  position: absolute;
+  /* position: absolute; */
   z-index: 1;
   width: 100%;
   /* height: 1704px; */
@@ -146,7 +150,7 @@ Main {
   top: 104px;
   padding: 0;
   height: 1704px;
-  position: relative;
+  /* position: relative; */
 }
 .experience img {
   width: auto;

@@ -2,9 +2,52 @@
   <div class="nav">
     <div class="theme-wrapper">
       <div
+        :class="[isRapportVisible ? 'active' : '', 'theme rapport']"
+        @click="triggerRapport(true)"
+      >
+        <svg
+          id="Icon_Rapport"
+          data-name="Icon Rapport"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32.964"
+          height="39.584"
+          viewBox="0 0 32.964 39.584"
+        >
+          <path
+            id="Tracé_10"
+            data-name="Tracé 10"
+            d="M414.452,884.778H383.72a1.116,1.116,0,0,1-1.116-1.116V846.311a1.117,1.117,0,0,1,1.116-1.117h30.732a1.116,1.116,0,0,1,1.116,1.117v37.351A1.116,1.116,0,0,1,414.452,884.778Zm-29.615-2.233h28.5V847.427h-28.5Z"
+            transform="translate(-382.604 -845.194)"
+            fill="#260801"
+          />
+          <path
+            id="Tracé_11"
+            data-name="Tracé 11"
+            d="M407.991,854.992H389.552a1.117,1.117,0,1,1,0-2.233h18.439a1.117,1.117,0,0,1,0,2.233Z"
+            transform="translate(-382.604 -845.194)"
+            fill="#260801"
+          />
+          <path
+            id="Tracé_12"
+            data-name="Tracé 12"
+            d="M407.991,862.522H389.552a1.116,1.116,0,1,1,0-2.233h18.439a1.116,1.116,0,0,1,0,2.233Z"
+            transform="translate(-382.604 -845.194)"
+            fill="#260801"
+          />
+          <path
+            id="Tracé_13"
+            data-name="Tracé 13"
+            d="M398.419,870.051h-8.867a1.117,1.117,0,1,1,0-2.233h8.867a1.117,1.117,0,0,1,0,2.233Z"
+            transform="translate(-382.604 -845.194)"
+            fill="#260801"
+          />
+        </svg>
+      </div>
+      <div
         v-for="i in nbOfThemes"
+        @click="triggerRapport(false)"
         :key="'theme' + i"
-        :class="[theme == i - 1 ? 'active' : '', 'theme']"
+        :class="[theme == i - 1 && !isRapportVisible ? 'active' : '', 'theme']"
       >
         <div v-if="i - 1 > theme">
           <svg
@@ -49,6 +92,14 @@ export default {
     theme() {
       return this.$store.state.status.theme
     },
+    isRapportVisible() {
+      return this.$parent.showRapport
+    },
+  },
+  methods: {
+    triggerRapport(status) {
+      this.$parent.showRapport = status
+    },
   },
 }
 </script>
@@ -59,7 +110,7 @@ export default {
   /* background-color: #666; */
   height: 106px;
   z-index: 10;
-  position: absolute;
+  /* position: absolute; */
 }
 .theme {
   display: flex;

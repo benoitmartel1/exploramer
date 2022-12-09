@@ -55,13 +55,16 @@ export default {}
 <style>
 .back {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   left: 0%;
   top: 0;
+  background-color: #65adad;
+  width: var(--app-width);
+  height: var(--app-height);
 }
 .back svg {
   position: absolute;
-  left: -46.5px;
-  top: -40.5px;
+  left: 4px;
+  bottom: 9px;
 }
 </style>

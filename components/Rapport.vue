@@ -1,25 +1,52 @@
 <template>
   <div class="rapport">
-    <h1>Rapport d'enquête</h1>
-    <div v-for="(t, tindex) in content.themes" :key="t + tindex">
-      <h3>{{ t[lang] }}</h3>
-      <ul>
-        <li v-for="(s, sindex) in t.subthemes" :key="s + sindex">
-          <div v-if="s.prop" class="prop">
-            <div class="key">{{ s.prop.key[lang] }} :</div>
-            <div
-              v-if="
-                status.theme > tindex ||
-                (status.theme == tindex && status.subtheme > sindex)
-              "
-              class="value"
-            >
-              {{ s.prop.value[lang] }}
-            </div>
-            <div v-else class="empty value"></div>
-          </div>
-        </li>
-      </ul>
+    <div class="center">
+      <h1>Résumé de l’enquête</h1>
+      <div v-if="settings.experience == 0">Le béluga</div>
+      <div v-else>Le rorqual</div>
+    </div>
+    <div>
+      <h3>MORPHOLOGIE ET REPRODUCTION</h3>
+      <div class="prop">
+        <div class="key">Sexe :</div>
+        <div v-if="isCompleted(0, 6)" class="value">Femelle</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">Âge :</div>
+        <div v-if="isCompleted(0, 1)" class="value">27 ans</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">Longueur :</div>
+        <div v-if="isCompleted(0, 4)" class="value">3,5 m</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">note :</div>
+        <div v-if="isCompleted(0, 3)" class="value">
+          Grandeur normale pour son âge.
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">Poids :</div>
+        <div v-if="isCompleted(0, 0)" class="value">1 400 kg</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">note :</div>
+        <div v-if="isCompleted(0, 2)" class="value">
+          Poids normal pour son âge.
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <h3>MORPHOLOGIE ET REPRODUCTION</h3>
+      <div class="prop">
+        <div class="key">Sexe :</div>
+        <div v-if="isCompleted(1, 0)" class="value">Femelle</div>
+        <div v-else class="empty value"></div>
+      </div>
     </div>
     <div class="center">
       <div class="button" @click="done()">Continuer</div>
@@ -38,6 +65,15 @@ export default {
     }
   },
   methods: {
+    isCompleted(theme, subtheme) {
+      if (theme < this.status.theme) {
+        return true
+      }
+      if (this.status.subtheme > subtheme) {
+        return true
+      }
+      return false
+    },
     done() {
       this.$parent.increment()
     },

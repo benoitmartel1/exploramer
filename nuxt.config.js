@@ -42,7 +42,7 @@ module.exports = {
   router: {
     // base: '/exploramer/',
   },
-
+  components: true,
   modules: ['@nuxtjs/axios'],
   axios: {
     baseURL: 'http://localhost:3030', // Used as fallback if no runtime config is provided
@@ -55,9 +55,9 @@ module.exports = {
       }
     },
   },
-  server: {
-    host: '0.0.0.0',
-    port: 80,
-  },
+  //   server: {
+  //     host: '0.0.0.0',
+  //     port: 80,
+  //   },
   dev: process.env.NODE_ENV === 'dev',
 }

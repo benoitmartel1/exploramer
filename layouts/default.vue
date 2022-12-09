@@ -30,7 +30,7 @@ body {
   width: var(--app-width);
   height: var(--app-height);
   border: 1px solid black;
-  background-color: #65adad;
+  transform: scale(1);
 }
 #app .main-wrapper {
   width: 1180px;
@@ -38,6 +38,7 @@ body {
   height: calc(106px + 1704px);
   margin: auto;
   margin-top: 47px;
+  /* background-color: #65adad; */
 }
 .appro {
   transform: scale(0.4);

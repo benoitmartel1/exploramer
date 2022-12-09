@@ -1,30 +1,37 @@
 {
   "themes": [
     {
-      "fr": "Morphologie",
+      "fr": "MORPHOLOGIE ET REPRODUCTION",
       "en": "Morphology",
       "subthemes": [
         {
-          "fr": "Peser la baleine",
+          "fr": "PESER LA BALEINE",
           "prop": {
+            "order": 5,
             "key": {
               "fr": "Poids"
             },
             "value": {
-              "fr": "14 000kg"
+              "fr": "1 400kg"
             }
           },
           "steps": [
             {
-              "type": "rapport"
+              "type": "action",
+              "hasInfo": false,
+              "actions": [
+                {
+                  "roles": ["t"],
+                  "fr": "Trouve le poids du béluga avec la balance."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note le bon résultat dans la tablette."
+                }
+              ]
             },
-            {
-              "type": "scan"
-            },
-
             {
               "type": "question",
-              "roles": [0, 1],
               "info": {},
               "question": {
                 "fr": "Quel est le poids du béluga?"
@@ -32,14 +39,14 @@
               "validate": true,
               "choices": [
                 {
-                  "fr": "8 000 kg"
+                  "fr": "1 400 kg"
                 },
                 {
-                  "fr": "14 000 kg",
+                  "fr": "4 000 kg",
                   "isAnswer": true
                 },
                 {
-                  "fr": "25 000 kg"
+                  "fr": "9 500 kg"
                 }
               ],
               "resolve": {
@@ -47,7 +54,7 @@
                   "fr": "Bravo! Tu as trouvé le poids de la baleine!"
                 },
                 "wrong": {
-                  "fr": "As - tu  bien ajusté ta balance? Essaie de nouveau.",
+                  "fr": "As-tu  bien ajusté ta balance? Essaie de nouveau.",
                   "retry": true
                 }
               }
@@ -55,8 +62,66 @@
           ]
         },
         {
-          "fr": "Déterminer si son poids est normal pour son âge",
+          "fr": "DÉTERMINER L'ÂGE DE LA BALEINE ",
           "prop": {
+            "order": 2,
+            "key": {
+              "fr": "Âge"
+            },
+            "value": {
+              "fr": "27 ans"
+            }
+          },
+          "steps": [
+            {
+              "type": "action",
+              "hasInfo": false,
+              "actions": [
+                {
+                  "roles": ["t", "b", "v"],
+                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du béluga."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note l'information obtenue dans la tablette."
+                }
+              ]
+            },
+            {
+              "type": "question",
+              "info": {},
+              "question": {
+                "fr": "Quel est l'âge du béluga ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "27 ans",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "3 ans"
+                },
+                {
+                  "fr": "49 ans"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bonne réponse ! Le béluga a bien 27 ans."
+                },
+                "wrong": {
+                  "fr": "Ummm…Tu devrais peut-être retourner voir l'animateur.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "DÉTERMINER SI SON POIDS EST NORMAL POUR SON ÂGE",
+          "prop": {
+            "order": 6,
             "key": {
               "fr": "note"
             },
@@ -65,14 +130,14 @@
             }
           },
           "info": {
-            "fr": "RAPPEL Le béluga pèse 1 400 kg.Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans. La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie."
+            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
           },
           "steps": [
             {
               "type": "action",
               "roles": ["t", "b"],
               "hasInfo": true,
-              "fr": "Comparez maintenant le poids et l'âge du béluga pour établir s'il a un poids santé pour son âge."
+              "fr": "Comparez maintenant le poids et l’âge du béluga pour établir s’il a un poids santé pour son âge."
             },
             {
               "type": "question",
@@ -93,10 +158,158 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "En effet! Le poids du béluga est bien normal pour son âge."
+                  "fr": "En effet ! Le poids du béluga est bien normal pour son âge."
                 },
                 "wrong": {
-                  "fr": "Es-tu certain de ta réponse? Essaie de nouveau.",
+                  "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "MESURER LA BALEINE",
+          "prop": {
+            "key": {
+              "fr": "note"
+            },
+            "value": {
+              "fr": "Poids normal pour son âge."
+            }
+          },
+          "info": {
+            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
+          },
+          "steps": [
+            {
+              "type": "action",
+              "actions": [
+                {
+                  "roles": ["t", "v"],
+                  "fr": "En équipe, vous devez maintenant déterminer la longueur du béluga à l’aide du ruban à mesurer."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note les résultats obtenus dans la tablette."
+                }
+              ]
+            },
+            {
+              "type": "question",
+              "question": {
+                "fr": "Quelle est la longueur du béluga ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "12 m"
+                },
+                {
+                  "fr": "3,5 m",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "25 m"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "La baleine mesure bien 3,5 m! Les bélugas adultes mesurent en moyenne entre 2,7 m et 5 m.."
+                },
+                "wrong": {
+                  "fr": "Ton ruban à mesurer semble défectueux, essaie de nouveau.",
+                  "retry": true
+                }
+              }
+            },
+            {
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que la longueur du béluga se situe dans la moyenne d’un adulte ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Non"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bien observé ! Sa taille se situe dans la moyenne."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain de ta réponse ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "DÉTERMINER LE SEXE DE LA BALEINE",
+          "prop": {
+            "order": 1,
+            "key": {
+              "fr": "Sexe"
+            },
+            "value": {
+              "fr": "Femelle"
+            }
+          },
+          "info": {
+            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
+          },
+          "steps": [
+            {
+              "type": "scan",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Place-toi devant la bannière représentant le béluga et essaie de trouver son sexe en balayant l’image avec la tablette."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note l'information obtenue dans la tablette."
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "hasInfo": "true",
+              "actions": [
+                {
+                  "roles": ["b"],
+                  "fr": "Comparez la numérisation que vous avez obtenue avec les images de référence pour identifier s’il s’agit d’un mâle ou d’une femelle."
+                }
+              ]
+            },
+            {
+              "type": "question",
+              "question": {
+                "fr": "Quel est le sexe du béluga ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Mâle"
+                },
+                {
+                  "fr": "Femelle",
+                  "isAnswer": true
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bien observé ! Il s'agit bien d'une femelle."
+                },
+                "wrong": {
+                  "fr": "As-tu bien regardé ? Essaie à nouveau.",
                   "retry": true
                 }
               }

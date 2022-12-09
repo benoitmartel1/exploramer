@@ -1,7 +1,7 @@
 <template>
   <div class="info">
     <div class="info popup" @click="done()">
-      <div>
+      <div class="content">
         <div class="close" @click="done()">
           <svg
             id="Fermer"
@@ -50,10 +50,9 @@
             </g>
           </svg>
         </div>
-        <div class="content">
-          {{ info[lang] }}
-        </div>
+        <div class="text" v-html="info[lang]"></div>
       </div>
+      <div class="blurZone"></div>
     </div>
   </div>
 </template>
@@ -84,7 +83,7 @@ export default {
 .close svg {
   transform: scale(0.8);
 }
-.content {
+.info .text {
   padding: 50px;
 }
 </style>
