@@ -1,6 +1,7 @@
 module.exports = {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
   ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -17,14 +18,14 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
       {
-        src: '/js/mindar-image.prod.js',
+        src: '/exploramer/js/mindar-image.prod.js',
       },
-      { src: '/js/aframe.min.js' },
+      { src: '/exploramer/js/aframe.min.js' },
       {
-        src: '/js/aframe-transparent-video-shader.umd.js',
+        src: '/exploramer/js/aframe-transparent-video-shader.umd.js',
       },
       {
-        src: '/js/mindar-image-aframe.prod.js',
+        src: '/exploramer/js/mindar-image-aframe.prod.js',
       },
     ],
   },
@@ -40,7 +41,7 @@ module.exports = {
 
   buildModules: [],
   router: {
-    // base: '/exploramer/',
+    base: '/exploramer/',
   },
   components: true,
   modules: ['@nuxtjs/axios'],

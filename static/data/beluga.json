@@ -16,6 +16,7 @@
             }
           },
           "steps": [
+            { "type": "title" },
             {
               "type": "action",
               "hasInfo": false,
@@ -251,7 +252,7 @@
           ]
         },
         {
-          "fr": "DÉTERMINER LE SEXE DE LA BALEINE",
+          "fr": "Déterminer le sexe de la baleine",
           "prop": {
             "order": 1,
             "key": {
@@ -267,6 +268,7 @@
           "steps": [
             {
               "type": "scan",
+              "tag": "b_sexe",
               "actions": [
                 {
                   "hasScan": true,

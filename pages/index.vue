@@ -46,8 +46,6 @@
         Erreur : Le serveur SQLITE n'est pas en service.
       </div>
     </transition>
-    <img src="/images/elements/beluga.png" alt="" />
-    <img src="/images/elements/rorqual.png" alt="" />
   </div>
 </template>
 
@@ -134,18 +132,14 @@ export default {
   flex-direction: column;
   /* transition: background-color 0.3s; */
 }
-.wrapper .button {
-  /* margin-bottom: 100px; */
-}
 .wrapper.exp-0 {
   background-color: darkmagenta;
 }
 .wrapper.exp-1 {
   background-color: darkblue;
 }
-.button {
-  /* text-transform: uppercase; */
-  cursor: pointer;
+.setup .button {
+  background: none;
 }
 .experience,
 .ok {
@@ -177,10 +171,10 @@ export default {
   background-position: center;
 }
 .exp-0 .experience {
-  background-image: url('/images/elements/rorqual.png');
+  background-image: url('@/assets/images/elements/rorqual.png');
 }
 .exp-1 .experience {
-  background-image: url('/images/elements/beluga.png');
+  background-image: url('@/assets/images/elements/beluga.png');
 }
 .confirmation {
   width: 100%;

@@ -4,52 +4,59 @@
       <Icons v-if="a.roles" :roles="a.roles" />
       <div class="frame">
         {{ a[lang] }}
-        <div v-if="a.hasScan">
-          <div class="aframe-wrapper">
-            <a-scene
-              id="scene"
-              mindar-image="imageTargetSrc: mind/3.mind;filterMinCF:0.001; filterBeta: 1000;warmupTolerance:2;missTolerance:3;uiError:no; uiLoading:no; uiScanning:no;"
-              vr-mode-ui="enabled: false"
-              device-orientation-permission-ui="enabled: false"
-            >
-              <a-assets>
-                <video
-                  id="poissons"
-                  src="videos/poissons.webm"
-                  muted
-                  autoplay
-                  loop="true"
-                ></video>
-              </a-assets>
-              <a-entity
-                id="example-target"
-                mindar-image-target="targetIndex: 0"
-              >
-                <a-plane
-                  height="1"
-                  width="1"
-                  position="0 0 0"
-                  rotation="0 0 0"
-                  src="#poissons"
-                  material="shader: transparent-video"
-                >
-                  <a-plane color="red" height="1" width="1"></a-plane>
-                </a-plane>
-              </a-entity>
-
-              <a-camera
+        <div
+          v-if="a.hasScan"
+          :class="[
+            arReady ? 'show' : '',
+            targetTracked ? 'active' : '',
+            'aframe-wrapper',
+          ]"
+        >
+          <div class="countdown">{{ countdown }}</div>
+          <div class="target blink"></div>
+          <a-scene
+            id="scene"
+            v-bind:mindar-image="
+              'imageTargetSrc: mind/' +
+              content.tag +
+              '.mind;filterMinCF:0.0001; filterBeta: 1000;warmupTolerance:2;missTolerance:3;uiError:no; uiLoading:no; uiScanning:no;'
+            "
+            vr-mode-ui="enabled: false"
+            device-orientation-permission-ui="enabled: false"
+          >
+            <a-assets>
+              <video
+                id="poissons"
+                src="videos/poissons.webm"
+                muted
+                autoplay
+                loop="true"
+              ></video>
+            </a-assets>
+            <a-entity id="example-target" mindar-image-target="targetIndex: 0">
+              <a-plane
+                height="1"
+                width="1"
                 position="0 0 0"
-                look-controls="enabled: false"
-              ></a-camera>
-            </a-scene>
-          </div>
+                rotation="0 0 0"
+                src="#poissons"
+                material="shader: transparent-video"
+              >
+                <a-plane color="red" height="1" width="1"></a-plane>
+              </a-plane>
+            </a-entity>
+            <a-camera
+              position="0 0 0"
+              look-controls="enabled: false"
+            ></a-camera>
+          </a-scene>
         </div>
       </div>
     </div>
 
-    <div class="center">
+    <!-- <div class="center">
       <div class="button" @click="done()">Continuer</div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -62,27 +69,34 @@ export default {
       settings: this.$store.state.settings,
       targetTracked: false,
       lang: this.$store.state.settings.langue,
+      arReady: false,
+      countdown: null,
     }
   },
   props: ['content'],
   mounted() {
     const exampleTarget = document.querySelector('#example-target')
-    console.log(exampleTarget)
+    const scene = document.querySelector('#scene')
+
+    scene.addEventListener('arReady', (event) => {
+      this.arReady = true
+    })
+
     exampleTarget.addEventListener('targetFound', (event) => {
-      scanInterval = setTimeout(() => {
-        // this.done()
-      }, 3000)
+      this.updateCountdown()
+      scanInterval = setInterval(() => {
+        this.updateCountdown()
+      }, 1000)
       this.targetTracked = true
       const video = document.querySelector('#poissons')
       video.pause()
       video.currentTime = 0
       video.play()
     })
-    exampleTarget.addEventListener('arReady', (event) => {
-      console.log('MindAR is ready')
-    })
+
     exampleTarget.addEventListener('targetLost', (event) => {
-      clearTimeout(scanInterval)
+      this.clearTimeout()
+
       this.targetTracked = false
       const video = document.querySelector('#poissons')
       video.pause()
@@ -94,6 +108,21 @@ export default {
     done() {
       this.$parent.increment()
     },
+    updateCountdown() {
+      if (this.countdown == null) {
+        this.countdown = 3
+      } else {
+        this.countdown--
+      }
+      if (this.countdown == 0) {
+        this.clearTimeout()
+        this.done()
+      }
+    },
+    clearTimeout() {
+      clearTimeout(scanInterval)
+      this.countdown = null
+    },
   },
 }
 </script>
@@ -102,37 +131,89 @@ export default {
 a-scene {
   z-index: 20;
 }
+.countdown {
+  position: absolute;
+  z-index: 100;
+  left: 5%;
+  top: 5%;
+  color: white;
+  font-weight: 900;
+}
+.target {
+  position: absolute;
+  z-index: 100;
+  left: calc(50% - 150px);
+  top: calc(50% - 150px);
+
+  --b: 10px; /* thickness of the border */
+  --c: white; /* color of the border */
+  --w: 30px; /* width of border */
+
+  border: var(--b) solid #0000; /* space for the border */
+  --_g: #0000 90deg, var(--c) 0;
+  --_p: var(--w) var(--w) border-box no-repeat;
+  background: conic-gradient(
+        from 90deg at top var(--b) left var(--b),
+        var(--_g)
+      )
+      0 0 / var(--_p),
+    conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 /
+      var(--_p),
+    conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% /
+      var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g))
+      100% 100% / var(--_p);
+
+  /*Irrelevant code*/
+  width: 300px;
+  height: 300px;
+  box-sizing: border-box;
+  margin: 5px;
+  display: inline-flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .aframe-wrapper > video {
-  border: 3px yellow solid;
   opacity: 1;
   width: 100%;
   position: absolute !important;
-  z-index: 500 !important;
+  z-index: 0 !important;
   top: 0;
   min-width: 100%;
-  /* max-height: 100%; */
   width: auto;
   height: auto;
-  /* top: -50%; */
-  /* z-index: -100; */
-  /* background-size: cover; */
-  /* overflow: hidden; */
-}
-.aframe-wrapper,
-.a-canvas {
-  /* width: calc(var(--app-width) - 100px); */
-  /* height: 1200px; */
+  opacity: 0;
+  transition: opacity 200ms;
 }
 .aframe-wrapper {
+  background-color: #8cdff0;
   height: 500px;
+  margin-top: 30px;
   position: relative;
   overflow: hidden;
-  background-color: red;
-  /* border: 6px solid green; */
-  /* overflow: hidden;
-  position: absolute;
-  left: 0;
-  top: 0; */
+  transform: scale(0.95);
+  transition: all 400ms;
+  border: 0 white solid;
+  border-width: 0;
+}
+.aframe-wrapper div {
+  display: none;
+}
+.aframe-wrapper.show {
+  transform: scale(1);
+}
+.aframe-wrapper.show div {
+  display: block;
+}
+.aframe-wrapper.active {
+  border-width: 25px;
+}
+
+.aframe-wrapper.show > video {
+  opacity: 1;
 }
 /* .a-canvas {
   border: 2px yellow solid;

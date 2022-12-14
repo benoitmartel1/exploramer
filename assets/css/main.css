@@ -40,11 +40,12 @@ ul {
 }
 .question,
 .action,
-.rapport:not(.theme),
-header {
+.rapport:not(.theme) {
   padding: 50px;
+  padding-top: 30px;
   width: 100%;
 }
+
 .popup {
   width: var(--app-width);
   height: var(--app-height);
@@ -106,6 +107,7 @@ h4 {
 }
 .close {
   float: right;
+  cursor: pointer;
 }
 a {
   text-decoration: none;
@@ -119,6 +121,7 @@ a:hover {
 }
 
 .button {
+  cursor: pointer;
   border: 2px #606060 solid;
   border-radius: 5px;
   padding: 10px 70px;
@@ -134,9 +137,24 @@ a:hover {
   width: 100%;
   text-align: center;
 }
+.center .button {
+  margin-top: 30px;
+}
 .alt-font {
   font-family: 'Karma';
   font-weight: bold;
+}
+.frame {
+  background-color: #c5ebf3;
+  border-radius: 44px;
+  width: 100%;
+  padding: 30px;
+  padding-top: 75px;
+  padding-bottom: 55px;
+  border: 3px #606060 solid;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  font-size: 50px;
 }
 
 .fade-enter-active,
@@ -154,4 +172,13 @@ a:hover {
 .bigFade-enter,
 .bigFade-leave-active {
   opacity: 0;
+}
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }

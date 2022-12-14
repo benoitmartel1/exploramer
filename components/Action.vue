@@ -26,15 +26,4 @@ export default {
 }
 </script>
 
-<style>
-.frame {
-  background-color: #c5ebf3;
-  border-radius: 44px;
-  width: 100%;
-  padding: 30px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  border: 3px #606060 solid;
-  margin-bottom: 40px;
-}
-</style>
+<style></style>

@@ -9,14 +9,21 @@
       <Home />
       <Main>
         <div>
-          <Header v-if="stepContent.step.type !== 'rapport' && !showRapport">
+          <div
+            class="header"
+            v-if="
+              stepContent.step.type !== 'rapport' &&
+              !showRapport &&
+              stepContent.step.type !== 'title'
+            "
+          >
             <div class="experience">
               <img
                 v-if="settings.experience == 0"
-                src="/images/elements/beluga.png"
+                src="@/assets/images/elements/beluga.png"
                 alt=""
               />
-              <img v-else src="/images/elements/beluga.png" alt="" />
+              <img v-else src="@/assets/images/elements/beluga.png" alt="" />
             </div>
             <div class="header-left">
               <h1>{{ stepContent.theme }}</h1>
@@ -31,8 +38,13 @@
                 ?
               </div>
             </div>
-          </Header>
-
+            <div style="clear: both"></div>
+          </div>
+          <Title
+            v-if="stepContent.step.type == 'title'"
+            v-show="!showRapport"
+            :content="stepContent"
+          />
           <Rapport
             v-if="stepContent.step.type == 'rapport' || showRapport"
             :content="stepContent.step"
@@ -132,13 +144,21 @@ main > div {
   width: 100%;
   /* height: 1704px; */
 }
-Header {
-  height: 440px;
+.header {
+  /* height: 440px; */
+  padding: 0 50px;
+  width: 100%;
 }
 .header-left {
   width: calc(90% - 135px);
-  /* background-color: yellow; */
+  line-height: 1;
   float: left;
+}
+.header-left h1 {
+  line-height: 1;
+}
+.header-left h4 {
+  line-height: 1.2;
 }
 .header-right {
   /* background-color: green; */
@@ -155,5 +175,7 @@ Main {
 .experience img {
   width: auto;
   height: 202px;
+  display: block;
+  margin: auto;
 }
 </style>

@@ -74,7 +74,7 @@
             />
           </svg>
         </div>
-        <div v-else>{{ i }}</div>
+        <Picto v-else :theme="i - 1" />
       </div>
     </div>
   </div>
@@ -116,14 +116,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px red dashed; */
-  /* flex-grow: 1;
-  flex-basis: 0; */
+  max-height: 106px;
   flex-grow: 1;
   background-color: #ddd;
   border-radius: 5px 5px 0 0;
-  /* border-right: 1px white solid; */
-  /* border-left: 1px white solid; */
+  overflow: hidden;
+}
+
+.theme .picto svg {
+  width: 60px;
 }
 .theme.active {
   background-color: white;
