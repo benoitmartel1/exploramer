@@ -62,7 +62,7 @@
 
 <script>
 var scanInterval
-
+var arSystem
 export default {
   data() {
     return {
@@ -79,6 +79,8 @@ export default {
     const scene = document.querySelector('#scene')
 
     scene.addEventListener('arReady', (event) => {
+      console.log('ready')
+      arSystem = scene.systems['mindar-image-system']
       this.arReady = true
     })
 
@@ -103,6 +105,9 @@ export default {
       video.currentTime = 0
       video.play()
     })
+  },
+  beforeDestroy() {
+    arSystem.stop()
   },
   methods: {
     done() {

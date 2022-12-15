@@ -13,6 +13,9 @@ export const getters = {
   getExperience(state) {
     return state.experience
   },
+  getThemes(state) {
+    return state.content.themes
+  },
   getStepContent: (state) => {
     const theme = state.content.themes[state.status.theme]
     const subtheme = theme.subthemes[state.status.subtheme]

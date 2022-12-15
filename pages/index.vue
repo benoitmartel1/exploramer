@@ -59,6 +59,7 @@ export default {
   data() {
     return {
       settings: null,
+      hasServerEnabled: true,
     }
   },
   //On load, fetch settings from local SQLITE server
@@ -70,25 +71,25 @@ export default {
         return res.settings[0]
       })
       .catch((err) => {
-        console.log(err)
+        this.hasServerEnabled = false
+        const settings = { id: 1, experience: 0, parcours: 1, langue: 'fr' }
+        this.$store.commit('setSettings', settings)
+        return settings
       })
   },
   computed: {
     themes() {
-      return this.$store.state.content.themes
+      return this.$store.getters.getThemes
     },
   },
   watch: {
     //If settings change, store the appropriate JSON content in the store
     settings() {
-      if (this.settings.experience) {
-        this.$store.commit(
-          'setContent',
-          this.settings.experience == 0 ? beluga : rorqual
-        )
-      }
+      const newContent = this.settings.experience == 0 ? beluga : rorqual
+      console.log(newContent)
+      this.$store.commit('setContent', newContent)
     },
-    content(val) {
+    themes(val) {
       console.log('new content')
       console.log(val)
     },
@@ -96,14 +97,27 @@ export default {
   methods: {
     //Update settings in SQLITE server
     async updateSettings(setting, value) {
-      await this.$axios
-        .$post('/api/settings', { setting, value })
-        .then((res) => {
-          if (res.settings) {
-            this.settings = res.settings[0]
-            this.$store.commit('setSettings', res.settings[0])
-          }
-        })
+      if (this.hasServerEnabled) {
+        await this.$axios
+          .$post('/api/settings', { setting, value })
+          .then((res) => {
+            if (res.settings) {
+              this.settings = res.settings[0]
+              this.$store.commit('setSettings', res.settings[0])
+            }
+          })
+          .catch((err) => {
+            this.updateSettingsOffline(setting, value)
+          })
+      } else {
+        this.updateSettingsOffline(setting, value)
+      }
+    },
+    updateSettingsOffline(setting, value) {
+      const tempSettings = JSON.parse(JSON.stringify(this.settings))
+      tempSettings[setting] = value
+      this.settings = tempSettings
+      this.$store.commit('setSettings', tempSettings)
     },
   },
   mounted() {
@@ -171,10 +185,10 @@ export default {
   background-position: center;
 }
 .exp-0 .experience {
-  background-image: url('@/assets/images/elements/rorqual.png');
+  background-image: url('@/assets/images/elements/beluga.png');
 }
 .exp-1 .experience {
-  background-image: url('@/assets/images/elements/beluga.png');
+  background-image: url('@/assets/images/elements/rorqual.png');
 }
 .confirmation {
   width: 100%;
