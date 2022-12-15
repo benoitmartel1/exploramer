@@ -268,7 +268,7 @@
           "steps": [
             {
               "type": "scan",
-              "tag": "b_sexe",
+              "tag": "b_sexe_s6",
               "actions": [
                 {
                   "hasScan": true,

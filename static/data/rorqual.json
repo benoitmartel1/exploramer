@@ -26,11 +26,13 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Scan la trace d'impact."
+                  "fr": "Rorqual - trace d'impact."
                 }
               ]
             },
-            { "type": "title" },
+            {
+              "type": "action"
+            },
             {
               "type": "scan",
               "tag": "r_estomac_s7",
@@ -38,11 +40,13 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Scan l'estomac."
+                  "fr": "Rorqual - estomac"
                 }
               ]
             },
-            { "type": "title" },
+            {
+              "type": "action"
+            },
             {
               "type": "scan",
               "tag": "r_sexe_s7",
@@ -50,11 +54,55 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Scan le sexe."
+                  "fr": "Rorqual - sexe."
                 }
               ]
             },
-            { "type": "title" }
+            {
+              "type": "action"
+            },
+            {
+              "type": "scan",
+              "tag": "b_sexe_s6",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Beluga - sexe."
+                }
+              ]
+            },
+            {
+              "type": "action"
+            },
+            {
+              "type": "scan",
+              "tag": "b_sexe_s6",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Beluga - accouchement."
+                }
+              ]
+            },
+            {
+              "type": "action"
+            },
+            {
+              "type": "scan",
+              "tag": "b_estomac_s6",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Beluga - estomac."
+                }
+              ]
+            },
+            {
+              "type": "action"
+            }
           ]
         }
       ]

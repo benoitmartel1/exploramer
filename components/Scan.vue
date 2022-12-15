@@ -111,6 +111,7 @@ export default {
   },
   methods: {
     done() {
+      arSystem.stop()
       this.$parent.increment()
     },
     updateCountdown() {

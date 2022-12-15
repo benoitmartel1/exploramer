@@ -23,7 +23,7 @@
                 src="@/assets/images/elements/beluga.png"
                 alt=""
               />
-              <img v-else src="@/assets/images/elements/beluga.png" alt="" />
+              <img v-else src="@/assets/images/elements/rorqual.png" alt="" />
             </div>
             <div class="header-left">
               <h1>{{ stepContent.theme }}</h1>
