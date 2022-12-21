@@ -1,6 +1,10 @@
 <template>
   <div class="question">
-    <div class="content" v-show="!showResolve">
+    <Header :class="[{ blurred: $parent.blurred }, 'content']" />
+    <div
+      :class="[{ blurred: showValidation }, 'content body']"
+      v-show="!showResolve"
+    >
       {{ content.question[lang] }}
       <div class="choices">
         <div
@@ -16,60 +20,63 @@
 
     <div v-show="showValidation" class="validation popup">
       <div class="content">
-        <div class="question">Es-tu certain.e de ta réponse?</div>
+        <div class="text">Es-tu certain.e de ta réponse?</div>
         <div class="button validate" @click="validate()">Valider</div>
-        <div class="button cancel" @click="showValidation = false">Annuler</div>
+        <div class="button cancel" @click="cancel()">Annuler</div>
       </div>
-      <div class="blurZone"></div>
     </div>
 
-    <div v-show="showResolve" class="resolve">
-      <div v-if="rightAnswer">
-        <div class="check">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="173"
-            height="173"
-            viewBox="0 0 173 173"
-          >
-            <g
-              id="Groupe_66"
-              data-name="Groupe 66"
-              transform="translate(-556.574 -606.574)"
+    <div v-show="showResolve && !rightAnswer" class="validation popup">
+      <div class="content">
+        <div class="text">{{ content.resolve.wrong[lang] }}</div>
+        <div class="button" @click="retry()">Réessayer</div>
+      </div>
+    </div>
+
+    <div v-show="showResolve" class="resolve body">
+      <div v-if="rightAnswer" class="footer-wrapper">
+        <div class="row">
+          <div class="check">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="173"
+              height="173"
+              viewBox="0 0 173 173"
             >
               <g
-                id="Ellipse_2"
-                data-name="Ellipse 2"
-                transform="translate(556.574 606.574)"
-                fill="none"
-                stroke="#179573"
-                stroke-width="12"
+                id="Groupe_66"
+                data-name="Groupe 66"
+                transform="translate(-556.574 -606.574)"
               >
-                <circle cx="86.5" cy="86.5" r="86.5" stroke="none" />
-                <circle cx="86.5" cy="86.5" r="80.5" fill="none" />
+                <g
+                  id="Ellipse_2"
+                  data-name="Ellipse 2"
+                  transform="translate(556.574 606.574)"
+                  fill="none"
+                  stroke="#179573"
+                  stroke-width="12"
+                >
+                  <circle cx="86.5" cy="86.5" r="86.5" stroke="none" />
+                  <circle cx="86.5" cy="86.5" r="80.5" fill="none" />
+                </g>
+                <text
+                  id="_"
+                  data-name="✓"
+                  transform="translate(592.574 737.574)"
+                  fill="#179573"
+                  font-size="117"
+                  font-family="SegoeUIEmoji, Segoe UI Emoji"
+                >
+                  <tspan x="0" y="0">✓</tspan>
+                </text>
               </g>
-              <text
-                id="_"
-                data-name="✓"
-                transform="translate(592.574 737.574)"
-                fill="#179573"
-                font-size="117"
-                font-family="SegoeUIEmoji, Segoe UI Emoji"
-              >
-                <tspan x="0" y="0">✓</tspan>
-              </text>
-            </g>
-          </svg>
+            </svg>
+          </div>
+          {{ content.resolve.right[lang] }}
         </div>
-        {{ content.resolve.right[lang] }}
-        <div class="center">
+
+        <div class="footer center">
           <div class="button" @click="done()">Continuer</div>
-        </div>
-      </div>
-      <div v-else>
-        {{ content.resolve.wrong[lang] }}
-        <div class="center">
-          <div class="button" @click="showResolve = false">Réessayer</div>
         </div>
       </div>
     </div>
@@ -96,13 +103,22 @@ export default {
         this.showValidation = true
       }
     },
+    cancel() {
+      this.showValidation = false
+      this.$parent.blurred = false
+    },
+    retry() {
+      this.showResolve = false
+      this.$parent.blurred = false
+    },
     validate() {
       if (this.content.choices[this.selectedChoice].isAnswer) {
         this.rightAnswer = true
+        this.$parent.blurred = false
       }
-      this.showResolve = true
       this.showValidation = false
-      this.$parent.blurred = false
+      //   this.$parent.blurred = false
+      this.showResolve = true
     },
     done() {
       this.$parent.increment()
@@ -112,11 +128,16 @@ export default {
 </script>
 
 <style>
-.question {
-  padding-top: 100px;
-  /* position: relative; */
+.footer-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.question .button {
+.resolve {
+  height: 100%;
+}
+
+.question .choices .button {
   min-width: 400px;
   text-align: center;
   display: inline-flex;
@@ -131,15 +152,18 @@ export default {
   background-color: #179573;
 }
 .validation .content {
-  /* padding-top: 100px; */
   text-align: center;
-  /* display: flex; */
-  /* /* align-content: center; */
-  /* align-items: center; */
-  /* justify-content: center; */
+}
+.validation .text {
+  margin-bottom: 70px;
+  margin-top: 50px;
+  padding: 0 20px;
 }
 .content .question {
   width: 100%;
+}
+.body {
+  padding-top: 150px;
 }
 .choices {
   margin-top: 180px;
@@ -148,11 +172,24 @@ export default {
   justify-items: center;
   align-items: center;
 }
-.question .center {
-  margin-top: 180px;
-}
+
 .check {
   float: left;
   margin-right: 50px;
+}
+.check svg {
+  animation: popButton 300ms forwards ease-out;
+}
+
+.choices .button {
+  opacity: 0;
+  animation: popButton 300ms forwards ease-out;
+}
+
+.choices .button:nth-child(2) {
+  animation-delay: 100ms;
+}
+.choices .button:nth-child(3) {
+  animation-delay: 200ms;
 }
 </style>

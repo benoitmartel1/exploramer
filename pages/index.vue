@@ -41,7 +41,9 @@
           <div class="button ok" @click="$router.push('/home')">OK ></div>
         </div>
       </div>
-      <div v-else-if="settings == null || settings == undefined"></div>
+      <div v-else-if="settings == null || settings == undefined">
+        <LoadingDots />
+      </div>
       <div v-else-if="$fetchState.error">
         Erreur : Le serveur SQLITE n'est pas en service.
       </div>
@@ -134,6 +136,10 @@ export default {
 </script>
 
 <style>
+.loading-dots .stage {
+  transform: scale(3);
+  transform-origin: -25% -480px;
+}
 .wrapper {
   font-size: 3em;
   width: 100%;
@@ -176,6 +182,10 @@ export default {
 }
 .langue.en {
   background-color: red;
+}
+.parcours,
+.langue {
+  font-size: 96px;
 }
 .setup .experience {
   width: 100%;

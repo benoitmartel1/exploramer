@@ -1,69 +1,43 @@
 <template>
   <div>
     <Info
-      v-if="showInfo && stepContent.step.hasInfo == true"
+      v-if="showInfo && stepContent.step.hasInfo"
       :info="stepContent.subtheme.info"
     />
+    <div v-if="blurred || showInfo" class="blurZone"></div>
     <div class="main-wrapper">
-      <Nav />
+      <Nav
+        :isRapport="stepContent.step.type == 'rapport'"
+        :unlocks="stepContent.step.unlocks"
+      />
       <Home />
       <Main>
         <div>
-          <div
-            class="header"
-            v-if="
-              stepContent.step.type !== 'rapport' &&
-              !showRapport &&
-              stepContent.step.type !== 'title'
-            "
-          >
-            <div class="experience">
-              <img
-                v-if="settings.experience == 0"
-                src="@/assets/images/elements/beluga.png"
-                alt=""
-              />
-              <img v-else src="@/assets/images/elements/rorqual.png" alt="" />
-            </div>
-            <div class="header-left">
-              <h1>{{ stepContent.theme }}</h1>
-              <h4>{{ stepContent.subtheme[lang] }}</h4>
-            </div>
-            <div class="header-right">
-              <div
-                v-if="stepContent.step.hasInfo"
-                class="info button"
-                @click="showInfo = true"
-              >
-                ?
-              </div>
-            </div>
-            <div style="clear: both"></div>
-          </div>
           <Title
             v-if="stepContent.step.type == 'title'"
-            v-show="!showRapport"
             :content="stepContent"
           />
+
           <Rapport
             v-if="stepContent.step.type == 'rapport' || showRapport"
             :content="stepContent.step"
           />
+
           <Scan
             v-if="stepContent.step.type == 'scan'"
-            v-show="!showRapport"
             :content="stepContent.step"
           />
+
           <Question
-            v-if="stepContent.step.type == 'question'"
-            v-show="!showRapport"
+            v-if="stepContent.step.type == 'question' && !showRapport"
             :content="stepContent.step"
           />
+
           <Action
-            v-if="stepContent.step.type == 'action'"
-            v-show="!showRapport"
+            v-if="stepContent.step.type == 'action' && !showRapport"
             :content="stepContent.step"
           />
+
           <Admin v-if="showAdmin" />
         </div>
         <Back />
@@ -73,7 +47,8 @@
 </template>
 
 <script>
-// import { onMounted } from 'vue'
+var showInfoTimeout
+
 export default {
   data() {
     return {
@@ -91,13 +66,26 @@ export default {
       return this.$store.state.settings.langue
     },
     status() {
-      return this.$store.state.status
+      return this.$store.getters.getStatus
     },
     stepContent() {
       return this.$store.getters.getStepContent
     },
   },
-
+  watch: {
+    stepContent(val, old) {
+      console.log(old)
+      this.clearAll()
+      //   console.log(this.stepContent.step.type)
+      //If first apparition of info button in sequence, then auto show info popup
+      if (old.step.hasInfo == undefined && val.step.hasInfo !== undefined) {
+        showInfoTimeout = setTimeout(() => {
+          this.showInfo = true
+        }, 800)
+      }
+    },
+    deep: true,
+  },
   mounted() {
     var that = this
     document.addEventListener('keydown', function (event) {
@@ -120,16 +108,20 @@ export default {
     decrement() {
       this.$store.commit('decrementStep')
     },
+    clearAll() {
+      console.log('Clearing')
+      clearTimeout(showInfoTimeout)
+      this.showInfo = false
+      this.blurred = false
+    },
+  },
+  beforeDestroy() {
+    this.clearAll()
   },
 }
 </script>
 
 <style>
-.main-wrapper {
-  /* position: relative; */
-  /* border: 1px red solid; */
-}
-
 h1 {
   text-transform: uppercase;
   font-weight: 900;
@@ -139,38 +131,14 @@ button {
   font-size: 96px;
 }
 main > div {
-  /* position: absolute; */
   z-index: 1;
   width: 100%;
-  /* height: 1704px; */
-}
-.header {
-  /* height: 440px; */
-  padding: 0 50px;
-  width: 100%;
-}
-.header-left {
-  width: calc(90% - 135px);
-  line-height: 1;
-  float: left;
-}
-.header-left h1 {
-  line-height: 1;
-}
-.header-left h4 {
-  line-height: 1.2;
-}
-.header-right {
-  /* background-color: green; */
-  float: right;
-  width: 135px;
 }
 Main {
   margin: 0;
   top: 104px;
   padding: 0;
   height: 1704px;
-  /* position: relative; */
 }
 .experience img {
   width: auto;

@@ -584,6 +584,15 @@ export default {
   margin-left: 50px;
 }
 .icons .icon {
+  opacity: 0;
+  animation: popIcon 300ms forwards cubic-bezier(0.05, 0.67, 0.22, 0.98);
   margin-right: 20px;
+  animation-delay: 200ms;
+}
+.icon:nth-child(2) {
+  animation-delay: 350ms;
+}
+.icon:nth-child(3) {
+  animation-delay: 500ms;
 }
 </style>

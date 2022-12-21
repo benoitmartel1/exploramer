@@ -1,9 +1,13 @@
 <template>
-  <div class="action">
+  <div class="scan action">
+    <Header />
+
     <div v-for="(a, index) in content.actions" :key="a + index">
       <Icons v-if="a.roles" :roles="a.roles" />
+
       <div class="frame">
         {{ a[lang] }}
+
         <div
           v-if="a.hasScan"
           :class="[
@@ -12,6 +16,7 @@
             'aframe-wrapper',
           ]"
         >
+          <LoadingDots v-if="a.hasScan && !arReady" />
           <div class="countdown">{{ countdown }}</div>
           <div class="target blink"></div>
           <a-scene
@@ -107,7 +112,10 @@ export default {
     })
   },
   beforeDestroy() {
-    arSystem.stop()
+    if (this.arReady || arSystem) {
+      arSystem.stop()
+      arSystem = null
+    }
   },
   methods: {
     done() {
@@ -134,6 +142,11 @@ export default {
 </script>
 
 <style>
+.scan .loading-dots .stage {
+  transform-origin: -50% 0;
+  transform: scale(2);
+  margin-top: 230px;
+}
 a-scene {
   z-index: 20;
 }
@@ -195,7 +208,8 @@ a-scene {
   transition: opacity 200ms;
 }
 .aframe-wrapper {
-  background-color: #8cdff0;
+  /* background-color: #8cdff0; */
+  background-color: #8cc6d1;
   height: 500px;
   margin-top: 30px;
   position: relative;
@@ -205,7 +219,8 @@ a-scene {
   border: 0 white solid;
   border-width: 0;
 }
-.aframe-wrapper div {
+.aframe-wrapper .target,
+a-scene {
   display: none;
 }
 .aframe-wrapper.show {

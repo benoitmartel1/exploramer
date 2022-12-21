@@ -1,29 +1,32 @@
 {
   "themes": [
     {
-      "fr": "MORPHOLOGIE ET REPRODUCTION",
+      "fr": "Morphologie et reproduction",
       "en": "Morphology",
       "subthemes": [
         {
-          "fr": "PESER LA BALEINE",
-          "prop": {
-            "order": 5,
-            "key": {
-              "fr": "Poids"
-            },
-            "value": {
-              "fr": "1 400kg"
-            }
+          "fr": "Peser la baleine",
+          "info": {
+            "roles": ["t", "b", "v"],
+            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du béluga ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>"
           },
           "steps": [
-            { "type": "title" },
             {
+              "__comment": "2",
+              "type": "rapport",
+              "hasInfo": true
+            },
+            {
+              "__comment": "4",
+              "type": "title"
+            },
+            {
+              "__comment": "5",
               "type": "action",
-              "hasInfo": false,
               "actions": [
                 {
-                  "roles": ["t"],
-                  "fr": "Trouve le poids du béluga avec la balance."
+                  "roles": ["t", "v"],
+                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran."
                 },
                 {
                   "roles": ["b"],
@@ -32,8 +35,8 @@
               ]
             },
             {
+              "__comment": "6-9",
               "type": "question",
-              "info": {},
               "question": {
                 "fr": "Quel est le poids du béluga?"
               },
@@ -63,20 +66,15 @@
           ]
         },
         {
-          "fr": "DÉTERMINER L'ÂGE DE LA BALEINE ",
-          "prop": {
-            "order": 2,
-            "key": {
-              "fr": "Âge"
-            },
-            "value": {
-              "fr": "27 ans"
-            }
-          },
+          "fr": "Déterminer l'âge de la baleine",
           "steps": [
             {
+              "__comment": "10",
+              "type": "title"
+            },
+            {
+              "__comment": "11",
               "type": "action",
-              "hasInfo": false,
               "actions": [
                 {
                   "roles": ["t", "b", "v"],
@@ -89,8 +87,8 @@
               ]
             },
             {
+              "__comment": "12-15",
               "type": "question",
-              "info": {},
               "question": {
                 "fr": "Quel est l'âge du béluga ?"
               },
@@ -120,27 +118,26 @@
           ]
         },
         {
-          "fr": "DÉTERMINER SI SON POIDS EST NORMAL POUR SON ÂGE",
-          "prop": {
-            "order": 6,
-            "key": {
-              "fr": "note"
-            },
-            "value": {
-              "fr": "Poids normal pour son âge."
-            }
-          },
+          "fr": "Déterminer si son poids est normal pour son âge",
           "info": {
             "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
           },
           "steps": [
+            { "type": "title" },
             {
+              "__comment": "16",
               "type": "action",
-              "roles": ["t", "b"],
-              "hasInfo": true,
-              "fr": "Comparez maintenant le poids et l’âge du béluga pour établir s’il a un poids santé pour son âge."
+
+              "actions": [
+                {
+                  "roles": ["t", "b"],
+                  "fr": "Comparez maintenant le poids et l’âge du béluga pour établir s’il a un poids santé pour son âge."
+                }
+              ],
+              "hasInfo": true
             },
             {
+              "__comment": "17-20",
               "type": "question",
               "roles": [0, 1],
               "hasInfo": true,
@@ -170,25 +167,24 @@
           ]
         },
         {
-          "fr": "MESURER LA BALEINE",
-          "prop": {
-            "key": {
-              "fr": "note"
-            },
-            "value": {
-              "fr": "Poids normal pour son âge."
-            }
-          },
+          "fr": "Mesurer la baleine",
           "info": {
             "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
           },
           "steps": [
             {
+              "__comment": "21",
+              "type": "title"
+            },
+            {
               "type": "action",
               "actions": [
                 {
                   "roles": ["t", "v"],
-                  "fr": "En équipe, vous devez maintenant déterminer la longueur du béluga à l’aide du ruban à mesurer."
+                  "image": {
+                    "name": "b_21_tape.png"
+                  },
+                  "fr": "En équipe, vous devez maintenant déterminer la longueur du béluga à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure."
                 },
                 {
                   "roles": ["b"],
@@ -197,6 +193,7 @@
               ]
             },
             {
+              "__comment": "22-25",
               "type": "question",
               "question": {
                 "fr": "Quelle est la longueur du béluga ?"
@@ -225,6 +222,7 @@
               }
             },
             {
+              "__comment": "26-29",
               "type": "question",
               "question": {
                 "fr": "Est-ce que la longueur du béluga se situe dans la moyenne d’un adulte ?"
@@ -253,19 +251,14 @@
         },
         {
           "fr": "Déterminer le sexe de la baleine",
-          "prop": {
-            "order": 1,
-            "key": {
-              "fr": "Sexe"
-            },
-            "value": {
-              "fr": "Femelle"
-            }
-          },
           "info": {
             "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
           },
           "steps": [
+            {
+              "__comment": "30",
+              "type": "title"
+            },
             {
               "type": "scan",
               "tag": "b_sexe_s6",
@@ -292,6 +285,7 @@
               ]
             },
             {
+              "__comment": "31-34",
               "type": "question",
               "question": {
                 "fr": "Quel est le sexe du béluga ?"
@@ -317,28 +311,242 @@
               }
             }
           ]
+        },
+        {
+          "steps": [
+            {
+              "type": "rapport",
+              "hasMessage": true,
+              "unlocks": true
+            }
+          ]
         }
       ]
     },
     {
-      "fr": "Theme2",
+      "fr": "Alimentation",
       "subthemes": [
         {
-          "fr": "Manger",
+          "fr": "Comment se nourrit un béluga et que mange-t-il?",
+          "info": {
+            "__comment": "38",
+            "fr": "<p>Le béluga est une baleine à dents. Comme un aspirateur, c'est par succion qu'il attrape ses proies, qu’il avale sans mâcher. Il se nourrit de petits poissons de fond marin, tels que: le capelan, le lançon, la morue, le hareng, l’anguille, le poulamon et d’autres espèces de poissons et d’invertébrés.</p>"
+          },
           "steps": [
             {
-              "type": "rapport"
+              "__comment": "37",
+              "type": "title"
             },
-            {},
-            {}
+            {
+              "__comment": "39",
+              "type": "scan",
+              "tag": "b_estomac_s6",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Place-toi devant la bannière représentant le béluga et balaye l’image avec la tablette pour découvrir le contenu de son estomac."
+                },
+                {
+                  "roles": ["b", "v", "t"],
+                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur."
+                }
+              ]
+            },
+            {
+              "__comment": "40-43",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que les espèces qui se retrouvent dans l’estomac du béluga font partie de ses habitudes alimentaires ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Non"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle. Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques."
+                },
+                "wrong": {
+                  "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
           ]
         },
-        { "fr": "Boire", "steps": [{}, {}, {}] }
+        {
+          "steps": [
+            {
+              "type": "rapport",
+              "hasMessage": true,
+              "unlocks": true
+            }
+          ]
+        }
       ]
     },
     {
-      "fr": "Theme3",
-      "subthemes": [{ "steps": [{}] }, { "steps": [{}] }]
+      "fr": "Menaces",
+      "subthemes": [
+        {
+          "fr": "Déterminer le taux de toxicité",
+          "steps": [
+            {
+              "__comment": "46",
+              "type": "title"
+            },
+            {
+              "__comment": "46",
+              "type": "action",
+              "actions": [
+                {
+                  "roles": ["b", "v", "t"],
+                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du béluga pour découvrir son taux de toxicité."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Inscris la réponse dans la tablette."
+                }
+              ]
+            },
+            {
+              "__comment": "47-50",
+              "type": "question",
+              "question": {
+                "fr": "Quel taux de toxicité a été obtenu lors de l'analyse de la peau et de la graisse ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "2 ng/g"
+                },
+                {
+                  "fr": "8 ng/g"
+                },
+                {
+                  "fr": "10 ng/g",
+                  "isAnswer": true
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tout à fait ! C'est bien le bon taux."
+                },
+                "wrong": {
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté la donnée ? Retourne voir l'animateur.",
+                  "retry": true
+                }
+              }
+            },
+            {
+              "__comment": "51",
+              "type": "action",
+              "actions": [
+                {
+                  "roles": ["b", "v", "t"],
+                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un béluga."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Inscris la réponse dans la tablette."
+                }
+              ]
+            },
+            {
+              "__comment": "52-55",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que la quantité de toxines se situe dans un intervalle normal pour le béluga ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui"
+                },
+                {
+                  "fr": "Non",
+                  "isAnswer": true
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tu as raison, ce n'est pas normal. Une femelle béluga peut avoir une quantité de toxines qui se situe autour de 6,5 ng/g. Une quantité plus élevée peut être nocive et causer des problèmes lors de l’accouchement."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain.e de ton choix ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Déterminer s'il y a des signes d'accouchement récent",
+          "steps": [
+            {
+              "__comment": "55",
+              "type": "title"
+            },
+            {
+              "__comment": "55",
+              "type": "scan",
+              "tag": "b_sexe_s6",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v", "t"],
+                  "fr": "Comme le béluga est une femelle, vous devez aussi vérifier si le béluga présente des signes d’accouchement récent. Placez-vous devant la bannière représentant le béluga et balayez l’image avec la tablette pour tenter de détecter ces signes."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Inscris la réponse dans la tablette."
+                }
+              ]
+            },
+            {
+              "__comment": "56-59",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que le béluga présente des signes d’accouchement récent ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Non"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tu as raison, il y a des signes d'accouchement récent. Les problèmes à l’accouchement peuvent être liés à un taux de toxicité élevé."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain.e de ton choix? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "steps": [
+            {
+              "type": "rapport",
+              "hasMessage": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }

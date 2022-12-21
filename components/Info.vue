@@ -51,8 +51,9 @@
           </svg>
         </div>
         <div class="text" v-html="info[lang]"></div>
+        <Icons v-if="info.roles" :roles="info.roles" />
       </div>
-      <div class="blurZone"></div>
+      <!-- <div class="blurZone"></div> -->
     </div>
   </div>
 </template>
@@ -76,7 +77,6 @@ export default {
 <style>
 .close {
   width: 100%;
-
   text-align: right;
   /* background-color: red; */
 }
@@ -85,5 +85,9 @@ export default {
 }
 .info .text {
   padding: 50px;
+  padding-top: 0;
+}
+.info .icons {
+  margin-bottom: 0px;
 }
 </style>

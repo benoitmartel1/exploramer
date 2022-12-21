@@ -1,8 +1,12 @@
 <template>
   <div class="title">
     <div class="experience">
-      <img v-if="experience == 0" src="/images/elements/beluga.png" alt="" />
-      <img v-else src="/images/elements/beluga.png" alt="" />
+      <img
+        v-if="experience == 0"
+        src="@/assets/images/elements/beluga.png"
+        alt=""
+      />
+      <img v-else src="@/assets/images/elements/beluga.png" alt="" />
     </div>
     <div class="main-block">
       <h1>{{ content.theme }}</h1>
@@ -56,6 +60,7 @@
 </template>
 
 <script>
+var timer
 export default {
   data() {
     return {
@@ -66,14 +71,17 @@ export default {
   },
   props: ['content'],
   mounted() {
-    setTimeout(() => {
+    timer = setTimeout(() => {
       this.done()
-    }, 3000)
+    }, 2500)
   },
   methods: {
     done() {
       this.$parent.increment()
     },
+  },
+  beforeDestroy() {
+    clearTimeout(timer)
   },
 }
 </script>
@@ -81,8 +89,11 @@ export default {
 <style>
 .main-block {
   text-align: center;
-  margin-top: 100px;
+
   line-height: 1;
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
 }
 .wave {
   margin: 60px;
@@ -98,5 +109,16 @@ export default {
 }
 .main-block .picto svg {
   width: 200px;
+}
+.title .picto {
+  animation: picto 2500ms;
+}
+@keyframes picto {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
 }
 </style>

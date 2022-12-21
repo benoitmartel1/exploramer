@@ -1,12 +1,10 @@
 export const state = () => ({
   settings: {},
   content: { themes: {} },
-  status: {
-    theme: 0,
-    subtheme: 0,
-    step: 0,
-    done: false,
-  },
+  theme: 0,
+  subtheme: 0,
+  step: 0,
+  done: false,
 })
 
 export const getters = {
@@ -16,14 +14,21 @@ export const getters = {
   getThemes(state) {
     return state.content.themes
   },
+  getTheme(state) {
+    return state.theme
+  },
+  getStatus(state) {
+    let arr = { theme: state.theme, subtheme: state.subtheme, step: state.step }
+    return arr
+  },
   getStepContent: (state) => {
-    const theme = state.content.themes[state.status.theme]
-    const subtheme = theme.subthemes[state.status.subtheme]
+    const theme = state.content.themes[state.theme]
+    const subtheme = theme.subthemes[state.subtheme]
     const lang = state.settings.langue
     return {
       theme: theme[lang],
       subtheme: subtheme,
-      step: subtheme.steps[state.status.step],
+      step: subtheme.steps[state.step],
     }
   },
 }
@@ -31,66 +36,63 @@ export const getters = {
 export const mutations = {
   incrementTheme(state) {
     const max = state.content.themes.length
-    const next = state.status.theme + 1
+    const next = state.theme + 1
     if (next < max) {
-      state.status.theme++
+      state.theme++
     } else {
-      state.status.done = true
-      state.status.theme = 0
+      state.done = true
+      state.theme = 0
     }
   },
   decrementTheme(state) {
     const max = state.content.themes.length
-    const prev = state.status.theme - 1
+    const prev = state.theme - 1
     if (prev >= 0) {
-      state.status.theme--
+      state.theme--
     } else {
-      state.status.theme = max - 1
+      state.theme = max - 1
     }
   },
   incrementSubtheme(state) {
-    const max = state.content.themes[state.status.theme].subthemes.length
-    const next = state.status.subtheme + 1
+    const max = state.content.themes[state.theme].subthemes.length
+    const next = state.subtheme + 1
     if (next < max) {
-      state.status.subtheme++
+      state.subtheme++
     } else {
       this.commit('incrementTheme')
-      state.status.subtheme = 0
+      state.subtheme = 0
     }
   },
   decrementSubtheme(state) {
-    const prev = state.status.subtheme - 1
+    const prev = state.subtheme - 1
     if (prev >= 0) {
-      state.status.subtheme--
+      state.subtheme--
     } else {
       this.commit('decrementTheme')
-      const max = state.content.themes[state.status.theme].subthemes.length
-      state.status.subtheme = max - 1
+      const max = state.content.themes[state.theme].subthemes.length
+      state.subtheme = max - 1
     }
   },
   incrementStep(state) {
     const max =
-      state.content.themes[state.status.theme].subthemes[state.status.subtheme]
-        .steps.length
-    const next = state.status.step + 1
+      state.content.themes[state.theme].subthemes[state.subtheme].steps.length
+    const next = state.step + 1
     if (next < max) {
-      state.status.step++
+      state.step++
     } else {
+      state.step = 0
       this.commit('incrementSubtheme')
-      state.status.step = 0
     }
   },
   decrementStep(state) {
-    const prev = state.status.step - 1
+    const prev = state.step - 1
     if (prev >= 0) {
-      state.status.step--
+      state.step--
     } else {
       this.commit('decrementSubtheme')
       const max =
-        state.content.themes[state.status.theme].subthemes[
-          state.status.subtheme
-        ].steps.length
-      state.status.step = max - 1
+        state.content.themes[state.theme].subthemes[state.subtheme].steps.length
+      state.step = max - 1
     }
   },
   setSettings(state, settings) {
@@ -98,10 +100,10 @@ export const mutations = {
     this.commit('resetStatus')
   },
   resetStatus(state) {
-    state.status.step = 0
-    state.status.done = false
-    state.status.theme = 0
-    state.status.subtheme = 0
+    state.step = 0
+    state.done = false
+    state.theme = 0
+    state.subtheme = 0
   },
   setContent(state, content) {
     //const arr = state.content.themes

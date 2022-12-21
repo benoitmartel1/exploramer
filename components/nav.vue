@@ -2,8 +2,11 @@
   <div class="nav">
     <div class="theme-wrapper">
       <div
-        :class="[isRapportVisible ? 'active' : '', 'theme rapport']"
-        @click="triggerRapport(true)"
+        :class="[
+          isRapportVisible || isRapport ? 'active' : '',
+          'theme rapport',
+        ]"
+        @click="triggerRapport(true, true)"
       >
         <svg
           id="Icon_Rapport"
@@ -45,9 +48,12 @@
       </div>
       <div
         v-for="i in nbOfThemes"
-        @click="triggerRapport(false)"
+        @click="triggerRapport(theme + 1 == i, false)"
         :key="'theme' + i"
-        :class="[theme == i - 1 && !isRapportVisible ? 'active' : '', 'theme']"
+        :class="[
+          theme == i - 1 && !isRapport && !isRapportVisible ? 'active' : '',
+          'theme',
+        ]"
       >
         <div v-if="i - 1 > theme">
           <svg
@@ -81,24 +87,44 @@
 </template>
 
 <script>
+var unlocksTimeout
 export default {
   data() {
     return {
       settings: this.$store.state.settings,
       nbOfThemes: this.$store.state.content.themes.length,
+      theme: this.$store.getters.getTheme,
     }
   },
+  props: ['isRapport', 'unlocks'],
   computed: {
-    theme() {
-      return this.$store.state.status.theme
-    },
     isRapportVisible() {
       return this.$parent.showRapport
     },
+
+    status() {
+      return this.$store.getters.getStatus
+    },
+  },
+
+  watch: {
+    unlocks(val) {
+      clearTimeout(unlocksTimeout)
+      this.theme = this.$store.getters.getTheme
+      if (val == true) {
+        unlocksTimeout = setTimeout(() => {
+          this.theme++
+        }, 1000)
+      } else {
+        this.theme = this.$store.getters.getTheme
+      }
+    },
   },
   methods: {
-    triggerRapport(status) {
-      this.$parent.showRapport = status
+    triggerRapport(active, status) {
+      if (active) {
+        this.$parent.showRapport = status
+      }
     },
   },
 }
@@ -123,11 +149,19 @@ export default {
   overflow: hidden;
 }
 
-.theme .picto svg {
+.theme svg {
+  min-width: 60px;
   width: 60px;
+}
+.theme .picto {
+  animation: popButton 500ms;
+}
+.theme:has(.picto) {
+  animation: pictoFlash 500ms;
 }
 .theme.active {
   background-color: white;
+  transition: background-color 200ms;
 }
 .theme-wrapper {
   height: 100%;
