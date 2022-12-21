@@ -32,9 +32,9 @@ module.exports = {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/main.css',
     '~/assets/css/fonts.css',
     '~/assets/css/transition.css',
+    '~/assets/css/main.css',
   ],
 
   plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],

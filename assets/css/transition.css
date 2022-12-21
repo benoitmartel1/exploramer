@@ -43,13 +43,13 @@
 }
 @keyframes fadeLeft {
   from {
-    transform: translateX(20px);
+    transform: translate(20px 0);
     opacity: 0;
   }
 
   to {
-    transform: translateX(00px);
-    opacity: 100%;
+    transform: translate(0 0);
+    opacity: 1;
   }
 }
 @keyframes pulse {
