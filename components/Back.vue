@@ -54,6 +54,7 @@ export default {}
 
 <style>
 .back {
+  transform: translate(-1.5px, -2px);
   position: absolute;
   z-index: -1;
   left: 0%;
@@ -61,6 +62,9 @@ export default {}
   background-color: #65adad;
   width: var(--app-width);
   height: var(--app-height);
+}
+.last-theme .back {
+  background-color: rgb(17, 87, 238);
 }
 .back svg {
   position: absolute;

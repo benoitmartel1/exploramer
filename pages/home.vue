@@ -5,12 +5,15 @@
       :info="stepContent.subtheme.info"
     />
     <div v-if="blurred || showInfo" class="blurZone"></div>
-    <div class="main-wrapper">
+    <div
+      :class="[stepContent.subtheme.isLast ? 'last-theme' : '', 'main-wrapper']"
+    >
       <Nav
         :isRapport="stepContent.step.type == 'rapport'"
         :unlocks="stepContent.step.unlocks"
       />
       <Home />
+
       <Main>
         <div>
           <Title
@@ -59,6 +62,7 @@ export default {
       showInfo: false,
       showAdmin: false,
       blurred: false,
+      isBusyLoading: false,
     }
   },
   computed: {
@@ -74,7 +78,6 @@ export default {
   },
   watch: {
     stepContent(val, old) {
-      console.log(old)
       this.clearAll()
       //   console.log(this.stepContent.step.type)
       //If first apparition of info button in sequence, then auto show info popup
@@ -89,15 +92,22 @@ export default {
   mounted() {
     var that = this
     document.addEventListener('keydown', function (event) {
-      if (event.code == 'ArrowRight') {
-        that.increment()
-      }
-      if (event.code == 'ArrowLeft') {
-        that.decrement()
-      }
-      if (event.code == 'KeyA') {
-        console.log('a')
-        that.showAdmin = true
+      if (that.isBusyLoading == false) {
+        if (isFinite(event.key)) {
+          if (5 > event.key && event.key > 0)
+            that.$store.commit('setTheme', event.key - 1)
+        }
+
+        if (event.code == 'ArrowRight') {
+          that.increment()
+        }
+
+        if (event.code == 'ArrowLeft') {
+          that.decrement()
+        }
+        if (event.code == 'KeyA') {
+          that.showAdmin = true
+        }
       }
     })
   },
@@ -109,9 +119,9 @@ export default {
       this.$store.commit('decrementStep')
     },
     clearAll() {
-      console.log('Clearing')
       clearTimeout(showInfoTimeout)
       this.showInfo = false
+      this.showRapport = false
       this.blurred = false
     },
   },

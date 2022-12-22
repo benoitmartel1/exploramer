@@ -1,5 +1,5 @@
 <template>
-  <div class="rapport">
+  <div :class="[{ blurred: $parent.blurred || $parent.showInfo }, 'rapport']">
     <div class="center">
       <div class="experience">
         <img
@@ -136,6 +136,7 @@ export default {
   },
   mounted() {
     if (this.content.hasInfo && this.content.type == 'rapport') {
+      console.log('showInfo')
       this.$parent.showInfo = true
     }
     if (this.content.hasMessage) {

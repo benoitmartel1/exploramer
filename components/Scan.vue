@@ -80,6 +80,7 @@ export default {
   },
   props: ['content'],
   mounted() {
+    this.$parent.isBusyLoading = true
     const exampleTarget = document.querySelector('#example-target')
     const scene = document.querySelector('#scene')
 
@@ -87,6 +88,10 @@ export default {
       console.log('ready')
       arSystem = scene.systems['mindar-image-system']
       this.arReady = true
+      this.$parent.isBusyLoading = false
+    })
+    scene.addEventListener('arError', (event) => {
+      this.$parent.isBusyLoading = false
     })
 
     exampleTarget.addEventListener('targetFound', (event) => {

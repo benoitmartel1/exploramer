@@ -84,6 +84,7 @@ main > div > div,
   justify-content: center;
 }
 .popup .content {
+  /* box-shadow: 0 0 200px 5px black; */
   position: absolute;
   z-index: 250;
   width: 1124px;
@@ -99,14 +100,14 @@ main > div > div,
   position: absolute;
   top: 0;
   /* z-index: 1; */
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px) saturate(0.5);
   background-color: rgba(0, 0, 0, 0.4);
 }
 .popup.info > div {
   padding-top: 10px;
 }
 .blurred {
-  filter: blur(6px);
+  filter: blur(6px) saturate(0.5);
 }
 .info.button {
   font-weight: 700;
@@ -194,7 +195,7 @@ a:hover {
 }
 .info .content .text,
 .validation .content .text {
-  /* opacity: 0; */
+  opacity: 0;
   animation: fadeLeft 200ms ease-out;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;

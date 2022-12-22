@@ -2,8 +2,8 @@
   <div class="question">
     <Header :class="[{ blurred: $parent.blurred }, 'content']" />
     <div
-      :class="[{ blurred: showValidation }, 'content body']"
-      v-show="!showResolve"
+      :class="[{ blurred: showValidation || showResolve }, 'content body']"
+      v-show="!rightAnswer"
     >
       {{ content.question[lang] }}
       <div class="choices">
@@ -191,5 +191,8 @@ export default {
 }
 .choices .button:nth-child(3) {
   animation-delay: 200ms;
+}
+.choices .button:nth-child(4) {
+  animation-delay: 300ms;
 }
 </style>

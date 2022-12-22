@@ -537,12 +537,54 @@
               }
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "subthemes": [
         {
+          "isLast": true,
+          "info": {
+            "roles": ["t", "b", "v"],
+            "fr": "<p>Maintenant que toute l’information a été recueillie, il est temps de travailler en équipe pour élucider le mystère entourant la mort du béluga.</p><p>Rassemblez l’information collectée et analysez les résultats.</p>"
+          },
           "steps": [
             {
+              "__comment": "62",
               "type": "rapport",
-              "hasMessage": true
+              "hasInfo": true
+            },
+            {
+              "__comment": "63-66",
+              "type": "question",
+              "question": {
+                "fr": "Parmi les choix suivants, quelle est la cause de la mort du béluga ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Les polluants toxiques retrouvés dans l’eau.",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Le transport maritime et les engins de pêche."
+                },
+                {
+                  "fr": "Une mauvaise alimentation."
+                },
+                {
+                  "fr": "Les complications dues à l’accouchement."
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !"
+                },
+                "wrong": {
+                  "fr": "Révisez les résultats obtenus, vous y êtes presque.",
+                  "retry": true
+                }
+              }
             }
           ]
         }

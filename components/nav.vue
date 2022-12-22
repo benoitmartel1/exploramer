@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <div class="theme-wrapper">
+    <div v-if="theme < nbOfThemes" class="theme-wrapper">
       <div
         :class="[
           isRapportVisible || isRapport ? 'active' : '',
@@ -83,6 +83,7 @@
         <Picto v-else :theme="i - 1" />
       </div>
     </div>
+    <div v-else class="theme-wrapper"></div>
   </div>
 </template>
 
@@ -92,8 +93,8 @@ export default {
   data() {
     return {
       settings: this.$store.state.settings,
-      nbOfThemes: this.$store.state.content.themes.length,
-      theme: this.$store.getters.getTheme,
+      nbOfThemes: this.$store.state.content.themes.length - 1,
+      themeUnlockModifier: 0,
     }
   },
   props: ['isRapport', 'unlocks'],
@@ -105,18 +106,21 @@ export default {
     status() {
       return this.$store.getters.getStatus
     },
+    theme() {
+      return this.$store.getters.getTheme + this.themeUnlockModifier
+    },
   },
 
   watch: {
     unlocks(val) {
       clearTimeout(unlocksTimeout)
-      this.theme = this.$store.getters.getTheme
+
       if (val == true) {
         unlocksTimeout = setTimeout(() => {
-          this.theme++
-        }, 1000)
+          this.themeUnlockModifier = 1
+        }, 1500)
       } else {
-        this.theme = this.$store.getters.getTheme
+        this.themeUnlockModifier = 0
       }
     },
   },
@@ -134,7 +138,7 @@ export default {
 .nav {
   width: 100%;
   /* background-color: #666; */
-  height: 106px;
+  height: 107px;
   z-index: 10;
   /* position: absolute; */
 }
@@ -175,5 +179,8 @@ export default {
 }
 .nav .experience {
   float: right;
+}
+.last-theme .theme-wrapper {
+  background-color: white;
 }
 </style>

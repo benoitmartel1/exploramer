@@ -34,6 +34,11 @@ export const getters = {
 }
 
 export const mutations = {
+  setTheme(state, theme) {
+    state.step = 0
+    state.subtheme = 0
+    state.theme = theme
+  },
   incrementTheme(state) {
     const max = state.content.themes.length
     const next = state.theme + 1
