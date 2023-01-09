@@ -21,12 +21,54 @@
           "steps": [
             {
               "type": "scan",
+              "tag": "b_sexe_s7",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Beluga - sexe | b_sexe_bleu_s7"
+                }
+              ]
+            },
+            {
+              "type": "action"
+            },
+            {
+              "type": "scan",
+              "tag": "b_sexe_s11",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Beluga - sexe | s11"
+                }
+              ]
+            },
+            {
+              "type": "action"
+            },
+            {
+              "type": "scan",
               "tag": "r_impact_s7",
               "actions": [
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Rorqual - trace d'impact."
+                  "fr": "Rorqual - trace d'impact | s7"
+                }
+              ]
+            },
+            {
+              "type": "action"
+            },
+            {
+              "type": "scan",
+              "tag": "r_impact_s3",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Rorqual - trace d'impact | s3"
                 }
               ]
             },
@@ -61,17 +103,7 @@
             {
               "type": "action"
             },
-            {
-              "type": "scan",
-              "tag": "b_sexe_s6",
-              "actions": [
-                {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Beluga - sexe."
-                }
-              ]
-            },
+
             {
               "type": "action"
             },

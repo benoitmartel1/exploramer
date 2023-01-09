@@ -77,8 +77,24 @@
           void this.ui.showCompatibility()
         )
       navigator.mediaDevices
-        .getUserMedia({ audio: !1, video: { facingMode: 'environment' } })
+        .getUserMedia({
+          audio: !1,
+          video: {
+            facingMode: 'environment',
+          },
+        })
         .then((t) => {
+          const stream = t
+          const [track] = stream.getVideoTracks()
+          const capabilities = track.getCapabilities()
+          const settings = track.getSettings()
+
+          console.log(capabilities)
+
+          track.applyConstraints({
+            advanced: [{ zoom: capabilities.zoom.max / 2 }],
+          })
+
           this.video.addEventListener('loadedmetadata', () => {
             this.video.setAttribute('width', this.video.videoWidth),
               this.video.setAttribute('height', this.video.videoHeight),

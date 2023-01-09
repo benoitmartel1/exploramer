@@ -1,7 +1,34 @@
 <template>
   <div class="scan action">
     <Header />
-
+    <div class="camera-controls">
+      <div name="focusMode">
+        <div class="label">focusMode:</div>
+        <input type="checkbox" />
+        <div class="value"></div>
+      </div>
+      <div name="focusDistance">
+        <div class="label">focusDistance:</div>
+        <input type="range" />
+        <div class="value"></div>
+      </div>
+      <div name="zoom">
+        <div class="label">Zoom:</div>
+        <input type="range" />
+        <div class="value"></div>
+      </div>
+      <div name="brightness">
+        <div class="label">Brightness:</div>
+        <input type="range" />
+        <div class="value"></div>
+      </div>
+      <!-- <div name="whiteBalanceMode">
+        <div class="label">whiteBalanceMode:</div>
+        <input type="checkbox" />
+        <div class="value"></div>
+      </div> -->
+      <div id="errorMsg" style="display: none"></div>
+    </div>
     <div v-for="(a, index) in content.actions" :key="a + index">
       <Icons v-if="a.roles" :roles="a.roles" />
 
@@ -13,9 +40,10 @@
           :class="[
             arReady ? 'show' : '',
             targetTracked ? 'active' : '',
-            'aframe-wrapper',
+            'aframe-wrapper show',
           ]"
         >
+          <div class="border"></div>
           <LoadingDots v-if="a.hasScan && !arReady" />
           <div class="countdown">{{ countdown }}</div>
           <div class="target blink"></div>
@@ -24,9 +52,11 @@
             v-bind:mindar-image="
               'imageTargetSrc: mind/' +
               content.tag +
-              '.mind;filterMinCF:0.0001; filterBeta: 1000;warmupTolerance:2;missTolerance:3;uiError:no; uiLoading:no; uiScanning:no;'
+              '.mind;showStats:false;filterMinCF:0.0001; filterBeta: 1000;warmupTolerance:1;missTolerance:2;uiError:no; uiLoading:no; uiScanning:no;'
             "
             vr-mode-ui="enabled: false"
+            color-space="sRGB"
+            renderer="colorManagement: true, physicallyCorrectLights"
             device-orientation-permission-ui="enabled: false"
           >
             <a-assets>
@@ -91,15 +121,17 @@ export default {
       this.$parent.isBusyLoading = false
     })
     scene.addEventListener('arError', (event) => {
+      console.log(event)
       this.$parent.isBusyLoading = false
     })
 
     exampleTarget.addEventListener('targetFound', (event) => {
+      this.targetTracked = true
       this.updateCountdown()
       scanInterval = setInterval(() => {
         this.updateCountdown()
       }, 1000)
-      this.targetTracked = true
+
       const video = document.querySelector('#poissons')
       video.pause()
       video.currentTime = 0
@@ -108,6 +140,7 @@ export default {
 
     exampleTarget.addEventListener('targetLost', (event) => {
       this.clearTimeout()
+      console.log('Lost')
 
       this.targetTracked = false
       const video = document.querySelector('#poissons')
@@ -121,6 +154,7 @@ export default {
       arSystem.stop()
       arSystem = null
     }
+    this.clearTimeout()
   },
   methods: {
     done() {
@@ -153,7 +187,7 @@ export default {
   margin-top: 230px;
 }
 a-scene {
-  z-index: 20;
+  z-index: 200;
 }
 .countdown {
   position: absolute;
@@ -188,7 +222,6 @@ a-scene {
     conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g))
       100% 100% / var(--_p);
 
-  /*Irrelevant code*/
   width: 300px;
   height: 300px;
   box-sizing: border-box;
@@ -199,7 +232,11 @@ a-scene {
   align-items: center;
   text-align: center;
 }
-
+.active .target {
+  /* transform: scale(1.8); */
+  opacity: 0;
+  /* transition: all 500ms ease-out; */
+}
 .aframe-wrapper > video {
   opacity: 1;
   width: 100%;
@@ -224,8 +261,7 @@ a-scene {
   border: 0 white solid;
   border-width: 0;
 }
-.aframe-wrapper .target,
-a-scene {
+.aframe-wrapper .target {
   display: none;
 }
 .aframe-wrapper.show {
@@ -234,8 +270,17 @@ a-scene {
 .aframe-wrapper.show div {
   display: block;
 }
-.aframe-wrapper.active {
-  border-width: 25px;
+.border {
+  position: absolute;
+  z-index: 300;
+  border: 25px white solid;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2);
+  transition: transform 250ms ease-out;
+}
+.active .border {
+  transform: scale(1);
 }
 
 .aframe-wrapper.show > video {
@@ -245,4 +290,35 @@ a-scene {
   border: 2px yellow solid;
   position: absolute;
 } */
+.camera-controls {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  padding: 50px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.camera-controls .label,
+.camera-controls .value {
+  /* display: inline-block; */
+  font-weight: 400;
+  margin: 0 0.5em;
+  width: auto;
+  font-size: 0.8em;
+}
+
+.camera-controls .value {
+  text-align: right;
+}
+.camera-controls > div {
+  width: 100%;
+  display: flex;
+  /* border: 1px red solid; */
+}
+input,
+input[type='range'] {
+  flex-grow: 1;
+  width: 100%;
+}
 </style>

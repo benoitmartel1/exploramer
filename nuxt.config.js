@@ -27,6 +27,9 @@ module.exports = {
       {
         src: '/exploramer/js/mindar-image-aframe.prod.js',
       },
+      {
+        src: '/exploramer/js/camera-control.js',
+      },
     ],
   },
 
@@ -56,9 +59,9 @@ module.exports = {
       }
     },
   },
-  //   server: {
-  //     host: '0.0.0.0',
-  //     port: 80,
-  //   },
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
   dev: process.env.NODE_ENV === 'dev',
 }
