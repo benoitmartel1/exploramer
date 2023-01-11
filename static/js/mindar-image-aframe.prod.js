@@ -92,7 +92,7 @@
           console.log(capabilities)
 
           track.applyConstraints({
-            advanced: [{ zoom: capabilities.zoom.max / 2 }],
+            advanced: [{ zoom: capabilities.zoom.max / 4 }],
           })
 
           this.video.addEventListener('loadedmetadata', () => {

@@ -59,17 +59,49 @@
             renderer="colorManagement: true, physicallyCorrectLights"
             device-orientation-permission-ui="enabled: false"
           >
-            <a-assets>
-              <video
+            <!-- <video
                 id="poissons"
                 src="videos/poissons.webm"
-                muted
+                muted                src="images/scan_overlays/Beluga_accouchement_230109.png"
+
                 autoplay
                 loop="true"
-              ></video>
+              ></video> -->
+            <a-assets>
+              <img
+                id="overlay"
+                :src="
+                  require('@/assets/images/scan_overlays/' +
+                    content.overlay +
+                    '.png')
+                "
+                alt=""
+              />
             </a-assets>
-            <a-entity id="example-target" mindar-image-target="targetIndex: 0">
+            <a-entity
+              id="example-target"
+              mindar-image-target="targetIndex: 0"
+              material="transparent: true"
+            >
               <a-plane
+                v-bind:width="[
+                  content.overlayFormat ? content.overlayFormat.scale : 1,
+                ]"
+                v-bind:height="[
+                  content.overlayFormat ? content.overlayFormat.scale : 1,
+                ]"
+                v-bind:position="[
+                  content.overlayFormat
+                    ? content.overlayFormat.position.join(' ')
+                    : '0 0 0',
+                ]"
+                rotation="0 0 0"
+                src="#overlay"
+                material="transparent: true"
+                :style="styleOverlay(content.overlayFormat)"
+              >
+              </a-plane>
+              <!-- <a-plane
                 height="1"
                 width="1"
                 position="0 0 0"
@@ -78,7 +110,7 @@
                 material="shader: transparent-video"
               >
                 <a-plane color="red" height="1" width="1"></a-plane>
-              </a-plane>
+              </a-plane> -->
             </a-entity>
             <a-camera
               position="0 0 0"
@@ -139,6 +171,7 @@ export default {
     })
 
     exampleTarget.addEventListener('targetLost', (event) => {
+      console.log(document.querySelector('img'))
       this.clearTimeout()
       console.log('Lost')
 
@@ -157,6 +190,18 @@ export default {
     this.clearTimeout()
   },
   methods: {
+    styleOverlay(s) {
+      if (s) {
+        let styleStr = 'width:400px; opacity:0.3; '
+        if (s.scale) {
+          styleStr += `transform:scale(${s.scale});"`
+        }
+        return styleStr
+      } else {
+        return ''
+      }
+    },
+
     done() {
       arSystem.stop()
       this.$parent.increment()

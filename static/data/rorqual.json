@@ -21,7 +21,13 @@
           "steps": [
             {
               "type": "scan",
-              "tag": "b_sexe_s7",
+              "tag": "b_sexe",
+              "overlay": "b_sexe",
+              "overlayFormat": {
+                "scale": 1,
+                "position": [0, 0, 0],
+                "brightness": 1
+              },
               "actions": [
                 {
                   "hasScan": true,
@@ -35,21 +41,8 @@
             },
             {
               "type": "scan",
-              "tag": "b_sexe_s11",
-              "actions": [
-                {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Beluga - sexe | s11"
-                }
-              ]
-            },
-            {
-              "type": "action"
-            },
-            {
-              "type": "scan",
-              "tag": "r_impact_s7",
+              "overlay": "r_impact",
+              "tag": "r_impact",
               "actions": [
                 {
                   "hasScan": true,
