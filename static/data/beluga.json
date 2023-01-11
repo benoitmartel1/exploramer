@@ -79,10 +79,6 @@
                 {
                   "roles": ["t", "b", "v"],
                   "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du béluga."
-                },
-                {
-                  "roles": ["b"],
-                  "fr": "Note l'information obtenue dans la tablette."
                 }
               ]
             },
@@ -262,15 +258,12 @@
             {
               "type": "scan",
               "tag": "b_sexe_s6",
+              "overlay": "b_sexe.jpg",
               "actions": [
                 {
                   "hasScan": true,
                   "roles": ["v"],
                   "fr": "Place-toi devant la bannière représentant le béluga et essaie de trouver son sexe en balayant l’image avec la tablette."
-                },
-                {
-                  "roles": ["b"],
-                  "fr": "Note l'information obtenue dans la tablette."
                 }
               ]
             },
@@ -279,6 +272,9 @@
               "hasInfo": "true",
               "actions": [
                 {
+                  "image": {
+                    "name": "b_sexe.png"
+                  },
                   "roles": ["b"],
                   "fr": "Comparez la numérisation que vous avez obtenue avec les images de référence pour identifier s’il s’agit d’un mâle ou d’une femelle."
                 }

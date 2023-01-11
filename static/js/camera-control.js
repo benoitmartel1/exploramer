@@ -9,6 +9,7 @@ const constraints = (window.constraints = {
 
 function handleSuccess(stream) {
   const video = document.querySelector('video')
+
   const videoTracks = stream.getVideoTracks()
   console.log('Got stream with constraints:', constraints)
   console.log(`Using video device: ${videoTracks[0].label}`)
@@ -77,25 +78,31 @@ function handleError(error) {
 }
 
 function errorMsg(msg, error) {
-  const errorElement = document.querySelector('#errorMsg')
-  errorElement.innerHTML += `<p>${msg}</p>`
-  if (typeof error !== 'undefined') {
-    console.error(error)
-  }
+  console.error(error)
+  //   const errorElement = document.querySelector('#errorMsg')
+  //   errorElement.innerHTML += `<p>${msg}</p>`
+  //   if (typeof error !== 'undefined') {
+  //     console.error(error)
+  //   }
 }
 
 async function initCameraControls(e) {
   //   console.log('Init Camera Controls')
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints)
+
     handleSuccess(stream)
-    e.target.disabled = true
+
+    // e.target.disabled = true
   } catch (e) {
     handleError(e)
   }
 }
 window.addEventListener('load', function (event) {
-  initCameraControls()
+  const video = document.querySelector('video')
+  if (video) {
+    initCameraControls()
+  }
 })
 
 // document.querySelector('#showVideo').addEventListener('click', (e) => init(e))

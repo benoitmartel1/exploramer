@@ -10,11 +10,16 @@
       <div class="frame">
         <div>{{ a[lang] }}</div>
         <div class="center">
-          <img
+          <div
             v-if="a.image"
-            :src="require('@/assets/images/elements/' + a.image.name)"
-            alt=""
-          />
+            class="image-wrapper"
+            :style="styleImage(a.image)"
+          >
+            <img
+              :src="require('@/assets/images/elements/' + a.image.name)"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +41,11 @@ export default {
     done() {
       this.$parent.increment()
     },
+    styleImage(i) {
+      let str = 'width: '
+      str += i.width !== undefined ? i.width + '%;' : '100%;'
+      return str
+    },
   },
 }
 </script>
@@ -52,7 +62,12 @@ export default {
 .frame-wrapper:nth-of-type(3) .frame {
   animation-delay: 300ms;
 }
+.image-wrapper {
+  display: inline-block;
+}
 .frame img {
-  max-height: 250px;
+  width: 100%;
+  /* margin: auto; */
+  /* max-height: 250px; */
 }
 </style>

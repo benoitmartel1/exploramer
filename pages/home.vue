@@ -14,7 +14,7 @@
       />
       <Home />
 
-      <Main>
+      <div id="main">
         <div>
           <Title
             v-if="stepContent.step.type == 'title'"
@@ -44,7 +44,7 @@
           <Admin v-if="showAdmin" />
         </div>
         <Back />
-      </Main>
+      </div>
     </div>
   </div>
 </template>
@@ -84,7 +84,7 @@ export default {
       if (old.step.hasInfo == undefined && val.step.hasInfo !== undefined) {
         showInfoTimeout = setTimeout(() => {
           this.showInfo = true
-        }, 800)
+        }, 1500)
       }
     },
     deep: true,
@@ -140,11 +140,11 @@ h1 {
 button {
   font-size: 96px;
 }
-main > div {
+#main > div:not(.back) {
   z-index: 1;
   width: 100%;
 }
-Main {
+#main {
   margin: 0;
   top: 104px;
   padding: 0;

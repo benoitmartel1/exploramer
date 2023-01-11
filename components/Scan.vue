@@ -1,7 +1,7 @@
 <template>
   <div class="scan action">
     <Header />
-    <div class="camera-controls">
+    <!-- <div class="camera-controls">
       <div name="focusMode">
         <div class="label">focusMode:</div>
         <input type="checkbox" />
@@ -22,13 +22,8 @@
         <input type="range" />
         <div class="value"></div>
       </div>
-      <!-- <div name="whiteBalanceMode">
-        <div class="label">whiteBalanceMode:</div>
-        <input type="checkbox" />
-        <div class="value"></div>
-      </div> -->
       <div id="errorMsg" style="display: none"></div>
-    </div>
+    </div> -->
     <div v-for="(a, index) in content.actions" :key="a + index">
       <Icons v-if="a.roles" :roles="a.roles" />
 
@@ -41,12 +36,21 @@
             arReady ? 'show' : '',
             targetTracked ? 'active' : '',
             'aframe-wrapper show',
+            isDone ? 'done ' : '',
           ]"
         >
+          <div class="flash"></div>
+
+          <ProgressCircle v-if="countdown != null" />
           <div class="border"></div>
           <LoadingDots v-if="a.hasScan && !arReady" />
-          <div class="countdown">{{ countdown }}</div>
-          <div class="target blink"></div>
+          <!-- <div class="countdown">{{ countdown }}</div> -->
+          <img
+            :class="[showOverlay ? 'show' : '', 'overlay']"
+            :src="require('@/assets/images/overlays/' + content.overlay)"
+            alt=""
+          />
+          <div v-show="!isDone" class="target blink"></div>
           <a-scene
             id="scene"
             v-bind:mindar-image="
@@ -68,7 +72,7 @@
                 loop="true"
               ></video> -->
             <a-assets>
-              <img
+              <!-- <img
                 id="overlay"
                 :src="
                   require('@/assets/images/scan_overlays/' +
@@ -76,14 +80,14 @@
                     '.png')
                 "
                 alt=""
-              />
+              /> -->
             </a-assets>
             <a-entity
               id="example-target"
               mindar-image-target="targetIndex: 0"
               material="transparent: true"
             >
-              <a-plane
+              <!-- <a-plane
                 v-bind:width="[
                   content.overlayFormat ? content.overlayFormat.scale : 1,
                 ]"
@@ -100,16 +104,6 @@
                 material="transparent: true"
                 :style="styleOverlay(content.overlayFormat)"
               >
-              </a-plane>
-              <!-- <a-plane
-                height="1"
-                width="1"
-                position="0 0 0"
-                rotation="0 0 0"
-                src="#poissons"
-                material="shader: transparent-video"
-              >
-                <a-plane color="red" height="1" width="1"></a-plane>
               </a-plane> -->
             </a-entity>
             <a-camera
@@ -121,14 +115,15 @@
       </div>
     </div>
 
-    <!-- <div class="center">
-      <div class="button" @click="done()">Continuer</div>
-    </div> -->
+    <div class="center">
+      <div class="button" @click="quit()">Continuer</div>
+    </div>
   </div>
 </template>
 
 <script>
 var scanInterval
+var doneTimeout
 var arSystem
 export default {
   data() {
@@ -138,6 +133,8 @@ export default {
       lang: this.$store.state.settings.langue,
       arReady: false,
       countdown: null,
+      isDone: false,
+      showOverlay: false,
     }
   },
   props: ['content'],
@@ -162,32 +159,40 @@ export default {
       this.updateCountdown()
       scanInterval = setInterval(() => {
         this.updateCountdown()
-      }, 1000)
+      }, 666)
 
-      const video = document.querySelector('#poissons')
-      video.pause()
-      video.currentTime = 0
-      video.play()
+      //   const video = document.querySelector('#poissons')
+      //   video.pause()
+      //   video.currentTime = 0
+      //   video.play()
     })
-
+    // document.addEventListener('keydown', (e) => {
+    //   this.targetTracked = true
+    //   this.updateCountdown()
+    //   scanInterval = setInterval(() => {
+    //     this.updateCountdown()
+    //   }, 666)
+    // })
     exampleTarget.addEventListener('targetLost', (event) => {
-      console.log(document.querySelector('img'))
+      //   console.log(document.querySelector('img'))
       this.clearTimeout()
       console.log('Lost')
 
       this.targetTracked = false
-      const video = document.querySelector('#poissons')
-      video.pause()
-      video.currentTime = 0
-      video.play()
+      //   const video = document.querySelector('#poissons')
+      //   video.pause()
+      //   video.currentTime = 0
+      //   video.play()
     })
   },
   beforeDestroy() {
-    if (this.arReady || arSystem) {
+    if (this.arReady && arSystem !== null) {
       arSystem.stop()
       arSystem = null
     }
     this.clearTimeout()
+    this.isDone = false
+    this.showOverlay = false
   },
   methods: {
     styleOverlay(s) {
@@ -203,7 +208,25 @@ export default {
     },
 
     done() {
+      this.isDone = true
+      setTimeout(() => {
+        this.showOverlay = true
+      }, 250)
       arSystem.stop()
+      arSystem = null
+      //   console.log('Going to quit in 2sec')
+      //   const vid = document.querySelector('video')
+      //   if (vid) {
+      //     vid.pause()
+      //   }
+      //   doneTimeout = setTimeout(() => {
+      //     this.quit()
+      //   }, 200000)
+    },
+    quit() {
+      //   arSystem.stop()
+      //   arSystem = null
+      this.clearTimeout()
       this.$parent.increment()
     },
     updateCountdown() {
@@ -218,7 +241,8 @@ export default {
       }
     },
     clearTimeout() {
-      clearTimeout(scanInterval)
+      clearTimeout(doneTimeout)
+      clearInterval(scanInterval)
       this.countdown = null
     },
   },
@@ -272,14 +296,17 @@ a-scene {
   box-sizing: border-box;
   margin: 5px;
   display: inline-flex;
-  font-size: 30px;
+  /* font-size: 30px;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
 }
-.active .target {
-  /* transform: scale(1.8); */
-  opacity: 0;
+.active .blink {
+  --w: 40px; /* width of border */
+  animation: none;
+  transition: transform 100ms ease-out;
+  transform: scale(0.9);
+  /* opacity: 0; */
   /* transition: all 500ms ease-out; */
 }
 .aframe-wrapper > video {
@@ -312,10 +339,11 @@ a-scene {
 .aframe-wrapper.show {
   transform: scale(1);
 }
-.aframe-wrapper.show div {
+.aframe-wrapper.show div:not(.pre, .progressCircle) {
   display: block;
 }
-.border {
+.border,
+.flash {
   position: absolute;
   z-index: 300;
   border: 25px white solid;
@@ -331,10 +359,7 @@ a-scene {
 .aframe-wrapper.show > video {
   opacity: 1;
 }
-/* .a-canvas {
-  border: 2px yellow solid;
-  position: absolute;
-} */
+
 .camera-controls {
   position: absolute;
   z-index: 100;
@@ -365,5 +390,28 @@ input,
 input[type='range'] {
   flex-grow: 1;
   width: 100%;
+}
+.flash {
+  background-color: lightblue;
+  opacity: 0;
+  position: absolute;
+  z-index: 500;
+  /* width: 100%; */
+}
+.done .flash {
+  animation: flash 500ms forwards;
+  /* opacity: 1; */
+}
+.overlay {
+  position: absolute;
+  z-index: 400;
+  opacity: 0;
+  width: 100%;
+  transform: scale(1.05);
+  transition: transform 200ms ease-out;
+}
+.show.overlay {
+  opacity: 1;
+  transform: scale(1);
 }
 </style>

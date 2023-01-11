@@ -37,7 +37,21 @@
               ]
             },
             {
-              "type": "action"
+              "type": "action",
+              "actions": [
+                {
+                  "image": {
+                    "name": "b_sexe.jpg",
+                    "width": 100
+                  },
+                  "roles": ["b", "v", "t"],
+                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du béluga pour découvrir son taux de toxicité."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Inscris la réponse dans la tablette."
+                }
+              ]
             },
             {
               "type": "scan",

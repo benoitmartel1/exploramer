@@ -31,7 +31,7 @@ html {
   background: #444;
   color: #000;
 }
-main {
+#main {
   margin: 50px;
 }
 
@@ -50,10 +50,10 @@ ul {
   /* position: relative;
   height: calc(var(--app-height) - 400px); */
 }
-main {
+#main {
   overflow: hidden;
 }
-main > div > div,
+#main > div > div,
 .resolve,
 .content {
   animation: fadeLeft 400ms ease-out forwards;
@@ -99,8 +99,8 @@ main > div > div,
   height: var(--app-height);
   position: absolute;
   top: 0;
-  /* z-index: 1; */
-  backdrop-filter: blur(6px) saturate(0.5);
+  z-index: 1;
+  backdrop-filter: contrast(80%) brightness(110%) grayscale(50%) blur(8px);
   background-color: rgba(0, 0, 0, 0.4);
 }
 .popup.info > div {
