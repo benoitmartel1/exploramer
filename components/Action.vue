@@ -1,6 +1,6 @@
 <template>
-  <div class="action">
-    <Header />
+  <div :class="[{ blurred: $parent.showInfo }, 'action']">
+    <Header class="content" />
     <div
       class="frame-wrapper"
       v-for="(a, index) in content.actions"
@@ -16,8 +16,10 @@
             :style="styleImage(a.image)"
           >
             <img
-              :src="require('@/assets/images/elements/' + a.image.name)"
+              :class="{ show: imageLoaded }"
+              :src="require('@/assets/images/' + a.image.name)"
               alt=""
+              @load="onImageLoad"
             />
           </div>
         </div>
@@ -34,10 +36,14 @@ export default {
   data() {
     return {
       lang: this.$store.state.settings.langue,
+      imageLoaded: false,
     }
   },
   props: ['content'],
   methods: {
+    onImageLoad() {
+      this.imageLoaded = true
+    },
     done() {
       this.$parent.increment()
     },
@@ -67,7 +73,12 @@ export default {
 }
 .frame img {
   width: 100%;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
   /* margin: auto; */
   /* max-height: 250px; */
+}
+.frame img.show {
+  opacity: 1;
 }
 </style>

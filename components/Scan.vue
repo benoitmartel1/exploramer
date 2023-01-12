@@ -47,7 +47,7 @@
           <!-- <div class="countdown">{{ countdown }}</div> -->
           <img
             :class="[showOverlay ? 'show' : '', 'overlay']"
-            :src="require('@/assets/images/overlays/' + content.overlay)"
+            :src="require('@/assets/images/' + content.overlay)"
             alt=""
           />
           <div v-show="!isDone" class="target blink"></div>
@@ -124,6 +124,7 @@
 <script>
 var scanInterval
 var doneTimeout
+var overlayTimeout
 var arSystem
 export default {
   data() {
@@ -150,7 +151,6 @@ export default {
       this.$parent.isBusyLoading = false
     })
     scene.addEventListener('arError', (event) => {
-      console.log(event)
       this.$parent.isBusyLoading = false
     })
 
@@ -166,13 +166,7 @@ export default {
       //   video.currentTime = 0
       //   video.play()
     })
-    // document.addEventListener('keydown', (e) => {
-    //   this.targetTracked = true
-    //   this.updateCountdown()
-    //   scanInterval = setInterval(() => {
-    //     this.updateCountdown()
-    //   }, 666)
-    // })
+    document.addEventListener('keyup', this.onTargetFound)
     exampleTarget.addEventListener('targetLost', (event) => {
       //   console.log(document.querySelector('img'))
       this.clearTimeout()
@@ -186,15 +180,30 @@ export default {
     })
   },
   beforeDestroy() {
-    if (this.arReady && arSystem !== null) {
-      arSystem.stop()
-      arSystem = null
+    document.removeEventListener('keyup', this.onTargetFound)
+    console.log(this.arReady)
+    console.log(arSystem == null)
+    if ((arSystem !== undefined && arSystem !== null) || this.arReady) {
+      try {
+        arSystem.stop()
+        arSystem = null
+      } catch (error) {}
     }
     this.clearTimeout()
     this.isDone = false
     this.showOverlay = false
+    this.countdown = null
   },
   methods: {
+    onTargetFound(e) {
+      if (e.key == 's') {
+        this.targetTracked = true
+        this.updateCountdown()
+        scanInterval = setInterval(() => {
+          this.updateCountdown()
+        }, 666)
+      }
+    },
     styleOverlay(s) {
       if (s) {
         let styleStr = 'width:400px; opacity:0.3; '
@@ -208,12 +217,19 @@ export default {
     },
 
     done() {
+      clearInterval(scanInterval)
+
+      this.countdown = null
       this.isDone = true
-      setTimeout(() => {
-        this.showOverlay = true
+      let that = this
+      overlayTimeout = setTimeout(() => {
+        that.showOverlay = true
+        if (that.arReady || arSystem) {
+          arSystem.stop()
+          arSystem = null
+        }
       }, 250)
-      arSystem.stop()
-      arSystem = null
+
       //   console.log('Going to quit in 2sec')
       //   const vid = document.querySelector('video')
       //   if (vid) {
@@ -221,7 +237,7 @@ export default {
       //   }
       //   doneTimeout = setTimeout(() => {
       //     this.quit()
-      //   }, 200000)
+      //   }, 2000)
     },
     quit() {
       //   arSystem.stop()
@@ -243,7 +259,7 @@ export default {
     clearTimeout() {
       clearTimeout(doneTimeout)
       clearInterval(scanInterval)
-      this.countdown = null
+      clearTimeout(overlayTimeout)
     },
   },
 }
@@ -253,7 +269,7 @@ export default {
 .scan .loading-dots .stage {
   transform-origin: -50% 0;
   transform: scale(2);
-  margin-top: 230px;
+  margin-top: calc(500px / 2);
 }
 a-scene {
   z-index: 200;
@@ -265,6 +281,9 @@ a-scene {
   top: 5%;
   color: white;
   font-weight: 900;
+}
+.a-loader-title {
+  display: none;
 }
 .target {
   position: absolute;
@@ -413,5 +432,8 @@ input[type='range'] {
 .show.overlay {
   opacity: 1;
   transform: scale(1);
+}
+.scan img {
+  top: 0;
 }
 </style>

@@ -1,12 +1,8 @@
 <template>
   <div class="title">
     <div class="experience">
-      <img
-        v-if="experience == 0"
-        src="@/assets/images/elements/beluga.png"
-        alt=""
-      />
-      <img v-else src="@/assets/images/elements/beluga.png" alt="" />
+      <img v-if="experience == 0" src="@/assets/images/beluga.png" alt="" />
+      <img v-else src="@/assets/images/rorqual.png" alt="" />
     </div>
     <div class="main-block">
       <h1>{{ content.theme }}</h1>
@@ -66,7 +62,7 @@ export default {
     return {
       lang: this.$store.state.settings.langue,
       experience: this.$store.getters.getExperience,
-      status: this.$store.state.status,
+      status: this.$store.getters.getStatus,
     }
   },
   props: ['content'],
@@ -93,7 +89,7 @@ export default {
   line-height: 1;
   width: 80%;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .wave {
   margin: 60px;
@@ -110,8 +106,13 @@ export default {
 .main-block .picto svg {
   width: 200px;
 }
-.title .picto {
-  animation: picto 2500ms;
+.title .picto svg {
+  animation: picto 2500ms forwards;
+}
+
+.title .experience {
+  margin-top: 80px;
+  margin-bottom: 0;
 }
 @keyframes picto {
   from {

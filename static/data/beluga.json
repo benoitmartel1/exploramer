@@ -79,6 +79,10 @@
                 {
                   "roles": ["t", "b", "v"],
                   "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du béluga."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note l'information obtenue dans la tablette."
                 }
               ]
             },
@@ -178,7 +182,8 @@
                 {
                   "roles": ["t", "v"],
                   "image": {
-                    "name": "b_21_tape.png"
+                    "name": "b_21_tape.png",
+                    "width": 30
                   },
                   "fr": "En équipe, vous devez maintenant déterminer la longueur du béluga à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure."
                 },
@@ -337,13 +342,23 @@
               "__comment": "39",
               "type": "scan",
               "tag": "b_estomac_s6",
+              "overlay": "b_estomac.jpg",
               "actions": [
                 {
                   "hasScan": true,
                   "roles": ["v"],
                   "fr": "Place-toi devant la bannière représentant le béluga et balaye l’image avec la tablette pour découvrir le contenu de son estomac."
-                },
+                }
+              ]
+            },
+            {
+              "__comment": "39",
+              "type": "action",
+              "actions": [
                 {
+                  "image": {
+                    "name": "b_estomac.jpg"
+                  },
                   "roles": ["b", "v", "t"],
                   "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur."
                 }
@@ -494,15 +509,12 @@
               "__comment": "55",
               "type": "scan",
               "tag": "b_sexe_s6",
+              "overlay": "b_accouchement.jpg",
               "actions": [
                 {
                   "hasScan": true,
                   "roles": ["v", "t"],
                   "fr": "Comme le béluga est une femelle, vous devez aussi vérifier si le béluga présente des signes d’accouchement récent. Placez-vous devant la bannière représentant le béluga et balayez l’image avec la tablette pour tenter de détecter ces signes."
-                },
-                {
-                  "roles": ["b"],
-                  "fr": "Inscris la réponse dans la tablette."
                 }
               ]
             },

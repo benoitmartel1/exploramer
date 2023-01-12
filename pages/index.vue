@@ -35,7 +35,9 @@
         <div class="confirmation">
           <ol class="listing">
             <li v-for="(t, index) in themes" :key="'t' + index">
-              {{ t[settings.langue] }}
+              <div v-if="t[settings.langue] !== ''">
+                {{ t[settings.langue] }}
+              </div>
             </li>
           </ol>
           <div class="button ok" @click="$router.push('/home')">OK ></div>
@@ -88,7 +90,7 @@ export default {
     //If settings change, store the appropriate JSON content in the store
     settings() {
       const newContent = this.settings.experience == 0 ? beluga : rorqual
-      console.log(newContent)
+      //   console.log(newContent)
       this.$store.commit('setContent', newContent)
     },
     themes(val) {
@@ -153,10 +155,10 @@ export default {
   /* transition: background-color 0.3s; */
 }
 .wrapper.exp-0 {
-  background-color: darkmagenta;
+  background-color: rgb(156, 184, 192);
 }
 .wrapper.exp-1 {
-  background-color: darkblue;
+  background-color: rgb(137, 114, 146);
 }
 .setup .button {
   background: none;
@@ -195,10 +197,10 @@ export default {
   background-position: center;
 }
 .exp-0 .experience {
-  background-image: url('@/assets/images/elements/beluga.png');
+  background-image: url('@/assets/images/beluga.png');
 }
 .exp-1 .experience {
-  background-image: url('@/assets/images/elements/rorqual.png');
+  background-image: url('@/assets/images/rorqual.png');
 }
 .confirmation {
   width: 100%;

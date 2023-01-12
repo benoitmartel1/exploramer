@@ -60,7 +60,7 @@ module.exports = {
     },
   },
   server: {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: 3000,
   },
   dev: process.env.NODE_ENV === 'dev',

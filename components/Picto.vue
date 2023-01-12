@@ -62,8 +62,6 @@
         data-name="Icon Menace"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="45.177"
-        height="39.443"
         viewBox="0 0 45.177 39.443"
       >
         <defs>

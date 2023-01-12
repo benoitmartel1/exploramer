@@ -84,7 +84,7 @@ ul {
   justify-content: center;
 }
 .popup .content {
-  /* box-shadow: 0 0 200px 5px black; */
+  box-shadow: 0 0 70px 3px #333;
   position: absolute;
   z-index: 250;
   width: 1124px;
@@ -99,15 +99,15 @@ ul {
   height: var(--app-height);
   position: absolute;
   top: 0;
-  z-index: 1;
-  backdrop-filter: contrast(80%) brightness(110%) grayscale(50%) blur(8px);
-  background-color: rgba(0, 0, 0, 0.4);
+  /* z-index: 0; */
+  backdrop-filter: grayscale(50%) blur(4px);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .popup.info > div {
   padding-top: 10px;
 }
 .blurred {
-  filter: blur(6px) saturate(0.5);
+  filter: grayscale(50%) blur(4px);
 }
 .info.button {
   font-weight: 700;

@@ -4,23 +4,23 @@
       <div class="experience">
         <img
           v-if="settings.experience == 0"
-          src="@/assets/images/elements/beluga.png"
+          src="@/assets/images/beluga.png"
           alt=""
         />
-        <img v-else src="@/assets/images/elements/rorqual.png" alt="" />
+        <img v-else src="@/assets/images/rorqual.png" alt="" />
       </div>
       <h1>Résumé de l’enquête</h1>
       <div class="sous-titre">
         <div v-if="settings.experience == 0">Le béluga</div>
-        <div v-else>Le rorqual</div>
+        <div v-else>Le Rorqual à bosse</div>
       </div>
     </div>
-    <div class="form">
+    <div class="form" v-if="settings.experience == 0">
       <!--Thème 1------------------------------------------>
       <h3>Morphologie et reproduction</h3>
       <div class="prop">
         <div class="key">Sexe :</div>
-        <div v-if="isCompleted(0, 6)" class="value">Femelle</div>
+        <div v-if="isCompleted(0, 4)" class="value">Femelle</div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop">
@@ -30,7 +30,7 @@
       </div>
       <div class="prop">
         <div class="key">Longueur :</div>
-        <div v-if="isCompleted(0, 4)" class="value">3,5 m</div>
+        <div v-if="isCompleted(0, 3)" class="value">3,5 m</div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
@@ -92,6 +92,79 @@
           Les complications à l’accouchement peuvent être liées à un taux de
           toxicité élevé.
         </div>
+        <div v-else class="empty value"></div>
+      </div>
+    </div>
+    <div v-else class="form">
+      <!--Thème 1------------------------------------------>
+      <h3>Morphologie et reproduction</h3>
+      <div class="prop">
+        <div class="key">Sexe :</div>
+        <div v-if="isCompleted(0, 4)" class="value">Mâle</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">Âge :</div>
+        <div v-if="isCompleted(0, 1)" class="value">41 ans</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">Longueur :</div>
+        <div v-if="isCompleted(0, 3)" class="value">14 m</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">note :</div>
+        <div v-if="isCompleted(0, 3)" class="value">
+          Grandeur normale pour son âge.
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">Poids :</div>
+        <div v-if="isCompleted(0, 0)" class="value">28 000 kg</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">note :</div>
+        <div v-if="isCompleted(0, 2)" class="value">
+          Poids anormal pour son âge.
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+
+      <!--Thème 2------------------------------------------>
+      <h3>Alimentation</h3>
+      <div class="prop">
+        <div class="key">Alimentation :</div>
+        <div v-if="isCompleted(1, 0)" class="value">Anormale</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">note :</div>
+        <div v-if="isCompleted(1, 0)" class="value">
+          Du plastique se trouve dans son estomac. Petite quantité, non
+          dangereuse.
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <!--Thème 3------------------------------------------>
+      <h3>Menaces</h3>
+      <div class="prop">
+        <div class="key">Toxines :</div>
+        <div v-if="isCompleted(2, 0)" class="value">100 ng/g</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">note :</div>
+        <div v-if="isCompleted(2, 0)" class="value">Quantité normale.</div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">
+          Traces d’impacts avec des navires et engins de pêche :
+        </div>
+        <div v-if="isCompleted(2, 1)" class="value">Oui</div>
         <div v-else class="empty value"></div>
       </div>
     </div>

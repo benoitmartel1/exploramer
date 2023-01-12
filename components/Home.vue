@@ -6,9 +6,7 @@
       @mousedown="startTimer()"
       @mouseup="stopTimer()"
       class="home-button"
-    >
-      Tenir 3 sec pour changer params
-    </div>
+    ></div>
   </div>
 </template>
 
@@ -31,17 +29,18 @@ export default {
 
 <style scoped>
 .home-button {
+  cursor: pointer;
   padding: 10px;
   font-size: 0.8em;
   font-weight: normal;
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   /* background-color: orange; */
-  border: rgb(240, 248, 255) 2px solid;
+  /* border: rgb(240, 248, 255) 2px solid; */
   opacity: 0.3;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 50px;
+  right: 50px;
   z-index: 999;
 }
 </style>

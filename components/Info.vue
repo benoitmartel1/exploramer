@@ -69,6 +69,7 @@ export default {
   methods: {
     done() {
       this.$parent.showInfo = false
+      this.$parent.blurred = false
     },
   },
 }

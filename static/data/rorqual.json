@@ -1,51 +1,425 @@
 {
   "themes": [
     {
-      "fr": "Rorqual",
+      "fr": "Morphologie et reproduction",
       "en": "Morphology",
       "subthemes": [
         {
-          "fr": "Déterminer le sexe de la baleine",
-          "prop": {
-            "order": 1,
-            "key": {
-              "fr": "Sexe"
-            },
-            "value": {
-              "fr": "Femelle"
-            }
+          "fr": "Peser la baleine",
+          "info": {
+            "roles": ["t", "b", "v"],
+            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du rorqual à bosse ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>"
           },
+          "steps": [
+            {
+              "__comment": "2",
+              "type": "rapport",
+              "hasInfo": true
+            },
+            {
+              "__comment": "4",
+              "type": "title"
+            },
+            {
+              "__comment": "5",
+              "type": "action",
+              "actions": [
+                {
+                  "roles": ["t", "v"],
+                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note le bon résultat dans la tablette."
+                }
+              ]
+            },
+            {
+              "__comment": "6-9",
+              "type": "question",
+              "question": {
+                "fr": "Quel est le poids du rorqual à bosse ? "
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "10 000 kg"
+                },
+                {
+                  "fr": "70 000 kg"
+                },
+                {
+                  "fr": "28 000 kg",
+                  "isAnswer": true
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bravo! Tu as trouvé le poids de la baleine!"
+                },
+                "wrong": {
+                  "fr": "As-tu bien ajusté ta balance? Essaie de nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Déterminer l'âge de la baleine",
+          "steps": [
+            {
+              "__comment": "10",
+              "type": "title"
+            },
+            {
+              "__comment": "11",
+              "type": "action",
+              "actions": [
+                {
+                  "roles": ["t", "b", "v"],
+                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du rorqual."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note l'information obtenue dans la tablette."
+                }
+              ]
+            },
+            {
+              "__comment": "12-15",
+              "type": "question",
+              "question": {
+                "fr": "Quel est l'âge du béluga ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "41 ans",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "17 ans"
+                },
+                {
+                  "fr": "102 ans"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bonne réponse ! Le rorqual a bien 41 ans."
+                },
+                "wrong": {
+                  "fr": "Ummm…Tu devrais peut-être retourner voir l'animateur.trice.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Déterminer si son poids est normal pour son âge",
+          "info": {
+            "fr": "<p>RAPPEL</p><p>Le rorqual à bosse pèse 28 000 kg.</p><p>Un rorqual à bosse devient adulte à 5 ans et va peser en moyenne entre 30 000 kg et 40 000 kg. La disponibilité de la nourriture, les polluants, le transport maritime et les engins de pêche peuvent avoir un impact sur son alimentation et sa prise de poids.</p>"
+          },
+          "steps": [
+            { "type": "title" },
+            {
+              "__comment": "16",
+              "type": "action",
+
+              "actions": [
+                {
+                  "roles": ["t", "b"],
+                  "fr": "Comparez maintenant le poids et l’âge du rorqual pour établir s’il a un poids santé pour son âge."
+                }
+              ],
+              "hasInfo": true
+            },
+            {
+              "__comment": "17-20",
+              "type": "question",
+              "roles": [0, 1],
+              "hasInfo": true,
+              "question": {
+                "fr": "Est-ce que son poids est normal pour un rorqual adulte ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui"
+                },
+                {
+                  "fr": "Non",
+                  "isAnswer": true
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "En effet ! Le poids du rorqual n’est pas normal pour son âge."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Mesurer la baleine",
           "info": {
             "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
           },
           "steps": [
             {
-              "type": "scan",
-              "tag": "b_sexe",
-              "overlay": "b_sexe",
-              "overlayFormat": {
-                "scale": 1,
-                "position": [0, 0, 0],
-                "brightness": 1
-              },
-              "actions": [
-                {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Beluga - sexe | b_sexe_bleu_s7"
-                }
-              ]
+              "__comment": "21",
+              "type": "title"
             },
             {
               "type": "action",
               "actions": [
                 {
+                  "roles": ["t", "v"],
                   "image": {
-                    "name": "b_sexe.jpg",
-                    "width": 100
+                    "name": "b_21_tape.png",
+                    "width": 30
+                  },
+                  "fr": "En équipe, vous devez maintenant déterminer la longueur du rorqual à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure. "
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Note les résultats obtenus dans la tablette."
+                }
+              ]
+            },
+            {
+              "__comment": "22-25",
+              "type": "question",
+              "question": {
+                "fr": "Quelle est la longueur du rorqual ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "60 m"
+                },
+                {
+                  "fr": "14 m",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "2 m"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "La baleine mesure bien 14 m ! Les rorquals à bosse adultes mesurent en moyenne entre 13 m et 17 m."
+                },
+                "wrong": {
+                  "fr": "Ton ruban à mesurer semble défectueux, essaie de nouveau.",
+                  "retry": true
+                }
+              }
+            },
+            {
+              "__comment": "26-29",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que la longueur du rorqual se situe dans la moyenne d’un adulte ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Non"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bien observé ! Sa taille se situe dans la moyenne."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Déterminer le sexe de la baleine",
+          "info": {
+            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
+          },
+          "steps": [
+            {
+              "__comment": "30",
+              "type": "title"
+            },
+            {
+              "type": "scan",
+              "tag": "r_sexe_s6",
+              "overlay": "r_sexe.jpg",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": " Place toi devant la bannière représentant le rorqual et essaie de trouver son sexe en balayant l’image avec la tablette."
+                }
+              ]
+            },
+            {
+              "type": "action",
+              "hasInfo": "true",
+              "actions": [
+                {
+                  "image": {
+                    "name": "r_sexe.png"
+                  },
+                  "roles": ["b"],
+                  "fr": "Comparez la numérisation que vous avez obtenue avec les images références pour identifier s’il s’agit d’un mâle ou d’une femelle."
+                }
+              ]
+            },
+            {
+              "__comment": "31-34",
+              "type": "question",
+              "question": {
+                "fr": "Quel est le sexe du rorqual ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Mâle",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Femelle"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bien observé ! Il s'agit bien d'un mâle."
+                },
+                "wrong": {
+                  "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "steps": [
+            {
+              "type": "rapport",
+              "hasMessage": true,
+              "unlocks": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fr": "Alimentation",
+      "subthemes": [
+        {
+          "fr": "Comment se nourrit un rorqual à bosse et que mange-t-il ?",
+          "info": {
+            "__comment": "38",
+            "fr": "<p>Le rorqual à bosse est une baleine engouffreuse. Cela veut dire que lorsqu’il prend une grosse gorgée d’eau, la nourriture va rester coincée dans ses fanons. Imaginez une passoire pleine de trous qui laisse seulement passer l’eau. Il se nourrit de zooplanctons comme le krill et les copépodes et aussi de petits poissons, tels que le hareng, le lançon et le capelan. </p>"
+          },
+          "steps": [
+            {
+              "__comment": "37",
+              "type": "title"
+            },
+            {
+              "__comment": "39",
+              "type": "scan",
+              "tag": "r_estomac_s6",
+              "overlay": "r_estomac.jpg",
+              "actions": [
+                {
+                  "hasScan": true,
+                  "roles": ["v"],
+                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour découvrir le contenu de son estomac."
+                }
+              ]
+            },
+            {
+              "__comment": "39",
+              "type": "action",
+              "actions": [
+                {
+                  "image": {
+                    "name": "r_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du béluga pour découvrir son taux de toxicité."
+                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur."
+                }
+              ]
+            },
+            {
+              "__comment": "40-43",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que le contenu de l’estomac du rorqual correspond à ses habitudes alimentaires ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Oui"
+                },
+                {
+                  "fr": "Non",
+                  "isAnswer": true
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tu as bien vu. Du plastique se trouve dans l'estomac du rorqual. Toutefois, la quantité n’est pas assez élevée pour que ce soit dangereux pour la baleine."
+                },
+                "wrong": {
+                  "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "steps": [
+            {
+              "type": "rapport",
+              "hasMessage": true,
+              "unlocks": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fr": "Menaces",
+      "subthemes": [
+        {
+          "fr": "Déterminer le taux de toxicité",
+          "steps": [
+            {
+              "__comment": "46",
+              "type": "title"
+            },
+            {
+              "__comment": "46",
+              "type": "action",
+              "actions": [
+                {
+                  "roles": ["b", "v", "t"],
+                  "fr": "Allez voir l'animateur et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité."
                 },
                 {
                   "roles": ["b"],
@@ -54,93 +428,171 @@
               ]
             },
             {
-              "type": "scan",
-              "overlay": "r_impact",
-              "tag": "r_impact",
+              "__comment": "47-50",
+              "type": "question",
+              "question": {
+                "fr": "Quel taux de toxicité a été obtenu lors de l'analyse de la peau et de la graisse ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "100 ng/g",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "225 ng/g"
+                },
+                {
+                  "fr": "400 ng/g"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tout à fait ! C'est bien le bon taux."
+                },
+                "wrong": {
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté la donnée ? Retourne voir l'animateur.",
+                  "retry": true
+                }
+              }
+            },
+            {
+              "__comment": "51",
+              "type": "action",
               "actions": [
                 {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Rorqual - trace d'impact | s7"
+                  "roles": ["b", "v", "t"],
+                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un rorqual à bosse."
+                },
+                {
+                  "roles": ["b"],
+                  "fr": "Inscris la réponse dans la tablette."
                 }
               ]
             },
             {
-              "type": "action"
-            },
-            {
-              "type": "scan",
-              "tag": "r_impact_s3",
-              "actions": [
+              "__comment": "52-55",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce que la quantité de toxines se situe dans un intervalle normal pour le rorqual à bosse ?"
+              },
+              "validate": true,
+              "choices": [
                 {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Rorqual - trace d'impact | s3"
-                }
-              ]
-            },
-            {
-              "type": "action"
-            },
-            {
-              "type": "scan",
-              "tag": "r_estomac_s7",
-              "actions": [
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
                 {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Rorqual - estomac"
+                  "fr": "Non"
                 }
-              ]
-            },
-            {
-              "type": "action"
-            },
-            {
-              "type": "scan",
-              "tag": "r_sexe_s7",
-              "actions": [
-                {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Rorqual - sexe."
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Tu as raison, le taux de toxicité obtenu est normal."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain.e de ton choix ? Essaie à nouveau.",
+                  "retry": true
                 }
-              ]
+              }
+            }
+          ]
+        },
+        {
+          "fr": "Analyser les traces d'impact",
+          "steps": [
+            {
+              "__comment": "55",
+              "type": "title"
             },
             {
-              "type": "action"
-            },
-
-            {
-              "type": "action"
-            },
-            {
+              "__comment": "55",
               "type": "scan",
               "tag": "b_sexe_s6",
+              "overlay": "b_accouchement.jpg",
               "actions": [
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Beluga - accouchement."
+                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour vérifier si le rorqual présente des marques ou des signes d’impact avec un navire."
                 }
               ]
             },
             {
-              "type": "action"
-            },
-            {
-              "type": "scan",
-              "tag": "b_estomac_s6",
-              "actions": [
+              "__comment": "56-59",
+              "type": "question",
+              "question": {
+                "fr": "Est-ce qu’il présente des signes anormaux sur son corps ?"
+              },
+              "validate": true,
+              "choices": [
                 {
-                  "hasScan": true,
-                  "roles": ["v"],
-                  "fr": "Beluga - estomac."
+                  "fr": "Oui",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Non"
                 }
-              ]
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bien observé ! Il y a des traces d'impact."
+                },
+                "wrong": {
+                  "fr": "Es-tu certain.e de ton choix? Essaie à nouveau.",
+                  "retry": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subthemes": [
+        {
+          "isLast": true,
+          "info": {
+            "roles": ["t", "b", "v"],
+            "fr": "<p>Maintenant que toute l’information a été recueillie, il est temps de travailler en équipe pour élucider le mystère entourant la mort du rorqual.</p><p>Rassemblez l’information collectée et analysez les résultats.</p>"
+          },
+          "steps": [
+            {
+              "__comment": "62",
+              "type": "rapport",
+              "hasInfo": true
             },
             {
-              "type": "action"
+              "__comment": "63-66",
+              "type": "question",
+              "question": {
+                "fr": "Parmi les réponses suivantes, quelle est la cause de la mort du rorqual à bosse ?"
+              },
+              "validate": true,
+              "choices": [
+                {
+                  "fr": "Les polluants toxiques retrouvés dans l’eau."
+                },
+                {
+                  "fr": "Le transport maritime et les engins de pêche.",
+                  "isAnswer": true
+                },
+                {
+                  "fr": "Une mauvaise alimentation."
+                },
+                {
+                  "fr": "Les effets des changements climatiques"
+                }
+              ],
+              "resolve": {
+                "right": {
+                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !"
+                },
+                "wrong": {
+                  "fr": "Révisez les résultats obtenus, vous y êtes presque.",
+                  "retry": true
+                }
+              }
             }
           ]
         }

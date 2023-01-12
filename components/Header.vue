@@ -3,10 +3,10 @@
     <div class="experience">
       <img
         v-if="settings.experience == 0"
-        src="@/assets/images/elements/beluga.png"
+        src="@/assets/images/beluga.png"
         alt=""
       />
-      <img v-else src="@/assets/images/elements/rorqual.png" alt="" />
+      <img v-else src="@/assets/images/rorqual.png" alt="" />
     </div>
     <div class="header-left">
       <h1>{{ stepContent.theme }}</h1>
@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     showInfo(val) {
+      this.$parent.$parent.blurred = true
       this.$parent.$parent.showInfo = val
     },
   },
@@ -53,6 +54,7 @@ export default {
   width: 100%;
   margin-bottom: 30px;
 }
+
 .header-left {
   width: calc(90% - 35px);
   line-height: 1;

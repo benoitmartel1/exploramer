@@ -9,7 +9,7 @@ export const state = () => ({
 
 export const getters = {
   getExperience(state) {
-    return state.experience
+    return state.settings.experience
   },
   getThemes(state) {
     return state.content.themes
