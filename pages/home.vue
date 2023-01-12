@@ -17,7 +17,7 @@
       <div id="main">
         <div>
           <Title
-            v-if="stepContent.step.type == 'title'"
+            v-if="stepContent.step.type == 'title' && !showRapport"
             :content="stepContent"
           />
 
@@ -52,12 +52,15 @@
 <script>
 var showInfoTimeout
 
+// import beluga from '~/static/data/beluga.json'
+// import rorqual from '~/static/data/rorqual.json'
+
 export default {
   data() {
     return {
-      content: this.$store.state.content,
+      content: this.$store.state.content, // Uncomment for production
+      //   content: beluga, //Comment for production
       settings: this.$store.state.settings,
-
       showRapport: false,
       showInfo: false,
       showAdmin: false,
@@ -73,6 +76,20 @@ export default {
       return this.$store.getters.getStatus
     },
     stepContent() {
+      //   If in dev mode
+      // if (beluga || rorqual) {
+      //   console.log('IN DEV MODE')
+      //   const s = this.status
+      //   const theme = this.content.themes[s.theme]
+      //   const subtheme = theme.subthemes[s.subtheme]
+
+      //   return {
+      //     theme: theme[this.lang],
+      //     subtheme: subtheme,
+      //     step: subtheme.steps[s.step],
+      //   }
+      // }
+
       return this.$store.getters.getStepContent
     },
   },
@@ -91,13 +108,17 @@ export default {
   },
   mounted() {
     var that = this
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', this.onKeyDown)
+  },
+  methods: {
+    onKeyDown(event) {
+      let that = this
       if (that.isBusyLoading == false) {
         if (isFinite(event.key)) {
           if (5 > event.key && event.key > 0)
             that.$store.commit('setTheme', event.key - 1)
         }
-
+        console.log('keydown')
         if (event.code == 'ArrowRight') {
           that.increment()
         }
@@ -109,9 +130,7 @@ export default {
           that.showAdmin = true
         }
       }
-    })
-  },
-  methods: {
+    },
     increment() {
       this.$store.commit('incrementStep')
     },
@@ -127,6 +146,7 @@ export default {
   },
   beforeDestroy() {
     this.clearAll()
+    document.removeEventListener('keydown', this.onKeyDown)
   },
 }
 </script>
@@ -150,10 +170,15 @@ button {
   padding: 0;
   height: 1704px;
 }
+.experience {
+  padding: 10px;
+  height: 180px;
+}
 .experience img {
-  width: auto;
-  height: 202px;
-  display: block;
+  width: 70%;
+
   margin: auto;
+  display: block;
+  /* margin: auto; */
 }
 </style>
