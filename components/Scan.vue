@@ -116,7 +116,9 @@
     </div>
 
     <div class="center">
-      <div class="button" @click="quit()">Continuer</div>
+      <div class="button" @click="quit()">
+        {{ lang == 'fr' ? 'Continuer' : 'XXX----Continue' }}
+      </div>
     </div>
   </div>
 </template>

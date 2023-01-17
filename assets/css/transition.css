@@ -1,13 +1,5 @@
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-.fade-enter-active,
-.fade-leave-active {
   transition: opacity 200ms;
 }
 .fade-enter,
@@ -53,18 +45,15 @@
   }
 }
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  20% {
-    transform: scale(1.1);
-  }
-  22% {
-    transform: scale(1.1);
-  }
-  42%,
+  0%,
+  20%,
+  80%,
   100% {
-    transform: scale(1);
+    opacity: 0;
+  }
+  50%,
+  60% {
+    opacity: 1;
   }
 }
 @keyframes popButton {

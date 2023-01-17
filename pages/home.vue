@@ -9,6 +9,7 @@
       :class="[stepContent.subtheme.isLast ? 'last-theme' : '', 'main-wrapper']"
     >
       <Nav
+        v-if="stepContent.step.type !== 'outro'"
         :isRapport="stepContent.step.type == 'rapport'"
         :unlocks="stepContent.step.unlocks"
       />
@@ -20,10 +21,14 @@
             v-if="stepContent.step.type == 'title' && !showRapport"
             :content="stepContent"
           />
-
+          <Outro
+            v-if="stepContent.step.type == 'outro' && !showRapport"
+            :content="stepContent.step"
+          />
           <Rapport
             v-if="stepContent.step.type == 'rapport' || showRapport"
             :content="stepContent.step"
+            :allContent="content"
           />
 
           <Scan
@@ -34,6 +39,7 @@
           <Question
             v-if="stepContent.step.type == 'question' && !showRapport"
             :content="stepContent.step"
+            :isLastTheme="stepContent.subtheme.isLast"
           />
 
           <Action
@@ -41,9 +47,9 @@
             :content="stepContent.step"
           />
 
-          <Admin v-if="showAdmin" />
+          <Admin v-if="showAdmin" :props="stepContent.step.type" />
         </div>
-        <Back />
+        <Back :type="stepContent.step.type" />
       </div>
     </div>
   </div>
@@ -95,6 +101,7 @@ export default {
   },
   watch: {
     stepContent(val, old) {
+      this.clearing = false
       this.clearAll()
       //   console.log(this.stepContent.step.type)
       //If first apparition of info button in sequence, then auto show info popup
@@ -110,6 +117,7 @@ export default {
     var that = this
     document.addEventListener('keydown', this.onKeyDown)
   },
+  beforeMount() {},
   methods: {
     onKeyDown(event) {
       let that = this

@@ -1,6 +1,7 @@
 <template>
-  <div class="back">
+  <div :class="[{ outro: type == 'outro' }, 'back']">
     <svg
+      v-if="type !== 'outro'"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       width="1273.001"
@@ -49,7 +50,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['type'],
+}
 </script>
 
 <style>
@@ -63,9 +66,13 @@ export default {}
   width: var(--app-width);
   height: var(--app-height);
 }
+
 .last-theme .back {
-  background-color: rgb(17, 87, 238);
+  background-color: #005e8f;
 }
+/* .last-theme .back.outro {
+  background-color: #005e8f;
+} */
 .back svg {
   position: absolute;
   left: 4px;

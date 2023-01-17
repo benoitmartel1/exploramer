@@ -18,7 +18,7 @@ export default {
       let that = this
       timer = setTimeout(() => {
         that.$router.push('/')
-      }, 2500)
+      }, 2000)
     },
     stopTimer() {
       clearTimeout(timer)

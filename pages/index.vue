@@ -1,8 +1,9 @@
 <template>
   <div class="setup">
+    <Loader />
     <transition name="fade">
       <div
-        v-if="!$fetchState.pending && settings"
+        v-if="!$fetchState.pending && settings && assetsLoaded"
         :class="['wrapper', 'exp-' + settings.experience]"
       >
         <div
@@ -64,6 +65,7 @@ export default {
     return {
       settings: null,
       hasServerEnabled: true,
+      assetsLoaded: false,
     }
   },
   //On load, fetch settings from local SQLITE server
@@ -83,7 +85,8 @@ export default {
   },
   computed: {
     themes() {
-      return this.$store.getters.getThemes
+      console.log(this.$store.getters.getThemes)
+      return this.$store.getters.getThemes.filter((t) => !null && !t.isLast)
     },
   },
   watch: {

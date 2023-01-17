@@ -1,11 +1,17 @@
 <template>
   <div :class="[{ appro: approMode }, 'app-wrapper']">
     <div id="app">
-      <Nuxt />
+      <Nuxt :key="count" />
     </div>
     <div class="guide">
       <button class="approMode" @click="approMode = !approMode">
         {{ approMode ? 'Agrandir' : 'Rapetisser' }}
+      </button>
+      <button
+        class="approMode"
+        @click="updateSettings(settings.langue == 'fr' ? 'en' : 'fr')"
+      >
+        {{ settings.langue == 'fr' ? 'en' : 'fr' }}
       </button>
       <ul>
         <li>
@@ -34,7 +40,19 @@ export default {
   data() {
     return {
       approMode: true,
+      count: 0,
     }
+  },
+  computed: {
+    settings() {
+      return this.$store.state.settings
+    },
+  },
+  methods: {
+    updateSettings(lang) {
+      this.$store.commit('updateLangue', lang)
+      this.count++
+    },
   },
 }
 </script>

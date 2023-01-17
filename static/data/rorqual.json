@@ -2,13 +2,15 @@
   "themes": [
     {
       "fr": "Morphologie et reproduction",
-      "en": "Morphology",
+      "en": "Morphology and reproduction",
       "subthemes": [
         {
           "fr": "Peser la baleine",
+          "en": "Weighing the whale",
           "info": {
             "roles": ["t", "b", "v"],
-            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du rorqual à bosse ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>"
+            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du rorqual à bosse ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
+            "en": "<p>Are you ready to solve the mystery of the dead humpback whale?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>"
           },
           "steps": [
             {
@@ -26,11 +28,13 @@
               "actions": [
                 {
                   "roles": ["t", "v"],
-                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran."
+                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
+                  "en": "To weigh the humpback whale, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note le bon résultat dans la tablette."
+                  "fr": "Note le bon résultat dans la tablette.",
+                  "en": "Note the correct answer on the tablet."
                 }
               ]
             },
@@ -38,27 +42,33 @@
               "__comment": "6-9",
               "type": "question",
               "question": {
-                "fr": "Quel est le poids du rorqual à bosse ? "
+                "fr": "Quel est le poids du rorqual à bosse ? ",
+                "en": "What is the weight of the humpback whale?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "10 000 kg"
+                  "fr": "10 000 kg",
+                  "en": "10,000 kg"
                 },
                 {
-                  "fr": "70 000 kg"
+                  "fr": "70 000 kg",
+                  "en": "70,000 kg"
                 },
                 {
                   "fr": "28 000 kg",
+                  "en": "28,000 kg",
                   "isAnswer": true
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo! Tu as trouvé le poids de la baleine!"
+                  "fr": "Bravo! Tu as trouvé le poids de la baleine!",
+                  "en": "Good work! You determined the whale’s weight!"
                 },
                 "wrong": {
                   "fr": "As-tu bien ajusté ta balance? Essaie de nouveau.",
+                  "en": "Did you adjust your scale? Try again.",
                   "retry": true
                 }
               }
@@ -67,6 +77,7 @@
         },
         {
           "fr": "Déterminer l'âge de la baleine",
+          "en": "Determining the whale’s age",
           "steps": [
             {
               "__comment": "10",
@@ -78,11 +89,13 @@
               "actions": [
                 {
                   "roles": ["t", "b", "v"],
-                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du rorqual."
+                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du rorqual.",
+                  "en": "Go see the scientific animator; they will help you figure out the age of the humpback whale."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note l'information obtenue dans la tablette."
+                  "fr": "Note l'information obtenue dans la tablette.",
+                  "en": "Note the correct answer on the tablet."
                 }
               ]
             },
@@ -90,27 +103,33 @@
               "__comment": "12-15",
               "type": "question",
               "question": {
-                "fr": "Quel est l'âge du béluga ?"
+                "fr": "Quel est l'âge du béluga ?",
+                "en": "How old is the humpback whale?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "41 ans",
+                  "en": "41 years old",
                   "isAnswer": true
                 },
                 {
-                  "fr": "17 ans"
+                  "fr": "17 ans",
+                  "en": "17 years old"
                 },
                 {
-                  "fr": "102 ans"
+                  "fr": "102 ans",
+                  "en": "102 years old"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bonne réponse ! Le rorqual a bien 41 ans."
+                  "fr": "Bonne réponse ! Le rorqual a bien 41 ans.",
+                  "en": "Correct! The humpback whale is 41 years old."
                 },
                 "wrong": {
                   "fr": "Ummm…Tu devrais peut-être retourner voir l'animateur.trice.",
+                  "en": "Hmmm … maybe you should go back to see the scientific animator.",
                   "retry": true
                 }
               }
@@ -118,9 +137,11 @@
           ]
         },
         {
-          "fr": "Déterminer si son poids est normal pour son âge",
+          "fr": "Est-ce que son poids est normal pour un rorqual adulte ?",
+          "en": "Does this humpback whale have a normal weight for an adult male?",
           "info": {
-            "fr": "<p>RAPPEL</p><p>Le rorqual à bosse pèse 28 000 kg.</p><p>Un rorqual à bosse devient adulte à 5 ans et va peser en moyenne entre 30 000 kg et 40 000 kg. La disponibilité de la nourriture, les polluants, le transport maritime et les engins de pêche peuvent avoir un impact sur son alimentation et sa prise de poids.</p>"
+            "fr": "<p>RAPPEL</p><p>Le rorqual à bosse pèse 28 000 kg.</p><p>Un rorqual à bosse devient adulte à 5 ans et va peser en moyenne entre 30 000 kg et 40 000 kg. La disponibilité de la nourriture, les polluants, le transport maritime et les engins de pêche peuvent avoir un impact sur son alimentation et sa prise de poids.</p>",
+            "en": "<p>REMINDER</p><p>The humpback whale weighs 28,000 kg.</p><p>The humpback whale reaches adulthood by the age of 5 and will normally weigh between 30,000 and 40,000 kg. The availability of food, the presence of pollutants, and the impacts of maritime transport and fishing gear can all affect the whale’s feeding behaviour and weight.</p>"
           },
           "steps": [
             { "type": "title" },
@@ -131,7 +152,8 @@
               "actions": [
                 {
                   "roles": ["t", "b"],
-                  "fr": "Comparez maintenant le poids et l’âge du rorqual pour établir s’il a un poids santé pour son âge."
+                  "fr": "Comparez maintenant le poids et l’âge du rorqual pour établir s’il a un poids santé pour son âge.",
+                  "en": "Now compare the humpback whale’s weight with its age to determine whether this whale has a healthy weight for its age."
                 }
               ],
               "hasInfo": true
@@ -142,24 +164,29 @@
               "roles": [0, 1],
               "hasInfo": true,
               "question": {
-                "fr": "Est-ce que son poids est normal pour un rorqual adulte ?"
+                "fr": "Est-ce que son poids est normal pour un rorqual adulte ?",
+                "en": "Does this humpback whale have a normal weight for an adult male?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "Oui"
+                  "fr": "Oui",
+                  "en": "Yes"
                 },
                 {
                   "fr": "Non",
+                  "en": "No",
                   "isAnswer": true
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "En effet ! Le poids du rorqual n’est pas normal pour son âge."
+                  "fr": "En effet ! Le poids du rorqual n’est pas normal pour son âge.",
+                  "en": "The humpback whale's weight is not normal for its age."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -168,9 +195,8 @@
         },
         {
           "fr": "Mesurer la baleine",
-          "info": {
-            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
-          },
+          "en": "Measuring the whale",
+
           "steps": [
             {
               "__comment": "21",
@@ -185,11 +211,13 @@
                     "name": "b_21_tape.png",
                     "width": 30
                   },
-                  "fr": "En équipe, vous devez maintenant déterminer la longueur du rorqual à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure. "
+                  "fr": "En équipe, vous devez maintenant déterminer la longueur du rorqual à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure. ",
+                  "en": "With your team’s help, you must now figure out the whale’s length using the measuring tape. Use the marks on the banner, under the whale, as a reference."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note les résultats obtenus dans la tablette."
+                  "fr": "Note les résultats obtenus dans la tablette.",
+                  "en": "Note the result on the tablet."
                 }
               ]
             },
@@ -197,27 +225,33 @@
               "__comment": "22-25",
               "type": "question",
               "question": {
-                "fr": "Quelle est la longueur du rorqual ?"
+                "fr": "Quelle est la longueur du rorqual ?",
+                "en": "How long is the humpback whale?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "60 m"
+                  "fr": "60 m",
+                  "en": "60 m"
                 },
                 {
-                  "fr": "14 m",
+                  "fr": "15,80 m",
+                  "en": "15.80 m",
                   "isAnswer": true
                 },
                 {
-                  "fr": "2 m"
+                  "fr": "2,30 m",
+                  "en": "2.30 m"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "La baleine mesure bien 14 m ! Les rorquals à bosse adultes mesurent en moyenne entre 13 m et 17 m."
+                  "fr": "La baleine mesure bien 15,80 m ! Les rorquals à bosse adultes mesurent en moyenne entre 13 m et 17 m.",
+                  "en": "The whale is 15.80 m long! The average length of adult humpback whales ranges from 13 to 17 m."
                 },
                 "wrong": {
                   "fr": "Ton ruban à mesurer semble défectueux, essaie de nouveau.",
+                  "en": "There appears to be something wrong with your measuring tape! Try again.",
                   "retry": true
                 }
               }
@@ -226,24 +260,29 @@
               "__comment": "26-29",
               "type": "question",
               "question": {
-                "fr": "Est-ce que la longueur du rorqual se situe dans la moyenne d’un adulte ?"
+                "fr": "Est-ce que la longueur du rorqual se situe dans la moyenne d’un adulte ?",
+                "en": "Does this humpback whale have an average length for an adult?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bien observé ! Sa taille se situe dans la moyenne."
+                  "fr": "Bien observé ! Sa taille se situe dans la moyenne.",
+                  "en": "Correct! Its length is average for an adult humpback whale."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -252,9 +291,7 @@
         },
         {
           "fr": "Déterminer le sexe de la baleine",
-          "info": {
-            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
-          },
+          "en": "Determining the sex of the humpback whale",
           "steps": [
             {
               "__comment": "30",
@@ -268,20 +305,21 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": " Place toi devant la bannière représentant le rorqual et essaie de trouver son sexe en balayant l’image avec la tablette."
+                  "fr": " Place toi devant la bannière représentant le rorqual et essaie de trouver son sexe en balayant l’image avec la tablette.",
+                  "en": "Stand in front of the banner representing the humpback whale and determine its sex by scanning the image with the tablet. "
                 }
               ]
             },
             {
               "type": "action",
-              "hasInfo": "true",
               "actions": [
                 {
                   "image": {
                     "name": "r_sexe.png"
                   },
                   "roles": ["b"],
-                  "fr": "Comparez la numérisation que vous avez obtenue avec les images références pour identifier s’il s’agit d’un mâle ou d’une femelle."
+                  "fr": "Comparez la numérisation que vous avez obtenue avec les images références pour identifier s’il s’agit d’un mâle ou d’une femelle.",
+                  "en": "Compare your scan with the reference images to determine whether the humpback whale is a male or a female."
                 }
               ]
             },
@@ -289,24 +327,29 @@
               "__comment": "31-34",
               "type": "question",
               "question": {
-                "fr": "Quel est le sexe du rorqual ?"
+                "fr": "Quel est le sexe du rorqual ?",
+                "en": "What sex is the humpback whale?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Mâle",
+                  "en": "Male",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Femelle"
+                  "fr": "Femelle",
+                  "en": "Female"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bien observé ! Il s'agit bien d'un mâle."
+                  "fr": "Bien observé ! Il s'agit bien d'un mâle.",
+                  "en": "Correct! It is a male."
                 },
                 "wrong": {
                   "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "en": "Did you look closely? Try again.",
                   "retry": true
                 }
               }
@@ -326,12 +369,15 @@
     },
     {
       "fr": "Alimentation",
+      "en": "Feeding behaviour",
       "subthemes": [
         {
           "fr": "Comment se nourrit un rorqual à bosse et que mange-t-il ?",
+          "en": "How does a humpback whale feed, and what does it eat?",
           "info": {
             "__comment": "38",
-            "fr": "<p>Le rorqual à bosse est une baleine engouffreuse. Cela veut dire que lorsqu’il prend une grosse gorgée d’eau, la nourriture va rester coincée dans ses fanons. Imaginez une passoire pleine de trous qui laisse seulement passer l’eau. Il se nourrit de zooplanctons comme le krill et les copépodes et aussi de petits poissons, tels que le hareng, le lançon et le capelan. </p>"
+            "fr": "<p>Le rorqual à bosse est une baleine engouffreuse. Cela veut dire que lorsqu’il prend une grosse gorgée d’eau, la nourriture va rester coincée dans ses fanons. Imaginez une passoire pleine de trous qui laisse seulement passer l’eau. Il se nourrit de zooplanctons comme le krill et les copépodes et aussi de petits poissons, tels que le hareng, le lançon et le capelan. </p>",
+            "en": "<p>The humpback whale is a gulp feeder. It takes in a massive gulp of water and then pushes the water out through its baleen plates, which act like a sieve by allowing water to pass through but keeping the fish and other small organisms trapped in the whale’s mouth. The humpback whale feeds on zooplankton, like krill and copepods, and small fish, including herring, sand lances, and capelin.</p>"
           },
           "steps": [
             {
@@ -347,7 +393,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour découvrir le contenu de son estomac."
+                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour découvrir le contenu de son estomac.",
+                  "en": "Stand in front of the banner representing the humpback whale and scan the image with the tablet to discover the whale’s stomach contents."
                 }
               ]
             },
@@ -360,7 +407,8 @@
                     "name": "r_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur."
+                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.",
+                  "en": "In a team, compare the contents of the humpback whale’s stomach with the containers of food and the pictures on the scientific animator’s table."
                 }
               ]
             },
@@ -368,24 +416,29 @@
               "__comment": "40-43",
               "type": "question",
               "question": {
-                "fr": "Est-ce que le contenu de l’estomac du rorqual correspond à ses habitudes alimentaires ?"
+                "fr": "Est-ce que le contenu de l’estomac du rorqual correspond à ses habitudes alimentaires ?",
+                "en": "Do the contents of the humpback whale's stomach correspond to its normal feeding habits?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "Oui"
+                  "fr": "Oui",
+                  "en": "Yes"
                 },
                 {
                   "fr": "Non",
+                  "en": "No",
                   "isAnswer": true
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as bien vu. Du plastique se trouve dans l'estomac du rorqual. Toutefois, la quantité n’est pas assez élevée pour que ce soit dangereux pour la baleine."
+                  "fr": "Tu as bien vu. Du plastique se trouve dans l'estomac du rorqual. Toutefois, la quantité n’est pas assez élevée pour que ce soit dangereux pour la baleine.",
+                  "en": "You saw correctly. There is plastic in the whale’s stomach. However, the amount is not enough to be hazardous to the whale."
                 },
                 "wrong": {
                   "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "en": "Did you look closely? Try again.",
                   "retry": true
                 }
               }
@@ -405,9 +458,11 @@
     },
     {
       "fr": "Menaces",
+      "en": "Threats",
       "subthemes": [
         {
           "fr": "Déterminer le taux de toxicité",
+          "en": "What are the main threats facing the humpback whale?",
           "steps": [
             {
               "__comment": "46",
@@ -419,11 +474,13 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Allez voir l'animateur et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité."
+                  "fr": "Allez voir l'animateur et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité.",
+                  "en": "Go see the scientific animator, and observe the skin and blubber of the humpback whale to discover the concentration of toxins in the whale."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Inscris la réponse dans la tablette."
+                  "fr": "Inscris la réponse dans la tablette.",
+                  "en": "Note the result on the tablet."
                 }
               ]
             },
@@ -431,27 +488,33 @@
               "__comment": "47-50",
               "type": "question",
               "question": {
-                "fr": "Quel taux de toxicité a été obtenu lors de l'analyse de la peau et de la graisse ?"
+                "fr": "Quel taux de toxicité a été obtenu lors de l'analyse de la peau et de la graisse ?",
+                "en": "What concentration of toxins was obtained by analyzing the skin and blubber?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "100 ng/g",
+                  "en": "100 ng/g",
                   "isAnswer": true
                 },
                 {
-                  "fr": "225 ng/g"
+                  "fr": "225 ng/g",
+                  "en": "225 ng/g"
                 },
                 {
-                  "fr": "400 ng/g"
+                  "fr": "400 ng/g",
+                  "en": "400 ng/g"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tout à fait ! C'est bien le bon taux."
+                  "fr": "Tout à fait ! C'est bien le bon taux.",
+                  "en": "Well done! That is the correct concentration of toxins."
                 },
                 "wrong": {
                   "fr": "Ummm... Es-tu certain.e d'avoir bien noté la donnée ? Retourne voir l'animateur.",
+                  "en": "Acceptable toxin concentrations for the humpback whale range from 30 to 200 ng/g.",
                   "retry": true
                 }
               }
@@ -462,11 +525,13 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un rorqual à bosse."
+                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un rorqual à bosse.",
+                  "en": "Consult the “Toxicity Scale” data sheet in the briefcase to see whether this concentration of toxins is acceptable for a humpback whale. "
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Inscris la réponse dans la tablette."
+                  "fr": "Inscris la réponse dans la tablette.",
+                  "en": "Note the result on the tablet."
                 }
               ]
             },
@@ -474,24 +539,29 @@
               "__comment": "52-55",
               "type": "question",
               "question": {
-                "fr": "Est-ce que la quantité de toxines se situe dans un intervalle normal pour le rorqual à bosse ?"
+                "fr": "Est-ce que la quantité de toxines se situe dans un intervalle normal pour le rorqual à bosse ?",
+                "en": "Is the quantity of toxins within the acceptable range for a humpback whale? "
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as raison, le taux de toxicité obtenu est normal."
+                  "fr": "Tu as raison, le taux de toxicité obtenu est normal.",
+                  "en": "You are right. This concentration of toxins is acceptable."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix ? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -500,6 +570,7 @@
         },
         {
           "fr": "Analyser les traces d'impact",
+          "en": "Observing signs of collisions",
           "steps": [
             {
               "__comment": "55",
@@ -514,7 +585,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour vérifier si le rorqual présente des marques ou des signes d’impact avec un navire."
+                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour vérifier si le rorqual présente des marques ou des signes d’impact avec un navire.",
+                  "en": "Stand in front of the banner representing the humpback whale and scan it with the tablet to see whether the humpback shows marks or signs of collisions with ships."
                 }
               ]
             },
@@ -522,24 +594,29 @@
               "__comment": "56-59",
               "type": "question",
               "question": {
-                "fr": "Est-ce qu’il présente des signes anormaux sur son corps ?"
+                "fr": "Est-ce qu’il présente des signes anormaux sur son corps ?",
+                "en": "Does the whale have abnormal marks on its body?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bien observé ! Il y a des traces d'impact."
+                  "fr": "Bien observé ! Il y a des traces d'impact.",
+                  "en": "Well done! There are signs of collision."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -549,12 +626,14 @@
       ]
     },
     {
+      "isLast": true,
       "subthemes": [
         {
           "isLast": true,
           "info": {
             "roles": ["t", "b", "v"],
-            "fr": "<p>Maintenant que toute l’information a été recueillie, il est temps de travailler en équipe pour élucider le mystère entourant la mort du rorqual.</p><p>Rassemblez l’information collectée et analysez les résultats.</p>"
+            "fr": "<p>Maintenant que toute l’information a été recueillie, il est temps de travailler en équipe pour élucider le mystère entourant la mort du rorqual.</p><p>Rassemblez l’information collectée et analysez les résultats.</p>",
+            "en": "<p>Now that you have gathered all the information, it is time to work as a team to solve the mystery surrounding the humpback whale’s death.</p><p>Assemble the information that you have gathered and analyze the results.</p>"
           },
           "steps": [
             {
@@ -566,33 +645,45 @@
               "__comment": "63-66",
               "type": "question",
               "question": {
-                "fr": "Parmi les réponses suivantes, quelle est la cause de la mort du rorqual à bosse ?"
+                "fr": "Parmi les réponses suivantes, quelle est la cause de la mort du rorqual à bosse ?",
+                "en": "Which of the following caused the humpback whale’s death?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "Les polluants toxiques retrouvés dans l’eau."
+                  "fr": "Les polluants toxiques retrouvés dans l’eau",
+                  "en": "Toxic pollutants in the water"
                 },
                 {
-                  "fr": "Le transport maritime et les engins de pêche.",
+                  "fr": "Le transport maritime et les engins de pêche",
+                  "en": "Maritime transport and fishing gear",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Une mauvaise alimentation."
+                  "fr": "Une mauvaise alimentation",
+                  "en": "A poor diet"
                 },
                 {
-                  "fr": "Les effets des changements climatiques"
+                  "fr": "Les effets des changements climatiques",
+                  "en": "The effects of climate change"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !"
+                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !",
+                  "en": "Congratulations! You have solved the mystery!"
                 },
                 "wrong": {
                   "fr": "Révisez les résultats obtenus, vous y êtes presque.",
+                  "en": "Review the obtained results. You are almost there.",
                   "retry": true
                 }
               }
+            },
+            {
+              "type": "outro",
+              "fr": "Malheureusement, dans le Saint-Laurent, le rorqual à bosse est à risque de se faire prendre dans des engins de pêche et de rentrer en collision avec des navires. Pour sauver les baleines et limiter les accidents, il y a maintenant des limites de vitesse imposées pour les navires. Les secteurs de pêche sont également réglementés.",
+              "en": "Unfortunately, in the St. Lawrence River, humpback whales are at risk of being caught in fishing gear and colliding with ships. As a result, speed limits have been imposed on vessels and fishing areas are regulated to save the whales and reduce these accidents."
             }
           ]
         }

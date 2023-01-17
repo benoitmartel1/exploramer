@@ -110,12 +110,17 @@ export const mutations = {
     state.theme = 0
     state.subtheme = 0
   },
+  updateLangue(state, lang) {
+    state.settings.langue = lang
+  },
   setContent(state, content) {
     //const arr = state.content.themes
     state.content = JSON.parse(JSON.stringify(content))
     var offset = state.settings.parcours - 1
-    var arr = state.content.themes
+    var arr = state.content.themes.filter((t) => !t.isLast)
+    var last = state.content.themes.filter((t) => t.isLast)[0]
     state.content.themes = [...arr.slice(offset), ...arr.slice(0, offset)]
+    state.content.themes.push(last)
   },
 }
 

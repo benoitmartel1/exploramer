@@ -20,16 +20,26 @@
 
     <div v-show="showValidation" class="validation popup">
       <div class="content">
-        <div class="text">Es-tu certain.e de ta réponse?</div>
-        <div class="button validate" @click="validate()">Valider</div>
-        <div class="button cancel" @click="cancel()">Annuler</div>
+        <div class="text">
+          {{
+            lang == 'fr' ? 'Es-tu certain.e de ta réponse?' : 'Are you sure?'
+          }}
+        </div>
+        <div class="button validate" @click="validate()">
+          {{ lang == 'fr' ? 'Valider' : 'Confirm' }}
+        </div>
+        <div class="button cancel" @click="cancel()">
+          {{ lang == 'fr' ? 'Annuler' : 'Cancel' }}
+        </div>
       </div>
     </div>
 
     <div v-show="showResolve && !rightAnswer" class="validation popup">
       <div class="content">
-        <div class="text">{{ content.resolve.wrong[lang] }}</div>
-        <div class="button" @click="retry()">Réessayer</div>
+        <div class="text" v-html="content.resolve.wrong[lang]"></div>
+        <div class="button" @click="retry()">
+          {{ lang == 'fr' ? 'Réessayer' : 'XXX---Retry' }}
+        </div>
       </div>
     </div>
 
@@ -72,11 +82,13 @@
               </g>
             </svg>
           </div>
-          {{ content.resolve.right[lang] }}
+          <span v-html="content.resolve.right[lang]"></span>
         </div>
 
         <div class="footer center">
-          <div class="button" @click="done()">Continuer</div>
+          <div class="button" @click="done()">
+            {{ lang == 'fr' ? 'Continuer' : 'XXX---Continue' }}
+          </div>
         </div>
       </div>
     </div>
@@ -94,7 +106,7 @@ export default {
       rightAnswer: false,
     }
   },
-  props: ['content'],
+  props: ['content', 'isLastTheme'],
   methods: {
     select(index) {
       this.selectedChoice = index
@@ -113,8 +125,12 @@ export default {
     },
     validate() {
       if (this.content.choices[this.selectedChoice].isAnswer) {
-        this.rightAnswer = true
-        this.$parent.blurred = false
+        if (this.isLastTheme) {
+          this.done()
+        } else {
+          this.rightAnswer = true
+          this.$parent.blurred = false
+        }
       }
       this.showValidation = false
       //   this.$parent.blurred = false
@@ -122,6 +138,10 @@ export default {
     },
     done() {
       this.$parent.increment()
+      this.showValidation = false
+      this.showResolve = false
+      this.selectedChoice = null
+      this.rightAnswer = false
     },
   },
 }

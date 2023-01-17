@@ -18,7 +18,8 @@
         class="info button"
         @click="showInfo(true)"
       >
-        <span>?</span>
+        <div class="mark">?</div>
+        <div class="overlay"></div>
       </div>
     </div>
     <div style="clear: both"></div>
@@ -71,11 +72,25 @@ export default {
   float: right;
   width: 135px;
 }
-.info.button {
-  overflow: hidden;
+.info.button .overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(23, 167, 242, 1) 21%,
+    rgba(0, 94, 143, 1) 100%
+  );
+  animation: pulse 2000ms infinite linear;
 }
-.info.button span {
-  animation: pulse 3000ms infinite ease;
+.info.button {
+  position: relative;
+  overflow: hidden;
   transform-origin: 50% 45%;
+}
+.info .mark {
+  z-index: 100;
+  position: absolute;
 }
 </style>

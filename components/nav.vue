@@ -52,6 +52,7 @@
         :key="'theme' + i"
         :class="[
           theme == i - 1 && !isRapport && !isRapportVisible ? 'active' : '',
+          i <= theme ? 'done' : '',
           'theme',
         ]"
       >
@@ -166,6 +167,14 @@ export default {
 .theme.active {
   background-color: white;
   transition: background-color 200ms;
+}
+.theme.done {
+  background-color: #bbb;
+  transition: background-color 200ms;
+  cursor: unset;
+}
+.theme.done svg {
+  opacity: 0.4;
 }
 .theme-wrapper {
   height: 100%;

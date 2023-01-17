@@ -7,7 +7,7 @@
       :key="a + index"
     >
       <Icons v-if="a.roles" :roles="a.roles" />
-      <div class="frame">
+      <div v-show="imageLoaded || !a.image" class="frame">
         <div>{{ a[lang] }}</div>
         <div class="center">
           <div
@@ -26,7 +26,9 @@
       </div>
     </div>
     <div class="center footer">
-      <div class="button" @click="done()">Continuer</div>
+      <div class="button" @click="done()">
+        {{ lang == 'fr' ? 'Continuer' : 'XXX----Continue' }}
+      </div>
     </div>
   </div>
 </template>
@@ -70,15 +72,27 @@ export default {
 }
 .image-wrapper {
   display: inline-block;
+  overflow: hidden;
+  /* min-height: 250px; */
+  margin: 30px 0;
 }
-.frame img {
-  width: 100%;
+.action:not(.scan) img {
+  max-width: 90%;
   opacity: 0;
-  transition: opacity 200ms ease-out;
   /* margin: auto; */
   /* max-height: 250px; */
 }
+.action .experience img {
+  opacity: 1;
+}
+.action:not(.scan) .frame img {
+  transition: all 500ms ease-out;
+  transition-delay: 500ms;
+  transform: scale(1.1);
+}
+
 .frame img.show {
+  transform: scale(1);
   opacity: 1;
 }
 </style>

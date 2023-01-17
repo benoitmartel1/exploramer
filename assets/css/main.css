@@ -53,12 +53,14 @@ ul {
 #main {
   overflow: hidden;
 }
-#main > div > div,
+#main > div > div > div:not(.header),
 .resolve,
 .content {
   animation: fadeLeft 400ms ease-out forwards;
 }
-
+.header {
+  animation: none;
+}
 .footer {
   margin-top: auto;
   flex: 1;
@@ -157,7 +159,7 @@ a:hover {
   background-color: #005e8f;
   font-weight: black;
   color: white;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-size: 53px;
   font-weight: 900;
 }

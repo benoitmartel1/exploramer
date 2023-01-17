@@ -9,171 +9,271 @@
         />
         <img v-else src="@/assets/images/rorqual.png" alt="" />
       </div>
-      <h1>Résumé de l’enquête</h1>
+      <h1 v-if="lang == 'fr'">Résumé de l’enquête</h1>
+      <h1 v-else>SUMMARY OF THE INVESTIGATION</h1>
       <div class="sous-titre">
-        <div v-if="settings.experience == 0">Le béluga</div>
-        <div v-else>Le Rorqual à bosse</div>
+        <div v-if="settings.experience == 0">
+          {{ lang == 'fr' ? 'Le Béluga' : 'Beluga' }}
+        </div>
+        <div v-else>
+          {{ lang == 'fr' ? 'Le rorqual à bosse' : 'Humpback whale' }}
+        </div>
       </div>
     </div>
     <div class="form" v-if="settings.experience == 0">
       <!--Thème 1------------------------------------------>
-      <h3>Morphologie et reproduction</h3>
+      <h3>{{ themes[0] }}</h3>
       <div class="prop">
-        <div class="key">Sexe :</div>
-        <div v-if="isCompleted(0, 4)" class="value">Femelle</div>
-        <div v-else class="empty value"></div>
-      </div>
-      <div class="prop">
-        <div class="key">Âge :</div>
-        <div v-if="isCompleted(0, 1)" class="value">27 ans</div>
-        <div v-else class="empty value"></div>
-      </div>
-      <div class="prop">
-        <div class="key">Longueur :</div>
-        <div v-if="isCompleted(0, 3)" class="value">3,5 m</div>
-        <div v-else class="empty value"></div>
-      </div>
-      <div class="prop note">
-        <div class="key">note :</div>
-        <div v-if="isCompleted(0, 3)" class="value">
-          Grandeur normale pour son âge.
+        <div class="key">{{ (lang == 'fr' ? 'Sexe' : 'Sex') + ' :' }}</div>
+        <div v-if="isCompleted(0, 4)" class="value">
+          {{ lang == 'fr' ? 'Femelle' : 'Female' }}
         </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop">
-        <div class="key">Poids :</div>
-        <div v-if="isCompleted(0, 0)" class="value">1 400 kg</div>
+        <div class="key">{{ (lang == 'fr' ? 'Âge' : 'Age') + ' :' }}</div>
+        <div v-if="isCompleted(0, 1)" class="value">
+          {{ lang == 'fr' ? '27 ans' : '27' }}
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">
+          {{ (lang == 'fr' ? 'Longueur' : 'Length') + ' :' }}
+        </div>
+        <div v-if="isCompleted(0, 3)" class="value">
+          {{ lang == 'fr' ? '3,50 m' : '3.50 m' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
+        <div class="key">{{ lang == 'fr' ? 'note' : 'Note' + ' :' }}</div>
+        <div v-if="isCompleted(0, 3)" class="value">
+          {{
+            lang == 'fr'
+              ? 'Grandeur normale pour son âge.'
+              : 'Normal length for its age'
+          }}
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">
+          {{ (lang == 'fr' ? 'Poids' : 'Weight') + ' :' }}
+        </div>
+        <div v-if="isCompleted(0, 0)" class="value">
+          {{ lang == 'fr' ? '1 400 kg' : '1,400 kg' }}
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
         <div v-if="isCompleted(0, 2)" class="value">
-          Poids normal pour son âge.
+          {{
+            lang == 'fr'
+              ? 'Poids normal pour son âge.'
+              : 'Normal weight for its age'
+          }}
         </div>
         <div v-else class="empty value"></div>
       </div>
 
       <!--Thème 2------------------------------------------>
-      <h3>Alimentation</h3>
+      <h3>{{ themes[1] }}</h3>
       <div class="prop">
-        <div class="key">Alimentation normale :</div>
-        <div v-if="isCompleted(1, 0)" class="value">Oui</div>
+        <div class="key">
+          {{ (lang == 'fr' ? 'Alimentation normale' : 'Diet') + ' :' }}
+        </div>
+        <div v-if="isCompleted(1, 0)" class="value">
+          {{ lang == 'fr' ? 'Oui' : 'Normal' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
         <div v-if="isCompleted(1, 0)" class="value">
-          L’alimentation est contaminée par les polluants toxiques.
+          {{
+            lang == 'fr'
+              ? 'L’alimentation est contaminée par les polluants toxiques.'
+              : "The beluga's diet is contaminated by toxic pollutants"
+          }}
         </div>
         <div v-else class="empty value"></div>
       </div>
       <!--Thème 3------------------------------------------>
-      <h3>Menaces</h3>
+      <h3>{{ themes[2] }}</h3>
       <div class="prop">
-        <div class="key">Toxines :</div>
-        <div v-if="isCompleted(2, 0)" class="value">10 ng/g</div>
+        <div class="key">
+          {{ (lang == 'fr' ? 'Toxines' : 'Toxins') + ' :' }}
+        </div>
+        <div v-if="isCompleted(2, 0)" class="value">
+          {{ lang == 'fr' ? '10 ng/g' : '10 ng/g' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
         <div v-if="isCompleted(2, 0)" class="value">
-          Quantité trop élevée de toxines.
+          {{
+            lang == 'fr'
+              ? 'Quantité trop élevée de toxines.'
+              : 'Elevated level of toxins'
+          }}
         </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop">
-        <div class="key">Signes d’accouchement récent :</div>
-        <div v-if="isCompleted(2, 1)" class="value">Oui</div>
+        <div class="key">
+          {{
+            (lang == 'fr'
+              ? 'Signes d’accouchement'
+              : 'Signs of recent calving') + ' :'
+          }}
+        </div>
+        <div v-if="isCompleted(2, 1)" class="value">
+          {{ lang == 'fr' ? 'Oui' : 'Yes' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
         <div v-if="isCompleted(2, 1)" class="value">
-          Les complications à l’accouchement peuvent être liées à un taux de
-          toxicité élevé.
+          {{
+            lang == 'fr'
+              ? 'Les complications à l’accouchement peuvent être liées à un taux de toxicité élevé.'
+              : 'Complications of calving are often linked to elevated levels of toxicity'
+          }}
         </div>
         <div v-else class="empty value"></div>
       </div>
     </div>
     <div v-else class="form">
       <!--Thème 1------------------------------------------>
-      <h3>Morphologie et reproduction</h3>
+      <h3>{{ themes[0] }}</h3>
       <div class="prop">
-        <div class="key">Sexe :</div>
-        <div v-if="isCompleted(0, 4)" class="value">Mâle</div>
-        <div v-else class="empty value"></div>
-      </div>
-      <div class="prop">
-        <div class="key">Âge :</div>
-        <div v-if="isCompleted(0, 1)" class="value">41 ans</div>
-        <div v-else class="empty value"></div>
-      </div>
-      <div class="prop">
-        <div class="key">Longueur :</div>
-        <div v-if="isCompleted(0, 3)" class="value">14 m</div>
-        <div v-else class="empty value"></div>
-      </div>
-      <div class="prop note">
-        <div class="key">note :</div>
-        <div v-if="isCompleted(0, 3)" class="value">
-          Grandeur normale pour son âge.
+        <div class="key">{{ (lang == 'fr' ? 'Sexe' : 'Sex') + ' :' }}</div>
+        <div v-if="isCompleted(0, 4)" class="value">
+          {{ lang == 'fr' ? 'Mâle' : 'Male' }}
         </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop">
-        <div class="key">Poids :</div>
-        <div v-if="isCompleted(0, 0)" class="value">28 000 kg</div>
+        <div class="key">{{ (lang == 'fr' ? 'Âge' : 'Age') + ' :' }}</div>
+        <div v-if="isCompleted(0, 1)" class="value">
+          {{ lang == 'fr' ? '41 ans' : '41' }}
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">
+          {{ (lang == 'fr' ? 'Longueur' : 'Length') + ' :' }}
+        </div>
+        <div v-if="isCompleted(0, 3)" class="value">
+          {{ (lang == 'fr' ? '15,80 m' : '15.80 m') + ' :' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
+        <div class="key">{{ lang == 'fr' ? 'note' : 'Note' }} :</div>
+        <div v-if="isCompleted(0, 3)" class="value">
+          {{
+            lang == 'fr'
+              ? 'Grandeur normale pour son âge.'
+              : 'Normal length for its age'
+          }}
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop">
+        <div class="key">
+          {{ (lang == 'fr' ? 'Poids' : 'Weight') + ' :' }}
+        </div>
+        <div v-if="isCompleted(0, 0)" class="value">
+          {{ lang == 'fr' ? '28 000 kg' : '28,000 kg' }}
+        </div>
+        <div v-else class="empty value"></div>
+      </div>
+      <div class="prop note">
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
         <div v-if="isCompleted(0, 2)" class="value">
-          Poids anormal pour son âge.
+          {{
+            lang == 'fr'
+              ? 'Poids anormal pour son âge.'
+              : 'Abnormal weight for its age'
+          }}
         </div>
         <div v-else class="empty value"></div>
       </div>
 
       <!--Thème 2------------------------------------------>
-      <h3>Alimentation</h3>
+      <h3>{{ themes[1] }}</h3>
       <div class="prop">
-        <div class="key">Alimentation :</div>
-        <div v-if="isCompleted(1, 0)" class="value">Anormale</div>
+        <div class="key">
+          {{ (lang == 'fr' ? 'Alimentation' : 'Diet') + ' :' }}
+        </div>
+        <div v-if="isCompleted(1, 0)" class="value">
+          {{ lang == 'fr' ? 'Anormale' : 'Abnormal' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
         <div v-if="isCompleted(1, 0)" class="value">
-          Du plastique se trouve dans son estomac. Petite quantité, non
-          dangereuse.
+          {{
+            (lang == 'fr'
+              ? 'Du plastique se trouve dans son estomac. Petite quantité, non dangereuse.'
+              : "There is plastic in the whale's stomach; small quantity, not hazardous") +
+            ' :'
+          }}
         </div>
         <div v-else class="empty value"></div>
       </div>
       <!--Thème 3------------------------------------------>
-      <h3>Menaces</h3>
+      <h3>{{ themes[2] }}</h3>
       <div class="prop">
-        <div class="key">Toxines :</div>
-        <div v-if="isCompleted(2, 0)" class="value">100 ng/g</div>
+        <div class="key">
+          {{ (lang == 'fr' ? 'Toxines' : 'Toxins') + ' :' }}
+        </div>
+        <div v-if="isCompleted(2, 0)" class="value">
+          {{ lang == 'fr' ? '100 ng/g' : '100 ng/g' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">note :</div>
-        <div v-if="isCompleted(2, 0)" class="value">Quantité normale.</div>
+        <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
+        <div v-if="isCompleted(2, 0)" class="value">
+          {{ lang == 'fr' ? 'Quantité normale.' : 'Normal concentration' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop">
         <div class="key">
-          Traces d’impacts avec des navires et engins de pêche :
+          {{
+            (lang == 'fr'
+              ? 'Traces d’impacts avec des navires et engins de pêche'
+              : 'Signs of collisions with ships and fishing gear') + ' :'
+          }}
         </div>
-        <div v-if="isCompleted(2, 1)" class="value">Oui</div>
+        <div v-if="isCompleted(2, 1)" class="value">
+          {{ lang == 'fr' ? 'Oui' : 'Yes' }}
+        </div>
         <div v-else class="empty value"></div>
       </div>
     </div>
     <div v-if="content.hasMessage" class="message">
-      <b>Bravo !</b> Vous avez complété cette section et vous pouvez maintenant
-      accéder à la suivante.
+      <div v-if="lang == 'fr'">
+        <b>Bravo !</b> Vous avez complété cette section et vous pouvez
+        maintenant accéder à la suivante.
+      </div>
+      <div v-else>
+        <b>Congratulations!</b> You have completed this section. You can now
+        move to the next section.
+      </div>
     </div>
     <div v-if="this.content.type == 'rapport'" class="footer center">
-      <div class="button" @click="done()">Continuer</div>
+      <div class="button" @click="done()">
+        {{ lang == 'fr' ? 'Continuer' : 'XXX---Continue' }}
+      </div>
     </div>
   </div>
 </template>
@@ -187,10 +287,17 @@ export default {
       lang: this.$store.state.settings.langue,
     }
   },
-  props: ['content'],
+  props: ['content', 'allContent'],
   computed: {
     status() {
       return this.$store.getters.getStatus
+    },
+    themes() {
+      let arr = []
+      this.allContent.themes.forEach((t) => {
+        if (t[this.lang]) arr.push(t[this.lang])
+      })
+      return arr
     },
   },
   methods: {

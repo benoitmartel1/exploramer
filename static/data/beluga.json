@@ -2,13 +2,15 @@
   "themes": [
     {
       "fr": "Morphologie et reproduction",
-      "en": "Morphology",
+      "en": "Morphology and reproduction",
       "subthemes": [
         {
           "fr": "Peser la baleine",
+          "en": "Weighing the whale",
           "info": {
             "roles": ["t", "b", "v"],
-            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du béluga ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>"
+            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du béluga ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
+            "en": "<p>Are you ready to solve the mystery of the dead beluga?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>"
           },
           "steps": [
             {
@@ -26,11 +28,13 @@
               "actions": [
                 {
                   "roles": ["t", "v"],
-                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran."
+                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
+                  "en": "To weigh the beluga, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note le bon résultat dans la tablette."
+                  "fr": "Note le bon résultat dans la tablette.",
+                  "en": "Note the correct answer on the tablet."
                 }
               ]
             },
@@ -38,27 +42,33 @@
               "__comment": "6-9",
               "type": "question",
               "question": {
-                "fr": "Quel est le poids du béluga?"
+                "fr": "Quel est le poids du béluga?",
+                "en": "How much does the beluga weigh?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "1 400 kg"
+                  "fr": "1 400 kg",
+                  "en": "1,400 kg"
                 },
                 {
                   "fr": "4 000 kg",
+                  "en": "4,000 kg",
                   "isAnswer": true
                 },
                 {
-                  "fr": "9 500 kg"
+                  "fr": "9 500 kg",
+                  "en": "9,500 kg"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo! Tu as trouvé le poids de la baleine!"
+                  "fr": "Bravo! Tu as trouvé le poids de la baleine!",
+                  "en": "Good work! You found the weight of the whale!"
                 },
                 "wrong": {
                   "fr": "As-tu  bien ajusté ta balance? Essaie de nouveau.",
+                  "en": "Did you adjust your scale? Try again.",
                   "retry": true
                 }
               }
@@ -67,6 +77,7 @@
         },
         {
           "fr": "Déterminer l'âge de la baleine",
+          "en": "Determining the whale’s age",
           "steps": [
             {
               "__comment": "10",
@@ -78,11 +89,13 @@
               "actions": [
                 {
                   "roles": ["t", "b", "v"],
-                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du béluga."
+                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du béluga.",
+                  "en": "Go see the scientific animator; they will help you determine the beluga’s age."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note l'information obtenue dans la tablette."
+                  "fr": "Note l'information obtenue dans la tablette.",
+                  "en": "Note the answer on the tablet."
                 }
               ]
             },
@@ -90,27 +103,33 @@
               "__comment": "12-15",
               "type": "question",
               "question": {
-                "fr": "Quel est l'âge du béluga ?"
+                "fr": "Quel est l'âge du béluga ?",
+                "en": "How old is the beluga?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "27 ans",
+                  "en": "27 years old",
                   "isAnswer": true
                 },
                 {
-                  "fr": "3 ans"
+                  "fr": "3 ans",
+                  "en": "3 years old"
                 },
                 {
-                  "fr": "49 ans"
+                  "fr": "49 ans",
+                  "en": "49 years old"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bonne réponse ! Le béluga a bien 27 ans."
+                  "fr": "Bonne réponse ! Le béluga a bien 27 ans.",
+                  "en": "Correct! The beluga is 27 years old."
                 },
                 "wrong": {
                   "fr": "Ummm…Tu devrais peut-être retourner voir l'animateur.",
+                  "en": "Hmmm … maybe you should go back to see the scientific animator.",
                   "retry": true
                 }
               }
@@ -119,8 +138,10 @@
         },
         {
           "fr": "Déterminer si son poids est normal pour son âge",
+          "en": "XXXX---Déterminer si son poids est normal pour son âge",
           "info": {
-            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
+            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>",
+            "en": "<p>REMINDER</p><p>The beluga weighs 1,400 kg.</p><p>An adult beluga weighs between 700 and 2,000 kg. A beluga reaches maturity between the ages of 9 and 18.</p><p>The availability of food, the presence of pollutants, and the impacts of maritime transport all affect the beluga’s quality of life.</p>"
           },
           "steps": [
             { "type": "title" },
@@ -131,7 +152,8 @@
               "actions": [
                 {
                   "roles": ["t", "b"],
-                  "fr": "Comparez maintenant le poids et l’âge du béluga pour établir s’il a un poids santé pour son âge."
+                  "fr": "Comparez maintenant le poids et l’âge du béluga pour établir s’il a un poids santé pour son âge.",
+                  "en": "Now compare the beluga’s age with its weight to figure out whether this whale has a healthy weight for its age."
                 }
               ],
               "hasInfo": true
@@ -142,24 +164,29 @@
               "roles": [0, 1],
               "hasInfo": true,
               "question": {
-                "fr": "Est-ce que son poids est normal pour un béluga adulte? "
+                "fr": "Est-ce que son poids est normal pour un béluga adulte?",
+                "en": "Does this whale have a normal weight for an adult beluga? "
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "En effet ! Le poids du béluga est bien normal pour son âge."
+                  "fr": "En effet ! Le poids du béluga est bien normal pour son âge.",
+                  "en": "You are right! The beluga's weight is normal for its age."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -168,9 +195,7 @@
         },
         {
           "fr": "Mesurer la baleine",
-          "info": {
-            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
-          },
+          "en": "Measuring the whale",
           "steps": [
             {
               "__comment": "21",
@@ -182,14 +207,16 @@
                 {
                   "roles": ["t", "v"],
                   "image": {
-                    "name": "b_21_tape.png",
+                    "name": "B-21-ruban.png",
                     "width": 30
                   },
-                  "fr": "En équipe, vous devez maintenant déterminer la longueur du béluga à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure."
+                  "fr": "En équipe, vous devez maintenant déterminer la longueur du béluga à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure.",
+                  "en": "With your team’s help, you must now determine the whale’s length using the measuring tape. Use the marks on the banner, under the whale, as a reference."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note les résultats obtenus dans la tablette."
+                  "fr": "Note les résultats obtenus dans la tablette.",
+                  "en": "Note the result on the tablet."
                 }
               ]
             },
@@ -197,27 +224,33 @@
               "__comment": "22-25",
               "type": "question",
               "question": {
-                "fr": "Quelle est la longueur du béluga ?"
+                "fr": "Quelle est la longueur du béluga ?",
+                "en": "What is the beluga's length"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "12 m"
+                  "fr": "12 m",
+                  "en": "12 m"
                 },
                 {
                   "fr": "3,5 m",
+                  "en": "3.5 m",
                   "isAnswer": true
                 },
                 {
-                  "fr": "25 m"
+                  "fr": "25 m",
+                  "en": "25 m"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "La baleine mesure bien 3,5 m! Les bélugas adultes mesurent en moyenne entre 2,7 m et 5 m.."
+                  "fr": "La baleine mesure bien 3,50 m! Les bélugas adultes mesurent en moyenne entre 2,50 m et 5 m..",
+                  "en": "Correct! The beluga measures 3.50 m. The normal length of an adult beluga ranges from 2.50 to 5 m."
                 },
                 "wrong": {
                   "fr": "Ton ruban à mesurer semble défectueux, essaie de nouveau.",
+                  "en": "There appears to be something wrong with your measuring tape! Try again.",
                   "retry": true
                 }
               }
@@ -226,24 +259,29 @@
               "__comment": "26-29",
               "type": "question",
               "question": {
-                "fr": "Est-ce que la longueur du béluga se situe dans la moyenne d’un adulte ?"
+                "fr": "Est-ce que la longueur du béluga se situe dans la moyenne d’un adulte ?",
+                "en": "Is this beluga’s length normal for an adult?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bien observé ! Sa taille se situe dans la moyenne."
+                  "fr": "Bien observé ! Sa taille se situe dans la moyenne.",
+                  "en": "Correct! Its length is normal for an adult beluga."
                 },
                 "wrong": {
                   "fr": "Es-tu certain de ta réponse ? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -252,9 +290,7 @@
         },
         {
           "fr": "Déterminer le sexe de la baleine",
-          "info": {
-            "fr": "<p>RAPPEL</p><p>Le béluga pèse 1 400 kg.</p><p>Un béluga adulte pèse en moyenne entre 700 kg et 2 000 kg. Il atteint la maturité entre l’âge de 9 et 18 ans.</p><p>La disponibilité de la nourriture, les polluants et le transport maritime ont un impact sur sa qualité de vie.</p>"
-          },
+          "en": "Determining the sex of the beluga",
           "steps": [
             {
               "__comment": "30",
@@ -268,20 +304,22 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le béluga et essaie de trouver son sexe en balayant l’image avec la tablette."
+                  "fr": "Place-toi devant la bannière représentant le béluga et essaie de trouver son sexe en balayant l’image avec la tablette.",
+                  "en": "Stand in front of the banner representing the beluga and determine its sex by scanning the image with the tablet."
                 }
               ]
             },
             {
               "type": "action",
-              "hasInfo": "true",
+
               "actions": [
                 {
                   "image": {
                     "name": "b_sexe.png"
                   },
                   "roles": ["b"],
-                  "fr": "Comparez la numérisation que vous avez obtenue avec les images de référence pour identifier s’il s’agit d’un mâle ou d’une femelle."
+                  "fr": "Comparez la numérisation que vous avez obtenue avec les images de référence pour identifier s’il s’agit d’un mâle ou d’une femelle.",
+                  "en": "Compare your scan with the reference images to determine whether the beluga is a male or a female."
                 }
               ]
             },
@@ -289,24 +327,29 @@
               "__comment": "31-34",
               "type": "question",
               "question": {
-                "fr": "Quel est le sexe du béluga ?"
+                "fr": "Quel est le sexe du béluga ?",
+                "en": "What sex is the beluga?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "Mâle"
+                  "fr": "Mâle",
+                  "en": "Male"
                 },
                 {
                   "fr": "Femelle",
+                  "en": "Female",
                   "isAnswer": true
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bien observé ! Il s'agit bien d'une femelle."
+                  "fr": "Bien observé !<br>Il s'agit bien d'une femelle.",
+                  "en": "Correct!<br>It is a female."
                 },
                 "wrong": {
                   "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "en": "Did you look closely? Try again.",
                   "retry": true
                 }
               }
@@ -326,12 +369,15 @@
     },
     {
       "fr": "Alimentation",
+      "en": "Feeding behaviour",
       "subthemes": [
         {
           "fr": "Comment se nourrit un béluga et que mange-t-il?",
+          "en": "How does a beluga feed, and what does it eat?",
           "info": {
             "__comment": "38",
-            "fr": "<p>Le béluga est une baleine à dents. Comme un aspirateur, c'est par succion qu'il attrape ses proies, qu’il avale sans mâcher. Il se nourrit de petits poissons de fond marin, tels que: le capelan, le lançon, la morue, le hareng, l’anguille, le poulamon et d’autres espèces de poissons et d’invertébrés.</p>"
+            "fr": "<p>Le béluga est une baleine à dents. Comme un aspirateur, c'est par succion qu'il attrape ses proies, qu’il avale sans mâcher. Il se nourrit de petits poissons de fond marin, tels que: le capelan, le lançon, la morue, le hareng, l’anguille, le poulamon et d’autres espèces de poissons et d’invertébrés.</p>",
+            "en": "<p>The beluga is a toothed whale that sucks up its prey like a vacuum cleaner and swallows without chewing. The beluga feeds on small bottom-dwelling fish, including capelin, sand lances, cod, herring, eel, and Atlantic tomcod, as well as other species of fish and invertebrates.</p>"
           },
           "steps": [
             {
@@ -347,7 +393,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le béluga et balaye l’image avec la tablette pour découvrir le contenu de son estomac."
+                  "fr": "Place-toi devant la bannière représentant le béluga et balaye l’image avec la tablette pour découvrir le contenu de son estomac.",
+                  "en": "Stand in front of the banner representing the beluga and scan the image with the tablet to discover the contents of its stomach."
                 }
               ]
             },
@@ -360,7 +407,8 @@
                     "name": "b_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur."
+                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.",
+                  "en": "In a team, compare the contents of the beluga’s stomach with the containers of food and the pictures on the scientific animator’s table."
                 }
               ]
             },
@@ -368,24 +416,29 @@
               "__comment": "40-43",
               "type": "question",
               "question": {
-                "fr": "Est-ce que les espèces qui se retrouvent dans l’estomac du béluga font partie de ses habitudes alimentaires ?"
+                "fr": "Est-ce que les espèces qui se retrouvent dans l’estomac du béluga font partie de ses habitudes alimentaires ?",
+                "en": "Do the species found in the beluga’s stomach form part of its normal diet?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle. Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques."
+                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle. Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques.",
+                  "en": "Yes! The contents of the beluga’s stomach correspond to the whale’s normal feeding habits. But be careful! The beluga’s diet is contaminated because the St. Lawrence River is, unfortunately, full of toxic pollutants."
                 },
                 "wrong": {
                   "fr": "As-tu bien regardé ? Essaie à nouveau.",
+                  "en": "Did you look closely? Try again.",
                   "retry": true
                 }
               }
@@ -405,9 +458,11 @@
     },
     {
       "fr": "Menaces",
+      "en": "Threats",
       "subthemes": [
         {
           "fr": "Déterminer le taux de toxicité",
+          "en": "Determining the concentration of toxins",
           "steps": [
             {
               "__comment": "46",
@@ -419,11 +474,13 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du béluga pour découvrir son taux de toxicité."
+                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du béluga pour découvrir son taux de toxicité.",
+                  "en": "Go see the scientific animator, and study the skin and blubber of the beluga to discover the level of toxins in the whale."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Inscris la réponse dans la tablette."
+                  "fr": "Inscris la réponse dans la tablette.",
+                  "en": "Note the result on the tablet."
                 }
               ]
             },
@@ -431,27 +488,33 @@
               "__comment": "47-50",
               "type": "question",
               "question": {
-                "fr": "Quel taux de toxicité a été obtenu lors de l'analyse de la peau et de la graisse ?"
+                "fr": "Quel taux de toxicité a été obtenu lors de l'analyse de la peau et de la graisse ?",
+                "en": "What concentration of toxins was obtained by analyzing the skin and blubber?"
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "2 ng/g"
+                  "fr": "2 ng/g",
+                  "en": "2 ng/g"
                 },
                 {
-                  "fr": "8 ng/g"
+                  "fr": "8 ng/g",
+                  "en": "8 ng/g"
                 },
                 {
                   "fr": "10 ng/g",
+                  "en": "10 ng/g",
                   "isAnswer": true
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tout à fait ! C'est bien le bon taux."
+                  "fr": "Tout à fait ! C'est bien le bon taux.",
+                  "en": "Well done! That is the correct concentration of toxicity."
                 },
                 "wrong": {
                   "fr": "Ummm... Es-tu certain.e d'avoir bien noté la donnée ? Retourne voir l'animateur.",
+                  "en": "Hmmm ... did you record the results correctly? Go back to see the scientific animator.",
                   "retry": true
                 }
               }
@@ -462,11 +525,13 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un béluga."
+                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un béluga.",
+                  "en": "Consult the “Toxicity Scale” data sheet in the briefcase to see whether this quantity of toxins is acceptable for a beluga."
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Inscris la réponse dans la tablette."
+                  "fr": "Inscris la réponse dans la tablette.",
+                  "en": "Note the result on the tablet."
                 }
               ]
             },
@@ -474,24 +539,29 @@
               "__comment": "52-55",
               "type": "question",
               "question": {
-                "fr": "Est-ce que la quantité de toxines se situe dans un intervalle normal pour le béluga ?"
+                "fr": "Est-ce que la quantité de toxines se situe dans un intervalle normal pour le béluga ?",
+                "en": "Is the quantity of toxins within the acceptable range for a beluga? "
               },
               "validate": true,
               "choices": [
                 {
-                  "fr": "Oui"
+                  "fr": "Oui",
+                  "en": "Yes"
                 },
                 {
                   "fr": "Non",
+                  "en": "No",
                   "isAnswer": true
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as raison, ce n'est pas normal. Une femelle béluga peut avoir une quantité de toxines qui se situe autour de 6,5 ng/g. Une quantité plus élevée peut être nocive et causer des problèmes lors de l’accouchement."
+                  "fr": "Tu as raison, ce n'est pas normal. Une femelle béluga peut avoir une quantité de toxines qui se situe autour de 6,5 ng/g. Une quantité plus élevée peut être nocive et causer des problèmes lors de l’accouchement.",
+                  "en": "You are right. It is above the acceptable amount. A female beluga can have around 7 ng/g of toxins in her skin and blubber. Levels above that can be harmful and cause problems when it is time for her to give birth (calve)."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix ? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -500,6 +570,7 @@
         },
         {
           "fr": "Déterminer s'il y a des signes d'accouchement récent",
+          "en": "Determine whether there are signs that the beluga has recently given birth",
           "steps": [
             {
               "__comment": "55",
@@ -514,7 +585,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v", "t"],
-                  "fr": "Comme le béluga est une femelle, vous devez aussi vérifier si le béluga présente des signes d’accouchement récent. Placez-vous devant la bannière représentant le béluga et balayez l’image avec la tablette pour tenter de détecter ces signes."
+                  "fr": "Comme le béluga est une femelle, vous devez aussi vérifier si le béluga présente des signes d’accouchement récent. Placez-vous devant la bannière représentant le béluga et balayez l’image avec la tablette pour tenter de détecter ces signes.",
+                  "en": "Since the beluga is a female, you should also check to see whether she shows signs of having recently given birth (calving). Stand in front of the banner representing the beluga and scan the image with the tablet to detect these signs."
                 }
               ]
             },
@@ -522,24 +594,29 @@
               "__comment": "56-59",
               "type": "question",
               "question": {
-                "fr": "Est-ce que le béluga présente des signes d’accouchement récent ?"
+                "fr": "Est-ce que le béluga présente des signes d’accouchement récent ?",
+                "en": "Does the beluga show signs of recent calving?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Oui",
+                  "en": "Yes",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Non"
+                  "fr": "Non",
+                  "en": "No"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as raison, il y a des signes d'accouchement récent. Les problèmes à l’accouchement peuvent être liés à un taux de toxicité élevé."
+                  "fr": "Tu as raison, il y a des signes d'accouchement récent. Les problèmes à l’accouchement peuvent être liés à un taux de toxicité élevé.",
+                  "en": "You are right. There are signs that she recently gave birth. Difficulties in calving may be linked to elevated toxin concentrations in the female beluga."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix? Essaie à nouveau.",
+                  "en": "Are you sure? Try again.",
                   "retry": true
                 }
               }
@@ -549,12 +626,14 @@
       ]
     },
     {
+      "isLast": true,
       "subthemes": [
         {
           "isLast": true,
           "info": {
             "roles": ["t", "b", "v"],
-            "fr": "<p>Maintenant que toute l’information a été recueillie, il est temps de travailler en équipe pour élucider le mystère entourant la mort du béluga.</p><p>Rassemblez l’information collectée et analysez les résultats.</p>"
+            "fr": "<p>Maintenant que toute l’information a été recueillie, il est temps de travailler en équipe pour élucider le mystère entourant la mort du béluga.</p><p>Rassemblez l’information collectée et analysez les résultats.</p>",
+            "en": "<p>Now that you have gathered all the necessary information, it is time to work as a team to solve the mystery surrounding the beluga’s death.</p><p>Assemble the information that you have gathered and analyze the results.</p>"
           },
           "steps": [
             {
@@ -566,33 +645,45 @@
               "__comment": "63-66",
               "type": "question",
               "question": {
-                "fr": "Parmi les choix suivants, quelle est la cause de la mort du béluga ?"
+                "fr": "Parmi les choix suivants, quelle est la cause de la mort du béluga ?",
+                "en": "Which of the following caused the beluga’s death?"
               },
               "validate": true,
               "choices": [
                 {
                   "fr": "Les polluants toxiques retrouvés dans l’eau.",
+                  "en": "Toxic pollutants in the water",
                   "isAnswer": true
                 },
                 {
-                  "fr": "Le transport maritime et les engins de pêche."
+                  "fr": "Le transport maritime et les engins de pêche.",
+                  "en": " Maritime transport and fishing gear"
                 },
                 {
-                  "fr": "Une mauvaise alimentation."
+                  "fr": "Une mauvaise alimentation.",
+                  "en": "A poor diet"
                 },
                 {
-                  "fr": "Les complications dues à l’accouchement."
+                  "fr": "Les complications dues à l’accouchement.",
+                  "en": "Complications of giving birth"
                 }
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !"
+                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !",
+                  "en": "Congratulations! You have solved the mystery!"
                 },
                 "wrong": {
                   "fr": "Révisez les résultats obtenus, vous y êtes presque.",
+                  "en": "Review the obtained results. You are almost there.",
                   "retry": true
                 }
               }
+            },
+            {
+              "type": "outro",
+              "fr": "Les bélugas sont exposés à plusieurs contaminants dans le Saint-Laurent. Les hauts taux de toxicité dans leur corps créent des problèmes de santé tels que des cancers ou des difficultés lors de l’accouchement.",
+              "en": "Belugas are exposed to a variety of contaminants in the St. Lawrence Estuary. The high levels of toxins in their bodies create health problems, including cancers and difficulties while giving birth."
             }
           ]
         }
