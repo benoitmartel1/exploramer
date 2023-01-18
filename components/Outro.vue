@@ -104,4 +104,16 @@ h2 {
 .outro .experience {
   margin-bottom: 40px;
 }
+.outro .experience,
+.outro .sous-titre {
+  animation: fromTopRight var(--default-tr-speed) ease-out;
+}
+
+.outro .bravo,
+.outro h2 {
+  animation: fromTopLeft var(--default-tr-speed) ease-out;
+}
+.outro .main-text {
+  animation: fromBottomRight var(--default-tr-speed) ease-out;
+}
 </style>
