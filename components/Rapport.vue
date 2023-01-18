@@ -271,9 +271,7 @@
       </div>
     </div>
     <div v-if="this.content.type == 'rapport'" class="footer center">
-      <div class="button" @click="done()">
-        {{ lang == 'fr' ? 'Continuer' : 'XXX---Continue' }}
-      </div>
+      <ContinueButton />
     </div>
   </div>
 </template>
@@ -327,9 +325,17 @@ export default {
 </script>
 
 <style>
-.experience img {
+.rapport img {
   max-height: 180px;
 }
+/* .rapport .center > * {
+  animation: fromTopRight var(--default-tr-speed) ease-out;
+}
+
+.form {
+  animation: fromTop var(--default-tr-speed) ease-out !important;
+} */
+
 h3 {
   background-color: #c9ebf4;
   padding: 5px;
@@ -396,5 +402,9 @@ ul {
 }
 .rapport:has(.message) .button {
   margin-top: 0;
+}
+.rapport .center,
+.rapport .form {
+  animation: fadeLeft 400ms ease-out forwards;
 }
 </style>

@@ -26,9 +26,7 @@
       </div>
     </div>
     <div class="center footer">
-      <div class="button" @click="done()">
-        {{ lang == 'fr' ? 'Continuer' : 'XXX----Continue' }}
-      </div>
+      <ContinueButton />
     </div>
   </div>
 </template>
@@ -60,15 +58,23 @@ export default {
 
 <style>
 .frame {
+  margin-top: 50px;
   position: relative;
-  z-index: -1;
-  transform: scaleY(0);
-  transform-origin: 50% 0;
-  animation: openDown 400ms cubic-bezier(0.05, 0.67, 0.22, 0.98) forwards;
+  /* z-index: -1; */
+  /* transform: scaleY(0); */
+  /* transform-origin: 50% 0; */
+  /* animation: openDown 400ms cubic-bezier(0.05, 0.67, 0.22, 0.98) forwards; */
+  animation: fromTopLeft var(--default-tr-speed) ease-out both;
 }
-
+.frame-wrapper .icons {
+  position: absolute;
+  z-index: 5;
+}
+.frame-wrapper:nth-of-type(odd) .frame {
+  animation-name: fromBottomRight;
+}
 .frame-wrapper:nth-of-type(3) .frame {
-  animation-delay: 300ms;
+  /* animation-delay: 300ms; */
 }
 .image-wrapper {
   display: inline-block;

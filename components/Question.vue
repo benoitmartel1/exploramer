@@ -5,7 +5,8 @@
       :class="[{ blurred: showValidation || showResolve }, 'content body']"
       v-show="!rightAnswer"
     >
-      {{ content.question[lang] }}
+      <div class="text" v-html="content.question[lang]"></div>
+
       <div class="choices">
         <div
           class="button"
@@ -82,13 +83,11 @@
               </g>
             </svg>
           </div>
-          <span v-html="content.resolve.right[lang]"></span>
+          <div class="text" v-html="content.resolve.right[lang]"></div>
         </div>
 
         <div class="footer center">
-          <div class="button" @click="done()">
-            {{ lang == 'fr' ? 'Continuer' : 'XXX---Continue' }}
-          </div>
+          <ContinueButton />
         </div>
       </div>
     </div>
@@ -156,7 +155,16 @@ export default {
 .resolve {
   height: 100%;
 }
-
+.resolve.body {
+  padding-top: 80px;
+}
+.resolve .text {
+  padding: 0 40px;
+}
+.resolve .row,
+.body .text {
+  animation: fadeLeft var(--default-tr-speed) ease-out !important;
+}
 .question .choices .button {
   min-width: 400px;
   text-align: center;
@@ -194,16 +202,20 @@ export default {
 }
 
 .check {
-  float: left;
-  margin-right: 50px;
+  /* float: left; */
+  /* margin-right: 50px; */
+  /* margin: auto; */
+  margin-bottom: 30px;
+  text-align: center;
 }
 .check svg {
   animation: popButton 300ms forwards ease-out;
 }
 
 .choices .button {
-  opacity: 0;
-  animation: popButton 300ms forwards ease-out;
+  /* opacity: 0; */
+  /* animation: popButton 300ms forwards ease-out; */
+  animation: fromBottomRight var(--default-tr-speed) both;
 }
 
 .choices .button:nth-child(2) {

@@ -9,7 +9,9 @@
       :class="[stepContent.subtheme.isLast ? 'last-theme' : '', 'main-wrapper']"
     >
       <Nav
-        v-if="stepContent.step.type !== 'outro'"
+        v-if="
+          stepContent.step.type !== 'outro' && stepContent.step.type !== 'intro'
+        "
         :isRapport="stepContent.step.type == 'rapport'"
         :unlocks="stepContent.step.unlocks"
       />
@@ -20,6 +22,10 @@
           <Title
             v-if="stepContent.step.type == 'title' && !showRapport"
             :content="stepContent"
+          />
+          <Intro
+            v-if="stepContent.step.type == 'intro' && !showRapport"
+            :content="stepContent.step"
           />
           <Outro
             v-if="stepContent.step.type == 'outro' && !showRapport"
@@ -126,7 +132,6 @@ export default {
           if (5 > event.key && event.key > 0)
             that.$store.commit('setTheme', event.key - 1)
         }
-        console.log('keydown')
         if (event.code == 'ArrowRight') {
           that.increment()
         }

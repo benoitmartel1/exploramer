@@ -1,7 +1,9 @@
 <template>
-  <div :class="[{ outro: type == 'outro' }, 'back']">
+  <div
+    :class="[{ outro: type == 'outro' }, { intro: type == 'intro' }, 'back']"
+  >
     <svg
-      v-if="type !== 'outro'"
+      v-if="type !== 'outro' && type !== 'intro'"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       width="1273.001"
@@ -67,12 +69,13 @@ export default {
   height: var(--app-height);
 }
 
+#main:has(.outro) .back,
+#main:has(.intro) .back {
+  background-color: #005e8f;
+}
 .last-theme .back {
   background-color: #005e8f;
 }
-/* .last-theme .back.outro {
-  background-color: #005e8f;
-} */
 .back svg {
   position: absolute;
   left: 4px;

@@ -7,16 +7,17 @@
         {
           "fr": "Peser la baleine",
           "en": "Weighing the whale",
-          "info": {
-            "roles": ["t", "b", "v"],
-            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du béluga ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
-            "en": "<p>Are you ready to solve the mystery of the dead beluga?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>"
-          },
           "steps": [
             {
+              "__comment": "1",
+              "type": "intro",
+              "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du béluga ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
+              "en": "<p>Are you ready to solve the mystery of the dead beluga?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>",
+              "roles": ["t", "b", "v"]
+            },
+            {
               "__comment": "2",
-              "type": "rapport",
-              "hasInfo": true
+              "type": "rapport"
             },
             {
               "__comment": "4",

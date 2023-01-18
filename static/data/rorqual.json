@@ -7,16 +7,18 @@
         {
           "fr": "Peser la baleine",
           "en": "Weighing the whale",
-          "info": {
-            "roles": ["t", "b", "v"],
-            "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du rorqual à bosse ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
-            "en": "<p>Are you ready to solve the mystery of the dead humpback whale?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>"
-          },
+
           "steps": [
             {
               "__comment": "2",
-              "type": "rapport",
-              "hasInfo": true
+              "type": "intro",
+              "roles": ["t", "b", "v"],
+              "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du rorqual à bosse ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
+              "en": "<p>Are you ready to solve the mystery of the dead humpback whale?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>"
+            },
+            {
+              "__comment": "2",
+              "type": "rapport"
             },
             {
               "__comment": "4",
@@ -299,7 +301,7 @@
             },
             {
               "type": "scan",
-              "tag": "r_sexe_s6",
+              "tag": "r_sexe_s7",
               "overlay": "r_sexe.jpg",
               "actions": [
                 {
@@ -387,7 +389,7 @@
             {
               "__comment": "39",
               "type": "scan",
-              "tag": "r_estomac_s6",
+              "tag": "r_estomac_s7",
               "overlay": "r_estomac.jpg",
               "actions": [
                 {
@@ -579,8 +581,8 @@
             {
               "__comment": "55",
               "type": "scan",
-              "tag": "b_sexe_s6",
-              "overlay": "b_accouchement.jpg",
+              "tag": "r_impact_s3",
+              "overlay": "r_impact.jpg",
               "actions": [
                 {
                   "hasScan": true,

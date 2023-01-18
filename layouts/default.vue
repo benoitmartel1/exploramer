@@ -31,6 +31,12 @@
           <div class="description">Revenir à la page de configuration</div>
         </li>
       </ul>
+      <a
+        download
+        href="scan_bannieres.pdf"
+        style="color: white; text-decoration: underline"
+        >Télécharger les échantillons des bannières pour scanner</a
+      >
     </div>
   </div>
 </template>

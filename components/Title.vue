@@ -83,13 +83,20 @@ export default {
 </script>
 
 <style>
+.title .experience img {
+  animation: fromTopRight var(--default-tr-speed) ease-out;
+}
 .main-block {
+  /* animation: fromBottomRight 500ms ease-out; */
   text-align: center;
 
   line-height: 1;
   width: 80%;
   margin: auto;
   margin-top: 50px;
+}
+.main-block > * {
+  animation: fromTopLeft var(--default-tr-speed) ease-out;
 }
 .wave {
   margin: 60px;
@@ -101,6 +108,7 @@ export default {
   font-size: 66px;
 }
 .main-block .picto {
+  animation: fromBottomRight var(--default-tr-speed) ease-out;
   margin-top: 60px;
 }
 .main-block .picto svg {
