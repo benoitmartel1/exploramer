@@ -105,7 +105,20 @@ export default {
       rightAnswer: false,
     }
   },
-  props: ['content', 'isLastTheme'],
+  props: ['content', 'isLastTheme', 'preStatus'],
+  mounted() {
+    if (this.preStatus) {
+      if (this.preStatus == 'validate') this.showValidation = true
+      if (this.preStatus == 'right') {
+        this.showResolve = true
+        this.rightAnswer = true
+      }
+      if (this.preStatus == 'wrong') {
+        this.showResolve = true
+        this.rightAnswer = false
+      }
+    }
+  },
   methods: {
     select(index) {
       this.selectedChoice = index

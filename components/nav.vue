@@ -98,7 +98,7 @@ export default {
       themeUnlockModifier: 0,
     }
   },
-  props: ['isRapport', 'unlocks'],
+  props: ['isRapport', 'unlocks', 'themeIndex'],
   computed: {
     isRapportVisible() {
       return this.$parent.showRapport
@@ -108,7 +108,8 @@ export default {
       return this.$store.getters.getStatus
     },
     theme() {
-      return this.$store.getters.getTheme + this.themeUnlockModifier
+      //   return this.$store.getters.getTheme + this.themeUnlockModifier
+      return this.themeIndex + this.themeUnlockModifier
     },
   },
 

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{ blurred: $parent.showInfo }, 'action']">
+  <div :class="[{ blurred: showInfo }, 'action']">
     <Header class="content" />
     <div
       class="frame-wrapper"
@@ -39,7 +39,7 @@ export default {
       imageLoaded: false,
     }
   },
-  props: ['content'],
+  props: ['content', 'showInfo'],
   methods: {
     onImageLoad() {
       this.imageLoaded = true

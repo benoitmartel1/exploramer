@@ -14,6 +14,7 @@
         "
         :isRapport="stepContent.step.type == 'rapport'"
         :unlocks="stepContent.step.unlocks"
+        :themeIndex="status.theme"
       />
       <Home />
 
@@ -35,6 +36,9 @@
             v-if="stepContent.step.type == 'rapport' || showRapport"
             :content="stepContent.step"
             :allContent="content"
+            :status="status"
+            :showInfo="showInfo"
+            :blurred="blurred"
           />
 
           <Scan
@@ -46,11 +50,13 @@
             v-if="stepContent.step.type == 'question' && !showRapport"
             :content="stepContent.step"
             :isLastTheme="stepContent.subtheme.isLast"
+            :preStatus="null"
           />
 
           <Action
             v-if="stepContent.step.type == 'action' && !showRapport"
             :content="stepContent.step"
+            :showInfo="showInfo"
           />
 
           <Admin v-if="showAdmin" :props="stepContent.step.type" />

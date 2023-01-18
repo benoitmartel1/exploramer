@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{ blurred: $parent.blurred || $parent.showInfo }, 'rapport']">
+  <div :class="[{ blurred: blurred || showInfo }, 'rapport']">
     <div class="center">
       <div class="experience">
         <img
@@ -285,11 +285,11 @@ export default {
       lang: this.$store.state.settings.langue,
     }
   },
-  props: ['content', 'allContent'],
+  props: ['content', 'allContent', 'status', 'blurred', 'showInfo'],
   computed: {
-    status() {
-      return this.$store.getters.getStatus
-    },
+    // status() {
+    //   return this.$store.getters.getStatus
+    // },
     themes() {
       let arr = []
       this.allContent.themes.forEach((t) => {

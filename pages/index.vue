@@ -221,4 +221,15 @@ export default {
 .listing {
   font-size: 0.2em;
 }
+
+/* .parcours,
+.listing {
+  display: none;
+}
+.confirmation {
+  display: unset;
+}
+.ok {
+  float: right;
+} */
 </style>

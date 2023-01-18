@@ -30,6 +30,9 @@ module.exports = {
       {
         src: '/exploramer/js/camera-control.js',
       },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
+      },
     ],
   },
 
@@ -42,12 +45,12 @@ module.exports = {
 
   plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],
 
-  buildModules: [],
+  buildModules: ['jspdf'],
   router: {
     base: '/exploramer/',
   },
   components: true,
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', 'jspdf'],
   axios: {
     baseURL: 'http://localhost:3030', // Used as fallback if no runtime config is provided
   },
