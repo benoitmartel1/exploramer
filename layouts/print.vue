@@ -46,7 +46,6 @@ body {
   font-size: 48px;
   margin: 0;
   background-color: #333;
-  overflow: auto !important;
 }
 #app {
   flex-shrink: 0;
