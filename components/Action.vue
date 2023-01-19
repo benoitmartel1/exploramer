@@ -10,14 +10,11 @@
       <div v-show="imageLoaded || !a.image" class="frame">
         <div>{{ a[lang] }}</div>
         <div class="center">
-          <div
-            v-if="a.image"
-            class="image-wrapper"
-            :style="styleImage(a.image)"
-          >
+          <div v-if="a.image" class="image-wrapper">
             <img
               :class="{ show: imageLoaded }"
               :src="require('@/assets/images/' + a.image.name)"
+              :style="styleImage(a.image)"
               alt=""
               @load="onImageLoad"
             />
@@ -77,24 +74,21 @@ export default {
   /* animation-delay: 300ms; */
 }
 .image-wrapper {
-  display: inline-block;
-  overflow: hidden;
-  /* min-height: 250px; */
-  margin: 30px 0;
+  width: 100%;
+  margin-top: 30px;
 }
-.action:not(.scan) img {
-  max-width: 90%;
+.frame img {
+  width: 100%;
   opacity: 0;
-  /* margin: auto; */
-  /* max-height: 250px; */
 }
+
 .action .experience img {
   opacity: 1;
 }
 .action:not(.scan) .frame img {
   transition: all 500ms ease-out;
   transition-delay: 500ms;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .frame img.show {

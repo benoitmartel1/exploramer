@@ -189,8 +189,7 @@ export default {
   display: block;
   /* height: 192px;
   width: 120px; */
-  -webkit-font-smoothing: subpixel-antialiased;
-  transform: translate3d(0, 0, 0) scale(calc(var(--appro-scale) / 10));
+  transform: scale(calc(var(--appro-scale) / 10));
   zoom: 1;
   border: 1px yellow solid;
 }
@@ -211,22 +210,7 @@ export default {
   float: left;
   overflow: hidden;
 }
-/* .loading-dots .stage {
-  transform: scale(3);
-  transform-origin: -25% -480px;
-}
-.wrapper {
-  font-size: 3em;
-  width: 100%;
-  height: 100%;
-  min-height: 1920px;
-  padding: 15% 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
 
-} */
 h1 {
   text-transform: uppercase;
   font-weight: 900;
@@ -255,5 +239,8 @@ button {
   margin: auto;
   display: block;
   /* margin: auto; */
+}
+#pdf {
+  overflow: auto;
 }
 </style>

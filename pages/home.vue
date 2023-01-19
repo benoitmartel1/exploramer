@@ -47,7 +47,8 @@
           />
 
           <Question
-            v-if="stepContent.step.type == 'question' && !showRapport"
+            v-if="stepContent.step.type == 'question'"
+            v-show="!showRapport"
             :content="stepContent.step"
             :isLastTheme="stepContent.subtheme.isLast"
             :preStatus="null"

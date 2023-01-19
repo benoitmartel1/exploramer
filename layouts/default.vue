@@ -81,6 +81,7 @@ export default {
   font-weight: bold;
 }
 body {
+  overflow: hidden;
   /* color: white; */
   font-size: 48px;
   margin: 0;

@@ -44,11 +44,12 @@
           <div class="button ok" @click="$router.push('/home')">OK ></div>
         </div>
       </div>
-      <div v-else-if="settings == null || settings == undefined">
-        <LoadingDots />
-      </div>
+
       <div v-else-if="$fetchState.error">
         Erreur : Le serveur SQLITE n'est pas en service.
+      </div>
+      <div v-else>
+        <LoadingDots />
       </div>
     </transition>
   </div>
@@ -85,15 +86,18 @@ export default {
   },
   computed: {
     themes() {
-      console.log(this.$store.getters.getThemes)
-      return this.$store.getters.getThemes.filter((t) => !null && !t.isLast)
+      let themes = this.$store.getters.getThemes
+      console.log(themes)
+      if (themes) {
+        return themes.filter((t) => !null && !t.isLast)
+      }
     },
   },
   watch: {
     //If settings change, store the appropriate JSON content in the store
     settings() {
       const newContent = this.settings.experience == 0 ? beluga : rorqual
-      //   console.log(newContent)
+      console.log(newContent)
       this.$store.commit('setContent', newContent)
     },
     themes(val) {

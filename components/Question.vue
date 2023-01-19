@@ -155,6 +155,11 @@ export default {
       this.selectedChoice = null
       this.rightAnswer = false
     },
+    beforeDestroy() {
+      console.log('destroy')
+      console.log(this.$parent.showRapport)
+      console.log(this.showValidation)
+    },
   },
 }
 </script>

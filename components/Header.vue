@@ -8,18 +8,20 @@
       />
       <img v-else src="@/assets/images/rorqual.png" alt="" />
     </div>
-    <div class="header-left">
-      <h1>{{ stepContent.theme }}</h1>
-      <h4>{{ stepContent.subtheme[lang] }}</h4>
-    </div>
-    <div class="header-right">
-      <div
-        v-if="stepContent.step.hasInfo"
-        class="info button"
-        @click="showInfo(true)"
-      >
-        <div class="mark">?</div>
-        <div class="overlay"></div>
+    <div class="header-wrapper">
+      <div class="header-left">
+        <h1>{{ stepContent.theme }}</h1>
+        <h4>{{ stepContent.subtheme[lang] }}</h4>
+      </div>
+      <div class="header-right">
+        <div
+          v-if="stepContent.step.hasInfo"
+          class="info button"
+          @click="showInfo(true)"
+        >
+          <div class="mark">?</div>
+          <div class="overlay"></div>
+        </div>
       </div>
     </div>
     <div style="clear: both"></div>
@@ -55,11 +57,14 @@ export default {
   width: 100%;
   margin-bottom: 30px;
 }
-
+.header-wrapper {
+  position: relative;
+  display: flex;
+  /* border: 1px red solid; */
+}
 .header-left {
-  width: calc(90% - 35px);
+  flex: 1;
   line-height: 1;
-  float: left;
 }
 .header-left h1 {
   line-height: 1;
@@ -68,9 +73,7 @@ export default {
   line-height: 1.2;
 }
 .header-right {
-  /* background-color: green; */
-  float: right;
-  width: 135px;
+  width: 150px;
 }
 .info.button .overlay {
   width: 100%;
@@ -84,10 +87,23 @@ export default {
   );
   animation: pulse 2000ms infinite linear;
 }
+
 .info.button {
-  position: relative;
+  position: absolute;
+  /* top: -140px;
+  right: -10px; */
   overflow: hidden;
-  transform-origin: 50% 45%;
+  font-weight: 700;
+  font-size: 120px;
+  width: 135px;
+  height: 135px;
+  color: white;
+  background-color: #005e8f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 30px;
 }
 .info .mark {
   z-index: 100;

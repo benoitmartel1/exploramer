@@ -1,6 +1,6 @@
 export const state = () => ({
   settings: {},
-  content: { themes: {} },
+  content: { themes: undefined },
   theme: 0,
   subtheme: 0,
   step: 0,
