@@ -20,7 +20,7 @@
             updateSettings('experience', settings.experience == 0 ? 1 : 0)
           "
         ></div>
-        <div
+        <!-- <div
           class="button circle parcours"
           @click="
             updateSettings(
@@ -32,15 +32,15 @@
           "
         >
           {{ settings.parcours }}
-        </div>
+        </div> -->
         <div class="confirmation">
-          <ol class="listing">
+          <!-- <ol class="listing">
             <li v-for="(t, index) in themes" :key="'t' + index">
               <div v-if="t[settings.langue] !== ''">
                 {{ t[settings.langue] }}
               </div>
             </li>
-          </ol>
+          </ol> -->
           <div class="button ok" @click="$router.push('/home')">OK ></div>
         </div>
       </div>
@@ -132,6 +132,7 @@ export default {
     },
   },
   mounted() {
+    // this.testApi()
     //Try to fetch settings from SQLITE server every 2 secs
     const fetchInterval = setInterval(() => {
       if (this.settings == null || this.settings == undefined) {
@@ -159,6 +160,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  padding-bottom: 25%;
   /* transition: background-color 0.3s; */
 }
 .wrapper.exp-0 {
@@ -212,9 +214,10 @@ export default {
 .confirmation {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .ok {
+  font-size: 96px;
   /* margin-top: auto; */
   /* margin-top: 100px; */
   align-self: flex-end;

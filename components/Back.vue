@@ -69,10 +69,10 @@ export default {
   height: var(--app-height);
 }
 
-#main:has(.outro) .back,
+/* #main:has(.outro) .back,
 #main:has(.intro) .back {
   background-color: #005e8f;
-}
+} */
 .last-theme .back {
   background-color: #005e8f;
 }

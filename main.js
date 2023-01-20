@@ -17,7 +17,7 @@ if (config.dev) {
   })
 }
 // Listen the server
-server.listen()
+server.listen(3000)
 
 /*
  ** Electron
@@ -31,22 +31,22 @@ const fs = require('fs')
 const isDev = false
 
 //Define entry point with settings as args
-const _NUXT_URL_ = `http://localhost:${server.address().port}`
-
+const _NUXT_URL_ = `http://localhost:${server.address().port}/exploramer/`
+console.log(_NUXT_URL_)
 const app = electron.app
 const newWin = () => {
   win = new electron.BrowserWindow({
-    width: 1280 * 0.4,
-    height: 1920 * 0.4,
-    frame: true,
+    width: 1280,
+    height: 1920,
+    frame: false,
     autoHideMenuBar: true,
-    //  fullscreen: settings.kiosk_mode,
-    //  kiosk: settings.kiosk_mode,
+    fullscreen: true,
+    kiosk: true,
     webPreferences: {
       nodeIntegration: true,
       devTools: true,
     },
-    icon: path.join(__dirname, 'static/icon.png'),
+    icon: path.join(__dirname, 'favicon.ico'),
   })
   console.log(win)
   win.on('closed', () => (win = null))

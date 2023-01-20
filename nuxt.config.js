@@ -1,8 +1,7 @@
 module.exports = {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  //   target: 'static',
 
-  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'exploramer',
@@ -40,6 +39,8 @@ module.exports = {
     '~/assets/css/main.css',
   ],
 
+  serverMiddleware: ['~/api/index'],
+
   plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],
 
   buildModules: [],
@@ -49,7 +50,7 @@ module.exports = {
   components: true,
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://localhost:3030', // Used as fallback if no runtime config is provided
+    baseURL: 'http://localhost:3000/exploramer', // Used as fallback if no runtime config is provided
   },
 
   build: {

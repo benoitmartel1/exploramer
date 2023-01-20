@@ -6,7 +6,12 @@
     />
     <div v-if="blurred || showInfo" class="blurZone"></div>
     <div
-      :class="[stepContent.subtheme.isLast ? 'last-theme' : '', 'main-wrapper']"
+      :class="[
+        stepContent.subtheme.isLast || stepContent.step.type == 'intro'
+          ? 'last-theme'
+          : '',
+        'main-wrapper',
+      ]"
     >
       <Nav
         v-if="
