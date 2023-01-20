@@ -22,3 +22,4 @@ $ yarn generate
 ## Le serveur est sur localhost:3030
 
 scp -r dist/\* benoitma@50.87.233.33:public_html/dev/exploramer
+scp -r app/exploramer.exe benoitma@50.87.233.33:public_html/dev/exploramer
