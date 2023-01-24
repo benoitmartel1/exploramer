@@ -141,7 +141,7 @@
         },
         {
           "fr": "Déterminer si son poids est normal pour son âge",
-          "en": "Does this humpback whale have a normal weight for an adult male?",
+          "en": "Determining the normal weight of a humpback whale",
           "info": {
             "fr": "<p>RAPPEL</p><p>Le rorqual à bosse pèse 28 000 kg.</p><p>Un rorqual à bosse devient adulte à 5 ans et va peser en moyenne entre 30 000 kg et 40 000 kg. La disponibilité de la nourriture, les polluants, le transport maritime et les engins de pêche peuvent avoir un impact sur son alimentation et sa prise de poids.</p>",
             "en": "<p>REMINDER</p><p>The humpback whale weighs 28,000 kg.</p><p>The humpback whale reaches adulthood by the age of 5 and will normally weigh between 30,000 and 40,000 kg. The availability of food, the presence of pollutants, and the impacts of maritime transport and fishing gear can all affect the whale’s feeding behaviour and weight.</p>"
@@ -168,7 +168,7 @@
               "hasInfo": true,
               "question": {
                 "fr": "Est-ce que son poids est normal pour un rorqual adulte ?",
-                "en": "Does this humpback whale have a normal weight for an adult male?"
+                "en": "Does this whale have a normal weight for an adult humpback whale?"
               },
               "validate": true,
               "choices": [
@@ -212,7 +212,7 @@
                   "roles": ["t", "v"],
                   "image": {
                     "name": "Ruban.png",
-                    "width": 30
+                    "width": 50
                   },
                   "fr": "En équipe, vous devez maintenant déterminer la longueur du rorqual à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure. ",
                   "en": "With your team’s help, you must now figure out the whale’s length using the measuring tape. Use the marks on the banner, under the whale, as a reference."
@@ -318,7 +318,8 @@
               "actions": [
                 {
                   "image": {
-                    "name": "r_sexe.png"
+                    "name": "r_sexe.png",
+                    "hasEnVersion": true
                   },
                   "roles": ["b"],
                   "fr": "Comparez la numérisation que vous avez obtenue avec les images références pour identifier s’il s’agit d’un mâle ou d’une femelle.",
@@ -392,6 +393,7 @@
               "type": "scan",
               "tag": "r_estomac_s7",
               "overlay": "r_estomac.jpg",
+              "hasInfo": true,
               "actions": [
                 {
                   "hasScan": true,
@@ -465,7 +467,7 @@
       "subthemes": [
         {
           "fr": "Déterminer le taux de toxicité",
-          "en": "What are the main threats facing the humpback whale?",
+          "en": "Determining the concentration of toxins",
           "steps": [
             {
               "__comment": "46",
@@ -516,8 +518,8 @@
                   "en": "Well done! That is the correct concentration of toxins."
                 },
                 "wrong": {
-                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté la donnée ? Retourne voir l'animateur.",
-                  "en": "Acceptable toxin concentrations for the humpback whale range from 30 to 200 ng/g.",
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.",
+                  "en": "Hmmm... did you record the results corectly? Go back to see the scientific animator.",
                   "retry": true
                 }
               }
@@ -528,7 +530,7 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un rorqual à bosse.",
+                  "fr": "Consultez la fiche « Échelle de toxicité » qui se trouve dans la mallette pour vérifier si la quantité de toxines est normale pour un rorqual à bosse.",
                   "en": "Consult the “Toxicity Scale” data sheet in the briefcase to see whether this concentration of toxins is acceptable for a humpback whale. "
                 },
                 {
@@ -563,7 +565,7 @@
                   "en": "You are right. This concentration of toxins is acceptable."
                 },
                 "wrong": {
-                  "fr": "Es-tu certain.e de ton choix ? Essaie à nouveau.",
+                  "fr": "Es-tu certain.e de ton choix ?<br>Essaie à nouveau.",
                   "en": "Are you sure? Try again.",
                   "retry": true
                 }
@@ -672,13 +674,9 @@
                 }
               ],
               "resolve": {
-                "right": {
-                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !",
-                  "en": "Congratulations! You have solved the mystery!"
-                },
                 "wrong": {
-                  "fr": "Révisez les résultats obtenus, vous y êtes presque.",
-                  "en": "Review the obtained results. You are almost there.",
+                  "fr": "Révisez les résultats obtenus,<br>vous y êtes presque.",
+                  "en": "Review the obtained results.<br>You are almost there.",
                   "retry": true
                 }
               }

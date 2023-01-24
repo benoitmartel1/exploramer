@@ -69,7 +69,7 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo! Tu as trouvé le poids de la baleine !",
+                  "fr": "Bravo ! Tu as trouvé le poids de la baleine !",
                   "en": "Good work! You found the weight of the whale!"
                 },
                 "wrong": {
@@ -383,7 +383,7 @@
           "en": "How does a beluga feed, and what does it eat?",
           "info": {
             "__comment": "38",
-            "fr": "<p>Le béluga est une baleine à dents. Comme un aspirateur, c'est par succion qu'il attrape ses proies, qu’il avale sans mâcher. Il se nourrit de petits poissons de fond marin, tels que: le capelan, le lançon, la morue, le hareng, l’anguille, le poulamon et d’autres espèces de poissons et d’invertébrés.</p>",
+            "fr": "<p>Le béluga est une baleine à dents. Comme un aspirateur, c'est par succion qu'il attrape ses proies, qu’il avale sans mâcher. Il se nourrit de petits poissons tels que : le capelan, le lançon, la morue, le hareng, l’anguille, le poulamon et d’autres espèces de poissons et d’invertébrés.</p>",
             "en": "<p>The beluga is a toothed whale that sucks up its prey like a vacuum cleaner and swallows without chewing. The beluga feeds on small bottom-dwelling fish, including capelin, sand lances, cod, herring, eel, and Atlantic tomcod, as well as other species of fish and invertebrates.</p>"
           },
           "steps": [
@@ -677,10 +677,6 @@
                 }
               ],
               "resolve": {
-                "right": {
-                  "fr": "Bravo ! Vous avez réussi à élucider le mystère !",
-                  "en": "Congratulations! You have solved the mystery!"
-                },
                 "wrong": {
                   "fr": "Révisez les résultats obtenus,<br>vous y êtes presque.",
                   "en": "Review the obtained results.<br>You are almost there.",

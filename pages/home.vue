@@ -63,8 +63,6 @@
             :content="stepContent.step"
             :showInfo="showInfo"
           />
-
-          <Admin v-if="showAdmin" :props="stepContent.step.type" />
         </div>
         <Back :type="stepContent.step.type" />
       </div>
@@ -120,7 +118,6 @@ export default {
     stepContent(val, old) {
       this.clearing = false
       this.clearAll()
-      //   console.log(this.stepContent.step.type)
       //If first apparition of info button in sequence, then auto show info popup
       if (old.step.hasInfo == undefined && val.step.hasInfo !== undefined) {
         showInfoTimeout = setTimeout(() => {

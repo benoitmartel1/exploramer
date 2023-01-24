@@ -3,9 +3,15 @@
     <div class="controls">
       <button
         class="approMode"
-        @click="updateSettings(lang == 'fr' ? 'en' : 'fr')"
+        @click="updateSettings('langue', lang == 'fr' ? 'en' : 'fr')"
       >
         {{ lang == 'fr' ? 'en' : 'fr' }}
+      </button>
+      <button
+        class="approMode"
+        @click="updateSettings('experience', experience == 0 ? 1 : 0)"
+      >
+        {{ experience == 1 ? 'Béluga' : 'Rorqual à bosse' }}
       </button>
     </div>
     <div v-for="(theme, tindex) in content.themes" :key="theme + tindex">
@@ -33,7 +39,10 @@
                 class="blurZone"
               ></div>
               <div
-                :class="[subtheme.isLast ? 'last-theme' : '', 'main-wrapper']"
+                :class="[
+                  subtheme.isLast || step.type == 'intro' ? 'last-theme' : '',
+                  'main-wrapper',
+                ]"
               >
                 <Nav
                   v-if="step.type !== 'outro' && step.type !== 'intro'"
@@ -46,6 +55,7 @@
                   <div>
                     <Title
                       v-if="step.type == 'title'"
+                      :status="status(tindex, sindex, index)"
                       :content="stepContent(theme[lang], subtheme, step)"
                     />
                     <Intro v-if="step.type == 'intro'" :content="step" />
@@ -54,28 +64,32 @@
                       v-if="step.type == 'rapport'"
                       :content="step"
                       :allContent="content"
-                      :status="{
-                        theme: tindex,
-                        subtheme: sindex,
-                        step: index,
-                      }"
+                      :status="status(tindex, sindex, index)"
                       :showInfo="step.hasInfo == true"
                       :blurred="false"
                     />
 
-                    <Scan v-if="step.type == 'scan'" :content="step" />
+                    <Scan
+                      v-if="step.type == 'scan'"
+                      :content="step"
+                      :status="status(tindex, sindex, index)"
+                      :preStatus="step.preStatus"
+                    />
 
                     <Question
                       v-if="step.type == 'question'"
                       :content="step"
                       :isLastTheme="subtheme.isLast"
                       :preStatus="step.preStatus"
+                      :status="status(tindex, sindex, index)"
                     />
 
                     <Action
                       v-if="step.type == 'action'"
                       :content="step"
                       :showInfo="step.hasInfo"
+                      :preStatus="step.preStatus"
+                      :status="status(tindex, sindex, index)"
                     />
 
                     <!-- <Admin v-if="showAdmin" :props="stepContent.step.type" /> -->
@@ -102,7 +116,6 @@ export default {
     return {
       count: 0,
       settings: null,
-      content: this.$store.state.content, // Uncomment for production
     }
   },
   computed: {
@@ -113,11 +126,18 @@ export default {
     lang() {
       return this.$store.state.settings.langue
     },
+    experience() {
+      return this.$store.state.settings.experience
+    },
+    content() {
+      return this.$store.state.content // Uncomment for production
+    },
   },
   watch: {
     //If settings change, store the appropriate JSON content in the store
-    settings() {
-      const newContent = this.settings.experience == 0 ? beluga : rorqual
+    experience(val) {
+      console.log(val)
+      const newContent = val == 0 ? beluga : rorqual
       //   console.log(newContent)
       this.$store.commit('setContent', newContent)
     },
@@ -127,16 +147,31 @@ export default {
     },
   },
   methods: {
-    updateSettings(lang) {
-      this.$store.commit('updateLangue', lang)
+    status(tindex, sindex, index) {
+      return {
+        theme: tindex,
+        subtheme: sindex,
+        step: index,
+      }
+    },
+    updateSettings(setting, value) {
+      //   const tempSettings = JSON.parse(JSON.stringify(this.settings))
+      //   tempSettings[setting] = value
+      //   this.settings = tempSettings
+      console.log(value)
+      this.$store.commit('updateSetting', { setting: setting, value: value })
+
       this.count++
     },
     createDuplicates(steps) {
       let arr = []
       steps.forEach((s) => {
         let skip = false
+        // console.log(s.hasInfo)
         if (s.hasInfo) {
+          s.preStatus = 'hasInfo'
           let temp = JSON.parse(JSON.stringify(s))
+          //   temp.preStatus
           delete s.hasInfo
           //   console.log(s)
           arr.push(s)
@@ -146,11 +181,24 @@ export default {
 
         if (s.type == 'question') {
           arr.push(s)
-          let states = ['validate', 'right', 'wrong']
+          let states = ['validate', 'wrong', 'right']
           states.forEach((state) => {
-            let temp = JSON.parse(JSON.stringify(s))
-            temp.preStatus = state
-            arr.push(temp)
+            if (state == 'right' && !s.resolve.right) {
+            } else {
+              let temp = JSON.parse(JSON.stringify(s))
+              temp.preStatus = state
+              arr.push(temp)
+            }
+          })
+        } else if (s.type == 'scan') {
+          if (!skip) arr.push(s)
+          let states = ['scanned']
+          states.forEach((state) => {
+            {
+              let temp = JSON.parse(JSON.stringify(s))
+              temp.preStatus = state
+              arr.push(temp)
+            }
           })
         } else if (!skip) {
           arr.push(s)
@@ -162,17 +210,6 @@ export default {
     stepContent(t, s, st) {
       return { theme: t, subtheme: s, step: st }
     },
-  },
-  mounted() {
-    // ... you code
-    //Try to fetch settings from SQLITE server every 2 secs
-    // const fetchInterval = setInterval(() => {
-    //   if (this.settings == null || this.settings == undefined) {
-    //     this.$fetch()
-    //   } else {
-    //     clearInterval(fetchInterval)
-    //   }
-    // }, 2000)
   },
 }
 </script>
@@ -186,12 +223,13 @@ export default {
   width: var(--app-width);
   height: var(--app-height);
   /* float: left; */
+  overflow: hidden;
   display: block;
   /* height: 192px;
   width: 120px; */
   transform: scale(calc(var(--appro-scale) / 10));
   zoom: 1;
-  border: 1px yellow solid;
+  /* border: 1px yellow solid; */
 }
 .casier .main-wrapper {
   /* width: 1180px;
@@ -242,5 +280,54 @@ button {
 }
 #pdf {
   overflow: auto;
+}
+#pdf .controls {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#pdf .approMode {
+  margin-right: 0 !important;
+  font-size: 18px;
+  padding: 5px;
+  min-width: 200px;
+  justify-content: center;
+}
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  #pdf .controls {
+    display: none !important;
+  }
+  body {
+    background-color: white;
+  }
+  #pdf {
+    /* width: 100%; */
+    /* min-height: 29.7cm !important; */
+  }
+  .casier {
+    margin: auto;
+    margin-top: 0.3in;
+    float: none;
+    width: 7.5in !important;
+    height: 11in !important;
+    page-break-after: always;
+  }
+  .casier .appro {
+    /* width: 210mm !important;
+    height: 297mm !important; */
+    /* float: left; */
+    display: block;
+    /* height: 192px;
+  width: 120px; */
+    /* transform-origin: 50% 50%; */
+    transform: scale(0.54);
+    margin: 0.12in 0 0 0.12in;
+    /* zoom: 1; */
+    /* border: 3px yellow solid; */
+  }
 }
 </style>

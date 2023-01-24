@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{ blurred: $parent.showInfo }, 'scan action']">
+  <div :class="[{ blurred: isBlurred }, 'scan action']">
     <Header />
 
     <!-- <div class="camera-controls">
@@ -138,8 +138,17 @@ export default {
       showOverlay: false,
     }
   },
-  props: ['content'],
+  props: ['content', 'status', 'preStatus'],
+  computed: {
+    isBlurred() {
+      console.log(this.content)
+      return this.content.hasInfo && this.preStatus
+        ? true
+        : this.$parent.showInfo
+    },
+  },
   mounted() {
+    if (this.preStatus == 'scanned') this.showOverlay = true
     this.$parent.isBusyLoading = true
     const exampleTarget = document.querySelector('#example-target')
     const scene = document.querySelector('#scene')
@@ -261,7 +270,7 @@ export default {
 .scan .loading-dots .stage {
   transform-origin: -50% 0;
   transform: scale(2);
-  margin-top: calc(670px / 2);
+  margin-top: calc(600px / 2);
 }
 a-scene {
   z-index: 200;
@@ -431,5 +440,6 @@ input[type='range'] {
 }
 .scan .frame {
   animation-name: fromBottomRight;
+  padding-bottom: 30px;
 }
 </style>

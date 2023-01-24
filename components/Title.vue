@@ -50,7 +50,7 @@
         </svg>
       </div>
       <h4 v-html="content.subtheme[lang]"></h4>
-      <Picto :theme="status.theme" />
+      <Picto :theme="realStatus.theme" />
     </div>
   </div>
 </template>
@@ -62,10 +62,18 @@ export default {
     return {
       lang: this.$store.state.settings.langue,
       experience: this.$store.getters.getExperience,
-      status: this.$store.getters.getStatus,
     }
   },
-  props: ['content'],
+  props: ['content', 'status'],
+  computed: {
+    realStatus() {
+      if (this.status) {
+        return this.status
+      } else {
+        return this.$store.getters.getStatus
+      }
+    },
+  },
   mounted() {
     timer = setTimeout(() => {
       this.done()

@@ -7,7 +7,7 @@
       :key="a + index"
     >
       <Icons v-if="a.roles" :roles="a.roles" />
-      <div v-show="imageLoaded || !a.image" class="frame">
+      <div class="frame">
         <div v-html="a[lang]"></div>
         <div class="center">
           <div v-if="a.image" class="image-wrapper">
@@ -19,6 +19,7 @@
               @load="onImageLoad"
             />
           </div>
+          <div v-else class="spacer"></div>
         </div>
       </div>
     </div>
@@ -36,7 +37,7 @@ export default {
       imageLoaded: false,
     }
   },
-  props: ['content', 'showInfo'],
+  props: ['content', 'showInfo', 'status', 'preStatus'], //The status prop is for tiles only, can be deleted for production
   methods: {
     onImageLoad() {
       this.imageLoaded = true

@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="[{ empty: stepContent.subtheme[lang] == undefined }, 'header']">
     <div class="experience">
       <img
         v-if="settings.experience == 0"
@@ -11,11 +11,11 @@
     <div class="header-wrapper">
       <div class="header-left">
         <h1>{{ stepContent.theme }}</h1>
-        <h4 v-html="stepContent.subtheme[lang]"></h4>
+        <h4 v-html="stepContent.subtheme[lang]?.replace('<br>', ' ')"></h4>
       </div>
       <div class="header-right">
         <div
-          v-if="stepContent.step.hasInfo"
+          v-if="stepContent.step.hasInfo || this.$parent.preStatus == 'hasInfo'"
           class="info button"
           @click="showInfo(true)"
         >
@@ -34,10 +34,18 @@ export default {
     return {
       lang: this.$store.state.settings.langue,
       settings: this.$store.state.settings,
+      status: this.$parent.status, //For tiles mode only
     }
   },
   computed: {
     stepContent() {
+      if (this.status) {
+        //For tiles mode only
+        let t = this.$store.state.content.themes[this.status.theme]
+        let s = t.subthemes[this.status.subtheme]
+        let i = false
+        return { theme: t[this.lang], subtheme: s, step: { hasInfo: i } }
+      }
       return this.$store.getters.getStepContent
     },
   },
@@ -61,6 +69,15 @@ export default {
   position: relative;
   display: flex;
   /* border: 1px red solid; */
+}
+.empty .experience {
+  /* margin-top: 70px;
+  margin-bottom: -70px; */
+  margin-bottom: -150px;
+}
+
+.header-wrapper {
+  margin-top: 50px;
 }
 .header-left {
   flex: 1;

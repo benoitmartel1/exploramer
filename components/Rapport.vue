@@ -169,7 +169,7 @@
           {{ (lang == 'fr' ? 'Longueur' : 'Length') + ' :' }}
         </div>
         <div v-if="isCompleted(0, 3)" class="value">
-          {{ (lang == 'fr' ? '15,80 m' : '15.80 m') + ' :' }}
+          {{ lang == 'fr' ? '15,80 m' : '15.80 m' }}
         </div>
         <div v-else class="empty value"></div>
       </div>
@@ -218,14 +218,15 @@
       </div>
       <div class="prop note">
         <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
-        <div v-if="isCompleted(1, 0)" class="value">
-          {{
-            (lang == 'fr'
-              ? 'Du plastique se trouve dans son estomac. Petite quantité, non dangereuse.'
-              : "There is plastic in the whale's stomach; small quantity, not hazardous") +
-            ' :'
-          }}
-        </div>
+        <div
+          v-if="isCompleted(1, 0)"
+          class="value"
+          v-html="
+            lang == 'fr'
+              ? 'Du plastique se trouve dans son estomac.<br>Petite quantité, non dangereuse.'
+              : 'There is plastic in the whale\'s stomach;<br>small quantity, not hazardous'
+          "
+        ></div>
         <div v-else class="empty value"></div>
       </div>
       <!--Thème 3------------------------------------------>

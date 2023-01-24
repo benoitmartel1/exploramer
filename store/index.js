@@ -110,8 +110,8 @@ export const mutations = {
     state.theme = 0
     state.subtheme = 0
   },
-  updateLangue(state, lang) {
-    state.settings.langue = lang
+  updateSetting(state, payload) {
+    state.settings[payload.setting] = payload.value
   },
   setContent(state, content) {
     //const arr = state.content.themes

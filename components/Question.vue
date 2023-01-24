@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <Header :class="[{ blurred: $parent.blurred }, 'content']" />
+    <Header :class="[{ blurred: isBlurred() }, 'content']" />
 
     <div
       :class="[{ blurred: showValidation || showResolve }, 'content body']"
@@ -106,7 +106,7 @@ export default {
       rightAnswer: false,
     }
   },
-  props: ['content', 'isLastTheme', 'preStatus'],
+  props: ['content', 'isLastTheme', 'preStatus', 'status'],
   mounted() {
     if (this.preStatus) {
       if (this.preStatus == 'validate') this.showValidation = true
@@ -121,6 +121,12 @@ export default {
     }
   },
   methods: {
+    isBlurred() {
+      if (this.preStatus == 'validate' || this.preStatus == 'wrong') {
+        return true
+      }
+      return this.$parent.blurred
+    },
     select(index) {
       this.selectedChoice = index
       if (this.content.validate) {
@@ -249,6 +255,9 @@ export default {
 }
 .last-theme .choices .button {
   width: 80%;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  min-height: 175px;
+  display: flex;
+  align-items: center;
 }
 </style>

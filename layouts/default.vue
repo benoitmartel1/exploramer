@@ -13,6 +13,7 @@
       >
         {{ settings.langue == 'fr' ? 'en' : 'fr' }}
       </button>
+
       <ul>
         <li>
           <div class="key">Flèche droite :</div>
@@ -56,7 +57,7 @@ export default {
   },
   methods: {
     updateSettings(lang) {
-      this.$store.commit('updateLangue', lang)
+      this.$store.commit('updateSetting', { setting: 'langue', value: lang })
       this.count++
     },
   },

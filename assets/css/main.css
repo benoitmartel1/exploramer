@@ -186,7 +186,7 @@ a:hover {
   width: 100%;
   padding: 30px;
   padding-top: 75px;
-  padding-bottom: 55px;
+  padding-bottom: 23px;
   border: 3px #606060 solid;
   margin-bottom: 10px;
   line-height: 1.25;
@@ -202,6 +202,9 @@ a:hover {
   -webkit-animation-fill-mode: forwards; */
   /* animation: popUp 200ms linear both; */
   animation: openDown 200ms cubic-bezier(0.05, 0.67, 0.22, 0.98);
+}
+.spacer {
+  height: 30px;
 }
 /* .info .content .text {
   opacity: 0;
