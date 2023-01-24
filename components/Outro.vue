@@ -12,7 +12,7 @@
       <div v-if="lang == 'fr'">
         <div class="sous-titre">
           <div v-if="settings.experience == 0">Le béluga</div>
-          <div v-else>Le Rorqual à bosse</div>
+          <div v-else>Le rorqual à bosse</div>
         </div>
         <div class="bravo">Bravo !</div>
         <h2>Vous avez réussi à élucider<br />le mystère !</h2>

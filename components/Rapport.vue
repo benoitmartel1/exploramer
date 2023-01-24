@@ -13,7 +13,7 @@
       <h1 v-else>SUMMARY OF THE INVESTIGATION</h1>
       <div class="sous-titre">
         <div v-if="settings.experience == 0">
-          {{ lang == 'fr' ? 'Le Béluga' : 'Beluga' }}
+          {{ lang == 'fr' ? 'Le béluga' : 'Beluga' }}
         </div>
         <div v-else>
           {{ lang == 'fr' ? 'Le rorqual à bosse' : 'Humpback whale' }}
@@ -82,10 +82,10 @@
       <h3>{{ themes[1] }}</h3>
       <div class="prop">
         <div class="key">
-          {{ (lang == 'fr' ? 'Alimentation normale' : 'Diet') + ' :' }}
+          {{ (lang == 'fr' ? 'Alimentation' : 'Diet') + ' :' }}
         </div>
         <div v-if="isCompleted(1, 0)" class="value">
-          {{ lang == 'fr' ? 'Oui' : 'Normal' }}
+          {{ lang == 'fr' ? 'Normale' : 'Normal' }}
         </div>
         <div v-else class="empty value"></div>
       </div>
@@ -270,8 +270,14 @@
         move to the next section.
       </div>
     </div>
-    <div v-if="this.content.type == 'rapport'" class="footer center">
+    <div v-if="content.type == 'rapport'" class="footer center">
       <ContinueButton />
+    </div>
+    <div v-else-if="isLastTheme == true" class="footer center">
+      <ContinueButton
+        :skipDefaultClick="true"
+        @click="this.$parent.showRapport = false"
+      />
     </div>
   </div>
 </template>
@@ -285,11 +291,15 @@ export default {
       lang: this.$store.state.settings.langue,
     }
   },
-  props: ['content', 'allContent', 'status', 'blurred', 'showInfo'],
+  props: [
+    'content',
+    'allContent',
+    'status',
+    'blurred',
+    'showInfo',
+    'isLastTheme',
+  ],
   computed: {
-    // status() {
-    //   return this.$store.getters.getStatus
-    // },
     themes() {
       let arr = []
       this.allContent.themes.forEach((t) => {
@@ -406,5 +416,8 @@ ul {
 .rapport .center,
 .rapport .form {
   animation: fadeLeft 400ms ease-out forwards;
+}
+.rapport .form {
+  margin-bottom: 30px;
 }
 </style>

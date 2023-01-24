@@ -11,7 +11,7 @@
     <div class="header-wrapper">
       <div class="header-left">
         <h1>{{ stepContent.theme }}</h1>
-        <h4>{{ stepContent.subtheme[lang] }}</h4>
+        <h4 v-html="stepContent.subtheme[lang]"></h4>
       </div>
       <div class="header-right">
         <div

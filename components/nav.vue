@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <div v-if="theme < nbOfThemes" class="theme-wrapper">
+    <div v-if="theme < nbOfThemes + 1" class="theme-wrapper">
       <div
         :class="[
           isRapportVisible || isRapport ? 'active' : '',

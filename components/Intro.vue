@@ -11,7 +11,7 @@
       </div>
       <div class="sous-titre">
         <div v-if="settings.experience == 0">
-          {{ lang == 'fr' ? 'Le Béluga' : 'Beluga' }}
+          {{ lang == 'fr' ? 'Le béluga' : 'Beluga' }}
         </div>
         <div v-else>
           {{ lang == 'fr' ? 'Le rorqual à bosse' : 'Humpback whale' }}
@@ -85,8 +85,16 @@ export default {
   margin-bottom: 40px;
 }
 .intro .icons {
-  margin: 80px 0;
-  margin-left: 35%;
+  margin: 90px auto;
+  margin-left: 43%;
+  display: flex;
+  /* width: 45%; */
+  transform: scale(1.6);
+
+  /* justify-content: space-between; */
+}
+.intro .icons .icon svg {
+  /* width: 300px; */
 }
 .intro .icon:last-child {
   margin-right: 0;

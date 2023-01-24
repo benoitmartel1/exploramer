@@ -49,7 +49,7 @@
           </g>
         </svg>
       </div>
-      <h4>{{ content.subtheme[lang] }}</h4>
+      <h4 v-html="content.subtheme[lang]"></h4>
       <Picto :theme="status.theme" />
     </div>
   </div>
@@ -83,8 +83,8 @@ export default {
 </script>
 
 <style>
-.title .experience img {
-  animation: fromTopRight var(--default-tr-speed) ease-out;
+.title {
+  animation: fadeLeft var(--default-tr-speed) ease-out;
 }
 .main-block {
   /* animation: fromBottomRight 500ms ease-out; */
@@ -96,7 +96,7 @@ export default {
   margin-top: 50px;
 }
 .main-block > * {
-  animation: fromTopLeft var(--default-tr-speed) ease-out;
+  /* animation: fromTopLeft var(--default-tr-speed) ease-out; */
 }
 .wave {
   margin: 60px;

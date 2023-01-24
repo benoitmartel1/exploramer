@@ -1,6 +1,7 @@
 <template>
-  <div class="scan action">
+  <div :class="[{ blurred: $parent.showInfo }, 'scan action']">
     <Header />
+
     <!-- <div class="camera-controls">
       <div name="focusMode">
         <div class="label">focusMode:</div>
@@ -28,8 +29,7 @@
       <Icons v-if="a.roles" :roles="a.roles" />
 
       <div class="frame">
-        {{ a[lang] }}
-
+        <span v-html="a[lang]"></span>
         <div
           v-if="a.hasScan"
           :class="[
@@ -261,7 +261,7 @@ export default {
 .scan .loading-dots .stage {
   transform-origin: -50% 0;
   transform: scale(2);
-  margin-top: calc(500px / 2);
+  margin-top: calc(670px / 2);
 }
 a-scene {
   z-index: 200;
@@ -335,7 +335,8 @@ a-scene {
 .aframe-wrapper {
   /* background-color: #8cdff0; */
   background-color: #8cc6d1;
-  height: 500px;
+  /* height: 500px;*/
+  height: 600px;
   margin-top: 30px;
   position: relative;
   overflow: hidden;
@@ -426,7 +427,7 @@ input[type='range'] {
   transform: scale(1);
 }
 .scan img {
-  top: 0;
+  top: -40px;
 }
 .scan .frame {
   animation-name: fromBottomRight;

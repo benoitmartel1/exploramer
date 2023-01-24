@@ -1,6 +1,7 @@
 <template>
   <div class="question">
     <Header :class="[{ blurred: $parent.blurred }, 'content']" />
+
     <div
       :class="[{ blurred: showValidation || showResolve }, 'content body']"
       v-show="!rightAnswer"
@@ -23,7 +24,7 @@
       <div class="content">
         <div class="text">
           {{
-            lang == 'fr' ? 'Es-tu certain.e de ta réponse?' : 'Are you sure?'
+            lang == 'fr' ? 'Es-tu certain.e de ta réponse ?' : 'Are you sure?'
           }}
         </div>
         <div class="button validate" @click="validate()">
@@ -39,7 +40,7 @@
       <div class="content">
         <div class="text" v-html="content.resolve.wrong[lang]"></div>
         <div class="button" @click="retry()">
-          {{ lang == 'fr' ? 'Réessayer' : 'XXX---Retry' }}
+          {{ lang == 'fr' ? 'Réessayer' : 'Try again' }}
         </div>
       </div>
     </div>
@@ -184,7 +185,7 @@ export default {
   animation: fadeLeft var(--default-tr-speed) ease-out !important;
 }
 .question .choices .button {
-  min-width: 400px;
+  width: 500px;
   text-align: center;
   display: inline-flex;
   justify-content: center;
@@ -220,8 +221,9 @@ export default {
 }
 
 .check {
-  /* float: left; */
-  /* margin-right: 50px; */
+  float: left;
+  margin-right: 50px;
+  height: 100%;
   /* margin: auto; */
   margin-bottom: 30px;
   text-align: center;
@@ -244,5 +246,9 @@ export default {
 }
 .choices .button:nth-child(4) {
   animation-delay: 300ms;
+}
+.last-theme .choices .button {
+  width: 80%;
+  margin-bottom: 40px;
 }
 </style>

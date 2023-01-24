@@ -5,7 +5,7 @@
 }
 @font-face {
   font-family: 'Nunito';
-  src: url('@/assets/fonts/Nunito/Nunito-Black.ttf') format('truetype');
+  src: url('@/assets/fonts/Nunito/Nunito-ExtraBold.ttf') format('truetype');
   font-weight: 900;
 }
 @font-face {

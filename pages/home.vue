@@ -14,9 +14,7 @@
       ]"
     >
       <Nav
-        v-if="
-          stepContent.step.type !== 'outro' && stepContent.step.type !== 'intro'
-        "
+        v-if="!stepContent.step.noNav"
         :isRapport="stepContent.step.type == 'rapport'"
         :unlocks="stepContent.step.unlocks"
         :themeIndex="status.theme"
@@ -44,6 +42,7 @@
             :status="status"
             :showInfo="showInfo"
             :blurred="blurred"
+            :isLastTheme="stepContent.subtheme.isLast"
           />
 
           <Scan

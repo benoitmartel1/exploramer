@@ -12,6 +12,7 @@
             {
               "__comment": "2",
               "type": "intro",
+              "noNav": true,
               "roles": ["t", "b", "v"],
               "fr": "<p>Êtes-vous prêts.es à élucider le mystère de la mort du rorqual à bosse ?</p><p>Complétez chaque section du rapport pour pouvoir effectuer l’analyse. </p><p>Observez bien les icônes de métiers pour savoir qui est responsable d’effectuer chaque action.</p>",
               "en": "<p>Are you ready to solve the mystery of the dead humpback whale?</p><p>Complete each section of the report to help you complete your analysis.</p><p>Look closely at the career icons to know who is responsible for each action.</p>"
@@ -65,11 +66,11 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo! Tu as trouvé le poids de la baleine!",
+                  "fr": "Bravo ! Tu as trouvé le poids de la baleine !",
                   "en": "Good work! You determined the whale’s weight!"
                 },
                 "wrong": {
-                  "fr": "As-tu bien ajusté ta balance? Essaie de nouveau.",
+                  "fr": "As-tu bien ajusté ta balance ?<br>Essaie de nouveau.",
                   "en": "Did you adjust your scale? Try again.",
                   "retry": true
                 }
@@ -130,7 +131,7 @@
                   "en": "Correct! The humpback whale is 41 years old."
                 },
                 "wrong": {
-                  "fr": "Ummm…Tu devrais peut-être retourner voir l'animateur.trice.",
+                  "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.trice.",
                   "en": "Hmmm … maybe you should go back to see the scientific animator.",
                   "retry": true
                 }
@@ -139,10 +140,10 @@
           ]
         },
         {
-          "fr": "Est-ce que son poids est normal pour un rorqual adulte ?",
+          "fr": "Déterminer si son poids est normal pour son âge",
           "en": "Does this humpback whale have a normal weight for an adult male?",
           "info": {
-            "fr": "<p>RAPPEL</p><p>Le rorqual à bosse pèse 28 000 kg.</p><p>Un rorqual à bosse devient adulte à 5 ans et va peser en moyenne entre 30 000 kg et 40 000 kg. La disponibilité de la nourriture, les polluants, le transport maritime et les engins de pêche peuvent avoir un impact sur son alimentation et sa prise de poids.</p>",
+            "fr": "<p>RAPPEL</p><p>Le rorqual à bosse pèse 28 000 kg.</p><p>Un rorqual à bosse devient adulte à 5 ans et va peser en moyenne entre 30 000 kg et 40 000 kg. La disponibilité de la nourriture, les polluants, le transport maritime et les engins de pêche peuvent avoir un impact sur son alimentation et sa prise de poids.</p>",
             "en": "<p>REMINDER</p><p>The humpback whale weighs 28,000 kg.</p><p>The humpback whale reaches adulthood by the age of 5 and will normally weigh between 30,000 and 40,000 kg. The availability of food, the presence of pollutants, and the impacts of maritime transport and fishing gear can all affect the whale’s feeding behaviour and weight.</p>"
           },
           "steps": [
@@ -187,7 +188,7 @@
                   "en": "The humpback whale's weight is not normal for its age."
                 },
                 "wrong": {
-                  "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "fr": "Es-tu certain.e de ta réponse ?<br>Essaie à nouveau.",
                   "en": "Are you sure? Try again.",
                   "retry": true
                 }
@@ -210,7 +211,7 @@
                 {
                   "roles": ["t", "v"],
                   "image": {
-                    "name": "b_21_tape.png",
+                    "name": "Ruban.png",
                     "width": 30
                   },
                   "fr": "En équipe, vous devez maintenant déterminer la longueur du rorqual à l'aide du ruban à mesurer. Remarquez les marques sur la bannière, en dessous de la baleine. Elles vous serviront de repère pour prendre la mesure. ",
@@ -218,7 +219,7 @@
                 },
                 {
                   "roles": ["b"],
-                  "fr": "Note les résultats obtenus dans la tablette.",
+                  "fr": "Note le résultat obtenu dans la tablette.",
                   "en": "Note the result on the tablet."
                 }
               ]
@@ -248,7 +249,7 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "La baleine mesure bien 15,80 m ! Les rorquals à bosse adultes mesurent en moyenne entre 13 m et 17 m.",
+                  "fr": "La baleine mesure bien 15,80 m !<br>Les rorquals à bosse adultes mesurent en moyenne entre 13 m et 17 m.",
                   "en": "The whale is 15.80 m long! The average length of adult humpback whales ranges from 13 to 17 m."
                 },
                 "wrong": {
@@ -283,7 +284,7 @@
                   "en": "Correct! Its length is average for an adult humpback whale."
                 },
                 "wrong": {
-                  "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "fr": "Es-tu certain.e de ta réponse ?<br>Essaie à nouveau.",
                   "en": "Are you sure? Try again.",
                   "retry": true
                 }
@@ -292,7 +293,7 @@
           ]
         },
         {
-          "fr": "Déterminer le sexe de la baleine",
+          "fr": "Déterminer le sexe<br>de la baleine",
           "en": "Determining the sex of the humpback whale",
           "steps": [
             {
@@ -617,7 +618,7 @@
                   "en": "Well done! There are signs of collision."
                 },
                 "wrong": {
-                  "fr": "Es-tu certain.e de ton choix? Essaie à nouveau.",
+                  "fr": "Es-tu certain.e de ton choix ? Essaie à nouveau.",
                   "en": "Are you sure? Try again.",
                   "retry": true
                 }
@@ -684,6 +685,7 @@
             },
             {
               "type": "outro",
+              "noNav": true,
               "fr": "Malheureusement, dans le Saint-Laurent, le rorqual à bosse est à risque de se faire prendre dans des engins de pêche et de rentrer en collision avec des navires. Pour sauver les baleines et limiter les accidents, il y a maintenant des limites de vitesse imposées pour les navires. Les secteurs de pêche sont également réglementés.",
               "en": "Unfortunately, in the St. Lawrence River, humpback whales are at risk of being caught in fishing gear and colliding with ships. As a result, speed limits have been imposed on vessels and fishing areas are regulated to save the whales and reduce these accidents."
             }

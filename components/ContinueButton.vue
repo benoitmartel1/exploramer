@@ -1,6 +1,6 @@
 <template>
-  <div class="button continue" @click="$parent.done()">
-    {{ lang == 'fr' ? 'Continuer' : 'XXX---Continue' }}
+  <div class="button continue" @click="handleClick()">
+    {{ lang == 'fr' ? 'Continuer' : 'Next' }}
   </div>
 </template>
 
@@ -8,6 +8,17 @@
 export default {
   data() {
     return { lang: this.$store.state.settings.langue }
+  },
+  props: ['skipDefaultClick'],
+  methods: {
+    handleClick() {
+      if (this.skipDefaultClick !== true) {
+        this.$parent.done()
+      } else {
+        console.log('false')
+        this.$parent.$parent.showRapport = false
+      }
+    },
   },
 }
 </script>

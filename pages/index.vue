@@ -59,7 +59,7 @@
 //Load local JSON content
 import beluga from '~/static/data/beluga.json'
 import rorqual from '~/static/data/rorqual.json'
-
+import VuexPersistence from 'vuex-persist'
 export default {
   layout: 'default',
   data() {

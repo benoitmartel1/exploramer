@@ -8,12 +8,12 @@
     >
       <Icons v-if="a.roles" :roles="a.roles" />
       <div v-show="imageLoaded || !a.image" class="frame">
-        <div>{{ a[lang] }}</div>
+        <div v-html="a[lang]"></div>
         <div class="center">
           <div v-if="a.image" class="image-wrapper">
             <img
               :class="{ show: imageLoaded }"
-              :src="require('@/assets/images/' + a.image.name)"
+              :src="require('@/assets/images/' + getImageName(a.image))"
               :style="styleImage(a.image)"
               alt=""
               @load="onImageLoad"
@@ -48,6 +48,13 @@ export default {
       let str = 'width: '
       str += i.width !== undefined ? i.width + '%;' : '100%;'
       return str
+    },
+    getImageName(image) {
+      if (image.hasEnVersion) {
+        return image.name.split('.')[0] + '_' + this.lang + '.png'
+      } else {
+        return image.name
+      }
     },
   },
 }
