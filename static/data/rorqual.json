@@ -30,6 +30,10 @@
               "type": "action",
               "actions": [
                 {
+                  "image": {
+                    "name": "balance.png",
+                    "width": 20
+                  },
                   "roles": ["t", "v"],
                   "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
                   "en": "To weigh the humpback whale, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
@@ -128,11 +132,11 @@
               "resolve": {
                 "right": {
                   "fr": "Bonne réponse ! Le rorqual a bien 41 ans.",
-                  "en": "Correct! The humpback whale is 41 years old."
+                  "en": "Correct! The humpback whale is<br>41 years old."
                 },
                 "wrong": {
                   "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.trice.",
-                  "en": "Hmmm … maybe you should go back to see the scientific animator.",
+                  "en": "Hmmm … maybe you should go back to see<br>the scientific animator.",
                   "retry": true
                 }
               }
@@ -249,7 +253,7 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "La baleine mesure bien 15,80 m !<br>Les rorquals à bosse adultes mesurent en moyenne entre 13 m et 17 m.",
+                  "fr": "La baleine mesure bien 15,80 m !<br>Les rorquals à bosse adultes mesurent en moyenne entre 13 m<br>et 17 m.",
                   "en": "The whale is 15.80 m long! The average length of adult humpback whales ranges from 13 to 17 m."
                 },
                 "wrong": {
@@ -348,7 +352,7 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bien observé ! Il s'agit bien d'un mâle.",
+                  "fr": "Bien observé ! Il s'agit bien<br>d'un mâle.",
                   "en": "Correct! It is a male."
                 },
                 "wrong": {

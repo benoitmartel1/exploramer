@@ -47,7 +47,7 @@
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
-        <div class="key">{{ lang == 'fr' ? 'note' : 'Note' + ' :' }}</div>
+        <div class="key">{{ lang == 'fr' ? 'note' : 'Note' }} :</div>
         <div v-if="isCompleted(0, 3)" class="value">
           {{
             lang == 'fr'
@@ -106,7 +106,7 @@
         <div class="key">
           {{ (lang == 'fr' ? 'Toxines' : 'Toxins') + ' :' }}
         </div>
-        <div v-if="isCompleted(2, 0)" class="value">
+        <div v-if="isCompleted(2, 0, 2)" class="value">
           {{ lang == 'fr' ? '10 ng/g' : '10 ng/g' }}
         </div>
         <div v-else class="empty value"></div>
@@ -235,14 +235,14 @@
         <div class="key">
           {{ (lang == 'fr' ? 'Toxines' : 'Toxins') + ' :' }}
         </div>
-        <div v-if="isCompleted(2, 0)" class="value">
+        <div v-if="isCompleted(2, 0, 2)" class="value">
           {{ lang == 'fr' ? '100 ng/g' : '100 ng/g' }}
         </div>
         <div v-else class="empty value"></div>
       </div>
       <div class="prop note">
         <div class="key">{{ (lang == 'fr' ? 'note' : 'Note') + ' :' }}</div>
-        <div v-if="isCompleted(2, 0)" class="value">
+        <div v-if="isCompleted(2, 1)" class="value">
           {{ lang == 'fr' ? 'Quantité normale.' : 'Normal concentration' }}
         </div>
         <div v-else class="empty value"></div>
@@ -310,11 +310,19 @@ export default {
     },
   },
   methods: {
-    isCompleted(theme, subtheme) {
+    isCompleted(theme, subtheme, step) {
+      console.log(this.status)
       if (theme < this.status.theme) {
         return true
       }
       if (this.status.subtheme > subtheme && theme <= this.status.theme) {
+        return true
+      }
+      if (
+        this.status.step > step &&
+        theme <= this.status.theme &&
+        subtheme <= this.status.subtheme
+      ) {
         return true
       }
       return false

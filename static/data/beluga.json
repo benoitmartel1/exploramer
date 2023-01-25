@@ -135,7 +135,7 @@
                 },
                 "wrong": {
                   "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.",
-                  "en": "Hmmm … maybe you should go back to see the scientific animator.",
+                  "en": "Hmmm … maybe you should go back to see<br>the scientific animator.",
                   "retry": true
                 }
               }
@@ -191,7 +191,7 @@
                   "en": "You are right! The beluga's weight is normal for its age."
                 },
                 "wrong": {
-                  "fr": "Es-tu certain.e de ta réponse ? Essaie à nouveau.",
+                  "fr": "Es-tu certain.e de ta réponse ?<br>Essaie à nouveau.",
                   "en": "Are you sure? Try again.",
                   "retry": true
                 }
@@ -251,8 +251,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "La baleine mesure bien 3,50 m ! Les bélugas adultes mesurent en moyenne entre 2,50 m et 5 m.",
-                  "en": "Correct! The beluga measures 3.50 m. The normal length of an adult beluga ranges from 2.50 to 5 m."
+                  "fr": "La baleine mesure bien 3,50 m !<br>Les bélugas adultes mesurent en moyenne entre 2,50 m et 5 m.",
+                  "en": "Correct! The beluga measures 3.50 m. The normal length of an adult beluga ranges from 2.50 m to 5 m."
                 },
                 "wrong": {
                   "fr": "Ton ruban à mesurer semble défectueux, essaie de nouveau.",
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "fr": "Déterminer le sexe de la baleine",
+          "fr": "Déterminer le sexe<br>de la baleine",
           "en": "Determining the sex of the beluga",
           "steps": [
             {
@@ -441,7 +441,7 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle.<br>Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques.",
+                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle.<p>Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques.</p>",
                   "en": "Yes! The contents of the beluga’s stomach correspond to the whale’s normal feeding habits. But be careful! The beluga’s diet is contaminated because the St. Lawrence River is, unfortunately, full of toxic pollutants."
                 },
                 "wrong": {
@@ -565,7 +565,7 @@
               "resolve": {
                 "right": {
                   "fr": "Tu as raison, ce n'est pas normal. Une femelle béluga peut avoir une quantité de toxines qui se situe autour de 7 ng/g. Une quantité plus élevée peut être nocive et causer des problèmes lors de l’accouchement.",
-                  "en": "You are right. It is above the acceptable amount. A female beluga can have around 7 ng/g of toxins in her skin and blubber. Levels above that can be harmful and cause problems when it is time for her to give birth (calve)."
+                  "en": "You are right. It is above the acceptable amount. A female beluga can have around 7 ng/g<br>of toxins in her skin and blubber. Levels above that can be harmful and cause problems when it is time for her to give birth (calve)."
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix ?<br>Essaie à nouveau.",
