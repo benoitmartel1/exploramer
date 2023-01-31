@@ -30,7 +30,7 @@
     "lint": "yarn lint:prettier",
     "lintfix": "prettier --write --list-different .",
     "electron": "cross-env NODE_ENV=dev electron .",
-    "e:build": "cross-env NODE_ENV=production nuxt build && electron-builder --win"
+    "e:build": "cross-env NODE_ENV=production nuxt build && electron-builder --win && scp -r app/exploramer.exe benoitma@50.87.233.33:public_html/dev/exploramer"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

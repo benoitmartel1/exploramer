@@ -41,7 +41,7 @@
         <div class="key">
           {{ (lang == 'fr' ? 'Longueur' : 'Length') + ' :' }}
         </div>
-        <div v-if="isCompleted(0, 3)" class="value">
+        <div v-if="isCompleted(0, 3, 2)" class="value">
           {{ lang == 'fr' ? '3,50 m' : '3.50 m' }}
         </div>
         <div v-else class="empty value"></div>
@@ -168,7 +168,7 @@
         <div class="key">
           {{ (lang == 'fr' ? 'Longueur' : 'Length') + ' :' }}
         </div>
-        <div v-if="isCompleted(0, 3)" class="value">
+        <div v-if="isCompleted(0, 3, 2)" class="value">
           {{ lang == 'fr' ? '15,80 m' : '15.80 m' }}
         </div>
         <div v-else class="empty value"></div>

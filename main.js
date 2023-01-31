@@ -40,6 +40,7 @@ const newWin = () => {
     height: 1920,
     frame: false,
     autoHideMenuBar: true,
+    alwaysOnTop: true,
     fullscreen: true,
     kiosk: true,
     webPreferences: {
@@ -80,5 +81,8 @@ const newWin = () => {
   }
 }
 app.on('ready', newWin)
-app.on('window-all-closed', () => app.quit())
+app.on('window-all-closed', () => {
+  app.relaunch()
+  app.exit()
+})
 app.on('activate', () => win === null && newWin())

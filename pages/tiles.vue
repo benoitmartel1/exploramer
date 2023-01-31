@@ -167,7 +167,7 @@ export default {
       let arr = []
       steps.forEach((s) => {
         let skip = false
-        // console.log(s.hasInfo)
+        console.log(s)
         if (s.hasInfo) {
           s.preStatus = 'hasInfo'
           let temp = JSON.parse(JSON.stringify(s))
