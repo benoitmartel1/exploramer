@@ -110,7 +110,7 @@
               "__comment": "12-15",
               "type": "question",
               "question": {
-                "fr": "Quel est l'âge du béluga ?",
+                "fr": "Quel est l'âge du rorqual ?",
                 "en": "How old is the humpback whale?"
               },
               "validate": true,
