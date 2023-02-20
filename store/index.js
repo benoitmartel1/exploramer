@@ -5,6 +5,7 @@ export const state = () => ({
   subtheme: 0,
   step: 0,
   done: false,
+  showCameraControls: false,
 })
 
 export const getters = {
@@ -121,6 +122,9 @@ export const mutations = {
     var last = state.content.themes.filter((t) => t.isLast)[0]
     state.content.themes = [...arr.slice(offset), ...arr.slice(0, offset)]
     state.content.themes.push(last)
+  },
+  toggleCameraControls(state, value) {
+    state.showCameraControls = value
   },
 }
 

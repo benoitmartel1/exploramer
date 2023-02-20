@@ -1,9 +1,9 @@
 // Put variables in global scope to make them available to the browser console.
 const constraints = (window.constraints = {
   video: {
-    // pan: true,
-    // tilt: true,
-    // zoom: true,
+    pan: true,
+    tilt: true,
+    zoom: true,
   },
 })
 
@@ -99,10 +99,16 @@ async function initCameraControls(e) {
   }
 }
 window.addEventListener('load', function (event) {
-  const video = document.querySelector('video')
-  if (video) {
-    initCameraControls()
-  }
+  console.log('loaded')
+  var myInt = setInterval(() => {
+    console.log('check if video')
+    const video = document.querySelector('video')
+
+    if (video) {
+      this.clearInterval(myInt)
+      initCameraControls()
+    }
+  }, 2000)
 })
 
 // document.querySelector('#showVideo').addEventListener('click', (e) => init(e))

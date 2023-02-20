@@ -34,7 +34,7 @@
                     "width": 20
                   },
                   "roles": ["t", "v"],
-                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
+                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur.trice pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
                   "en": "To weigh the beluga, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
                 },
                 {
@@ -134,7 +134,7 @@
                   "en": "Correct! The beluga is 27 years old."
                 },
                 "wrong": {
-                  "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.",
+                  "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.trice.",
                   "en": "Hmmm … maybe you should go back to see<br>the scientific animator.",
                   "retry": true
                 }
@@ -415,7 +415,7 @@
                     "name": "b_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.",
+                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.trice.",
                   "en": "In a team, compare the contents of the beluga’s stomach with the containers of food and the pictures on the scientific animator’s table."
                 }
               ]
@@ -521,7 +521,7 @@
                   "en": "Well done! That is the correct concentration of toxicity."
                 },
                 "wrong": {
-                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.",
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.trice.",
                   "en": "Hmmm ... did you record the results correctly? Go back to see the scientific animator.",
                   "retry": true
                 }

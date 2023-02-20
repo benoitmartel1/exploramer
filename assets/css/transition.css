@@ -102,10 +102,12 @@
 }
 @keyframes openDown {
   from {
-    transform: scaleY(0.3) scaleX(0.95);
+    /* transform: scaleY(0.3) scaleX(0.95); */
+    transform: translateY(40px);
   }
   to {
-    transform: scaleY(1) scaleX(1);
+    transform: translateY(0);
+    /* transform: scaleY(1) scaleX(1); */
   }
 }
 @keyframes pictoFlash {

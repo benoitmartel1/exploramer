@@ -66,4 +66,7 @@ module.exports = {
     port: 3000,
   },
   dev: process.env.NODE_ENV === 'dev',
+  env: {
+    isDev: process.env.NODE_ENV === 'dev',
+  },
 }

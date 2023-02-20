@@ -35,7 +35,7 @@
                     "width": 20
                   },
                   "roles": ["t", "v"],
-                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
+                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur.trice pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
                   "en": "To weigh the humpback whale, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
                 },
                 {
@@ -416,7 +416,7 @@
                     "name": "r_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.",
+                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.trice.",
                   "en": "In a team, compare the contents of the humpback whale’s stomach with the containers of food and the pictures on the scientific animator’s table."
                 }
               ]
@@ -483,7 +483,7 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Allez voir l'animateur et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité.",
+                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité.",
                   "en": "Go see the scientific animator, and observe the skin and blubber of the humpback whale to discover the concentration of toxins in the whale."
                 },
                 {
@@ -522,7 +522,7 @@
                   "en": "Well done! That is the correct concentration of toxins."
                 },
                 "wrong": {
-                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.",
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.trice.",
                   "en": "Hmmm... did you record the results corectly? Go back to see the scientific animator.",
                   "retry": true
                 }

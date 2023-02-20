@@ -26,13 +26,9 @@ let win = null // Current window
 const electron = require('electron')
 const path = require('path')
 
-const fs = require('fs')
-
-const isDev = false
-
 //Define entry point with settings as args
 const _NUXT_URL_ = `http://localhost:${server.address().port}/exploramer/`
-console.log(_NUXT_URL_)
+
 const app = electron.app
 const newWin = () => {
   win = new electron.BrowserWindow({
@@ -49,7 +45,7 @@ const newWin = () => {
     },
     icon: path.join(__dirname, 'favicon.ico'),
   })
-  console.log(win)
+
   win.on('closed', () => (win = null))
   if (config.dev) {
     // Install vue dev tool and open chrome dev tools
@@ -82,7 +78,7 @@ const newWin = () => {
 }
 app.on('ready', newWin)
 app.on('window-all-closed', () => {
-  app.relaunch()
+  //   app.relaunch()
   app.exit()
 })
 app.on('activate', () => win === null && newWin())

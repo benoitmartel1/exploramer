@@ -46,7 +46,7 @@
 export default {
   data() {
     return {
-      approMode: true,
+      approMode: false,
       count: 0,
     }
   },

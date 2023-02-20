@@ -2,7 +2,7 @@
   <div :class="[{ blurred: isBlurred }, 'scan action']">
     <Header />
 
-    <!-- <div class="camera-controls">
+    <div v-if="showCameraControls" class="camera-controls">
       <div name="focusMode">
         <div class="label">focusMode:</div>
         <input type="checkbox" />
@@ -24,7 +24,7 @@
         <div class="value"></div>
       </div>
       <div id="errorMsg" style="display: none"></div>
-    </div> -->
+    </div>
     <div v-for="(a, index) in content.actions" :key="a + index">
       <Icons v-if="a.roles" :roles="a.roles" />
 
@@ -129,6 +129,7 @@ var arSystem
 export default {
   data() {
     return {
+      showCameraControls: this.$store.state.showCameraControls,
       settings: this.$store.state.settings,
       targetTracked: false,
       lang: this.$store.state.settings.langue,
