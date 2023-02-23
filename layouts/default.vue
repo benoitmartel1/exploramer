@@ -46,7 +46,7 @@
 export default {
   data() {
     return {
-      approMode: false,
+      approMode: true,
       count: 0,
     }
   },
@@ -109,7 +109,9 @@ body {
 }
 .app-wrapper {
   display: flex;
-  width: 100%;
+  width: var(--app-width);
+  height: var(--app-height);
+  /* overflow: hidden; */
 }
 .approMode {
   cursor: pointer;

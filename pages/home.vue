@@ -120,9 +120,10 @@ export default {
       this.clearAll()
       //If first apparition of info button in sequence, then auto show info popup
       if (old.step.hasInfo == undefined && val.step.hasInfo !== undefined) {
-        showInfoTimeout = setTimeout(() => {
-          this.showInfo = true
-        }, 1500)
+        // showInfoTimeout = setTimeout(() => {
+        //   this.showInfo = true
+        // }, 0)
+        this.showInfo = true
       }
     },
     deep: true,

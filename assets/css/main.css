@@ -104,7 +104,7 @@ ul {
   padding: 40px 10px 60px 10px;
 }
 .info .content {
-  /* transform-origin: 100% -100%; */
+  min-height: 60%;
 }
 .blurZone {
   width: var(--app-width);
@@ -112,7 +112,8 @@ ul {
   position: absolute;
   top: 0;
   /* z-index: 0; */
-  backdrop-filter: grayscale(50%) blur(4px);
+  /* backdrop-filter: grayscale(50%) blur(4px); */
+  backdrop-filter: grayscale(50%) brightness(0.6);
   /* background-color: rgba(0, 0, 0, 0.5);
    */
   background-color: rgba(31, 42, 46, 0.6);
@@ -120,8 +121,10 @@ ul {
 .popup.info > div {
   padding-top: 10px;
 }
+
 .blurred {
-  filter: grayscale(50%) blur(4px);
+  /* filter: grayscale(50%) blur(4px); */
+  /* filter: grayscale(50%) brightness(0.6); */
 }
 
 h1,
@@ -166,8 +169,11 @@ a:hover {
   font-size: 53px;
   font-weight: 900;
 }
-.blurred .button {
-  color: rgb(176, 192, 192);
+.blurred .button,
+.blurred .frame,
+.blurred .center .experience {
+  color: rgb(135, 140, 145);
+  filter: grayscale(60%) brightness(0.6);
 }
 .center {
   width: 100%;

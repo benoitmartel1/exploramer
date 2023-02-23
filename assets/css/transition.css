@@ -56,6 +56,18 @@
     opacity: 1;
   }
 }
+@keyframes themePulse {
+  0%,
+  20%,
+  80%,
+  100% {
+    filter: brightness(1.2);
+  }
+  50%,
+  60% {
+    filter: brightness(1);
+  }
+}
 @keyframes popButton {
   0% {
     opacity: 0;

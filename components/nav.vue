@@ -53,6 +53,7 @@
         :class="[
           theme == i - 1 && !isRapport && !isRapportVisible ? 'active' : '',
           i <= theme ? 'done' : '',
+          theme == i - 1 && (isRapport || isRapportVisible) ? 'standby' : '',
           'theme',
         ]"
       >
@@ -167,8 +168,13 @@ export default {
 }
 .theme.active {
   background-color: white;
-  transition: background-color 200ms;
+  /* transition: background-color 200ms; */
 }
+
+.theme.standby {
+  animation: themePulse 2000ms infinite linear;
+}
+
 .theme.done {
   background-color: #bbb;
   transition: background-color 200ms;

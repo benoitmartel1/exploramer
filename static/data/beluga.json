@@ -310,8 +310,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le béluga et essaie de trouver son sexe en balayant l’image avec la tablette.",
-                  "en": "Stand in front of the banner representing the beluga and determine its sex by scanning the image with the tablet."
+                  "fr": "Place-toi devant la bannière représentant le béluga et essaie de trouver son sexe en balayant lentement l’image avec la tablette.",
+                  "en": "Stand in front of the banner representing the beluga and determine its sex by carefully scanning the image with the tablet."
                 }
               ]
             },
@@ -401,8 +401,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le béluga et balaye l’image avec la tablette pour découvrir le contenu de son estomac.",
-                  "en": "Stand in front of the banner representing the beluga and scan the image with the tablet to discover the contents of its stomach."
+                  "fr": "Place-toi devant la bannière représentant le béluga et balaye lentement l’image avec la tablette pour découvrir le contenu de son estomac.",
+                  "en": "Stand in front of the banner representing the beluga and carefully scan the image with the tablet to discover the contents of its stomach."
                 }
               ]
             },
@@ -593,8 +593,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v", "t"],
-                  "fr": "Comme le béluga est une femelle, vous devez aussi vérifier si le béluga présente des signes d’accouchement récent.<br> Placez-vous devant la bannière représentant le béluga et balayez l’image avec la tablette pour tenter de détecter ces signes.",
-                  "en": "Since the beluga is a female, you should also check to see whether she shows signs of having recently given birth (calving).<br>Stand in front of the banner representing the beluga and scan the image with the tablet to detect these signs."
+                  "fr": "Comme le béluga est une femelle, vous devez aussi vérifier si le béluga présente des signes d’accouchement récent.<br> Placez-vous devant la bannière représentant le béluga et balayez lentement l’image avec la tablette pour tenter de détecter ces signes.",
+                  "en": "Since the beluga is a female, you should also check to see whether she shows signs of having recently given birth (calving).<br>Stand in front of the banner representing the beluga and carefully scan the image with the tablet to detect these signs."
                 }
               ]
             },

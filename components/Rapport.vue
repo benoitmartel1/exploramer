@@ -274,7 +274,7 @@
     <div v-if="content.type == 'rapport'" class="footer center">
       <ContinueButton />
     </div>
-    <div v-else-if="isLastTheme == true" class="footer center">
+    <div v-else class="footer center">
       <ContinueButton
         :skipDefaultClick="true"
         @click="this.$parent.showRapport = false"

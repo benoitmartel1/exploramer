@@ -77,7 +77,7 @@ export default {
   mounted() {
     timer = setTimeout(() => {
       this.done()
-    }, 2500)
+    }, 2200)
   },
   methods: {
     done() {
@@ -132,7 +132,7 @@ export default {
 }
 @keyframes picto {
   from {
-    transform: rotate(-10deg);
+    transform: rotate(-20deg);
   }
   to {
     transform: rotate(10deg);

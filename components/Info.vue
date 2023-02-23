@@ -79,10 +79,11 @@ export default {
 .close {
   width: 100%;
   text-align: right;
+  padding: 20px 20px 0 0;
   /* background-color: red; */
 }
 .close svg {
-  transform: scale(0.8);
+  transform: scale(0.9);
 }
 .info .text {
   padding: 50px;

@@ -17,6 +17,7 @@ function handleSuccess(stream) {
 
   // make track variable available to browser console.
   const [track] = ([window.track] = stream.getVideoTracks())
+  track.applyConstraints({ advanced: [{ zoom: 30, brightness: -15 }] })
   const capabilities = track.getCapabilities()
   const settings = track.getSettings()
 
@@ -100,6 +101,7 @@ async function initCameraControls(e) {
 }
 window.addEventListener('load', function (event) {
   console.log('loaded')
+  //   initCameraControls()
   var myInt = setInterval(() => {
     console.log('check if video')
     const video = document.querySelector('video')

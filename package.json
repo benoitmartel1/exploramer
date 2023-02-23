@@ -15,7 +15,12 @@
       }
     ],
     "win": {
-      "target": "NSIS",
+      "target": {
+        "target": "NSIS",
+        "arch": [
+          "ia32"
+        ]
+      },
       "icon": "static/icon.png"
     },
     "directories": {

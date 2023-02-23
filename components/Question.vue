@@ -18,6 +18,13 @@
           {{ c[lang] }}
         </div>
       </div>
+      <div
+        v-show="!rightAnswer"
+        class="back-button"
+        @click="$parent.decrement()"
+      >
+        BACK
+      </div>
     </div>
 
     <div v-show="showValidation" class="validation popup">

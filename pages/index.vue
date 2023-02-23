@@ -43,7 +43,7 @@
           </ol> -->
           <div class="button ok" @click="$router.push('/home')">OK ></div>
 
-          <label class="switch">
+          <!-- <label class="switch">
             <h5>Show Camera Controls</h5>
             <input
               type="checkbox"
@@ -51,7 +51,7 @@
               @click="toggleCameraControls"
             />
             <div class="slider round"></div>
-          </label>
+          </label> -->
         </div>
       </div>
       <div v-else-if="$fetchState.error">

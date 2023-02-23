@@ -54,7 +54,7 @@ body {
   border: 1px solid black;
   transform: scale(1);
 }
-#app .main-wrapper {
+.print #app .main-wrapper {
   width: 1180px;
   /* background-color: white; */
   height: calc(106px + 1704px);
@@ -62,15 +62,15 @@ body {
   margin-top: 47px;
   /* background-color: #65adad; */
 }
-.appro {
+.print .appro {
   transform: scale(0.4);
   transform-origin: 0 0;
 }
-.app-wrapper {
+.print .app-wrapper {
   display: flex;
   width: 100%;
 }
-.approMode {
+.print .approMode {
   cursor: pointer;
   display: flex;
   font-weight: bold;

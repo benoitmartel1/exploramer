@@ -41,9 +41,10 @@ export default {}
   border: 1px solid #cdcbd0;
   mask-image: radial-gradient(
     circle farthest-side at center,
-    transparent 79%,
-    white 80%
+    transparent 69%,
+    white 70%
   );
+  /* box-shadow: 10px 10px 0 0 black;s */
 }
 
 .circle-wrap .circle .mask,
@@ -58,7 +59,7 @@ export default {}
   clip: rect(0px, 150px, 150px, 75px);
 }
 
-.circle-wrap .inside-circle {
+/* .circle-wrap .inside-circle {
   width: 122px;
   height: 122px;
   border-radius: 50%;
@@ -71,14 +72,14 @@ export default {}
   position: absolute;
   z-index: 100;
   font-weight: 700;
-  font-size: 2em;
-}
+  font-size: 14em;
+} */
 
 /* color animation */
 
 /* 3rd progress bar */
 .mask .fill {
-  clip: rect(0px, 75px, 150px, 0px);
+  clip: rect(0px, 76px, 150px, 0px);
   background-color: white;
 }
 
@@ -90,7 +91,7 @@ export default {}
 
 @keyframes fill {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(1deg);
   }
   100% {
     transform: rotate(180deg);

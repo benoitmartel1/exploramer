@@ -312,8 +312,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": " Place toi devant la bannière représentant le rorqual et essaie de trouver son sexe en balayant l’image avec la tablette.",
-                  "en": "Stand in front of the banner representing the humpback whale and determine its sex by scanning the image with the tablet. "
+                  "fr": "Place toi devant la bannière représentant le rorqual et essaie de trouver son sexe en balayant lentement l’image avec la tablette.",
+                  "en": "Stand in front of the banner representing the humpback whale and determine its sex by carefully scanning the image with the tablet. "
                 }
               ]
             },
@@ -402,8 +402,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour découvrir le contenu de son estomac.",
-                  "en": "Stand in front of the banner representing the humpback whale and scan the image with the tablet to discover the whale’s stomach contents."
+                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye lentement l’image avec la tablette pour découvrir le contenu de son estomac.",
+                  "en": "Stand in front of the banner representing the humpback whale and carefully scan the image with the tablet to discover the whale’s stomach contents."
                 }
               ]
             },
@@ -503,17 +503,17 @@
               "validate": true,
               "choices": [
                 {
-                  "fr": "100 ng/g",
-                  "en": "100 ng/g",
-                  "isAnswer": true
-                },
-                {
                   "fr": "225 ng/g",
                   "en": "225 ng/g"
                 },
                 {
                   "fr": "400 ng/g",
                   "en": "400 ng/g"
+                },
+                {
+                  "fr": "100 ng/g",
+                  "en": "100 ng/g",
+                  "isAnswer": true
                 }
               ],
               "resolve": {
@@ -594,8 +594,8 @@
                 {
                   "hasScan": true,
                   "roles": ["v"],
-                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye l’image avec la tablette pour vérifier si le rorqual présente des marques ou des signes d’impact avec un navire.",
-                  "en": "Stand in front of the banner representing the humpback whale and scan it with the tablet to see whether the humpback shows marks or signs of collisions with ships."
+                  "fr": "Place-toi devant la bannière représentant le rorqual et balaye lentement l’image avec la tablette pour vérifier si le rorqual présente des marques ou des signes d’impact avec un navire.",
+                  "en": "Stand in front of the banner representing the humpback whale and carefully scan it with the tablet to see whether the humpback shows marks or signs of collisions with ships."
                 }
               ]
             },

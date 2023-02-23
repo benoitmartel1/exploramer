@@ -25,6 +25,7 @@
       </div>
       <div id="errorMsg" style="display: none"></div>
     </div>
+
     <div v-for="(a, index) in content.actions" :key="a + index">
       <Icons v-if="a.roles" :roles="a.roles" />
 
@@ -56,11 +57,9 @@
             v-bind:mindar-image="
               'imageTargetSrc: mind/' +
               content.tag +
-              '.mind;showStats:false;filterMinCF:0.0001; filterBeta: 1000;warmupTolerance:1;missTolerance:2;uiError:no; uiLoading:no; uiScanning:no;'
+              '.mind;showStats:false;filterMinCF:0.0001; filterBeta: 1000;warmupTolerance:1;missTolerance:1;uiError:no; uiLoading:no; uiScanning:no;'
             "
             vr-mode-ui="enabled: false"
-            color-space="sRGB"
-            renderer="colorManagement: true, physicallyCorrectLights"
             device-orientation-permission-ui="enabled: false"
           >
             <!-- <video
@@ -127,6 +126,15 @@ var doneTimeout
 var overlayTimeout
 var arSystem
 export default {
+  head() {
+    return {
+      script: [
+        {
+          src: '/exploramer/js/camera-control.js',
+        },
+      ],
+    }
+  },
   data() {
     return {
       showCameraControls: this.$store.state.showCameraControls,
@@ -324,7 +332,10 @@ a-scene {
 }
 .active .blink {
   --w: 40px; /* width of border */
-  animation: none;
+  /* animation: none; */
+  /* background-color: green; */
+
+  animation-duration: 400ms;
   transition: transform 100ms ease-out;
   transform: scale(0.9);
   /* opacity: 0; */
@@ -368,7 +379,8 @@ a-scene {
 .flash {
   position: absolute;
   z-index: 300;
-  border: 25px white solid;
+  border: 40px white solid;
+  border-color: rgb(102, 255, 51);
   width: 100%;
   height: 100%;
   transform: scale(1.2);
@@ -442,5 +454,19 @@ input[type='range'] {
 .scan .frame {
   animation-name: fromBottomRight;
   padding-bottom: 30px;
+}
+.active video {
+  animation: activeVideo 800ms infinite ease;
+}
+
+@keyframes activeVideo {
+  0%,
+  100% {
+    filter: sepia(0%) hue-rotate(0deg);
+  }
+
+  50% {
+    filter: sepia(60%) hue-rotate(90deg) brightness(1.2);
+  }
 }
 </style>
