@@ -31,8 +31,8 @@
               "actions": [
                 {
                   "image": {
-                    "name": "balance.png",
-                    "width": 20
+                    "name": "balance_r_2.png",
+                    "width": 40
                   },
                   "roles": ["t", "v"],
                   "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur.trice pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",

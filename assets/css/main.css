@@ -170,6 +170,7 @@ a:hover {
   font-weight: 900;
 }
 .blurred .button,
+.blurred .back-button,
 .blurred .frame,
 .blurred .center .experience {
   color: rgb(135, 140, 145);
@@ -212,11 +213,11 @@ a:hover {
 .spacer {
   height: 30px;
 }
-/* .info .content .text {
-  opacity: 0;
-  animation: fadeLeft 200ms ease-out;
-  animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards;
-
-  animation-delay: 100ms;
-} */
+.back-button {
+  cursor: pointer;
+  position: absolute;
+  bottom: 100px;
+  width: 400px;
+  animation: fadeIn var(--default-tr-speed) both;
+  animation-delay: 200ms;
+}
