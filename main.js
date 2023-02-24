@@ -1,6 +1,17 @@
-/*
- **  Nuxt
- */
+// const { exec } = require('child_process')
+// const child = exec(
+//   'cd "%userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu" & dir'
+// )
+// child.stdout.on('data', (data) => {
+//   console.log(`child stdout:\n${data}`)
+// })
+
+// child.stderr.on('data', (data) => {
+//   console.error(`child stderr:\n${data}`)
+// })
+
+// throw new Error('Something went badly wrong!')
+
 const http = require('http')
 const { Nuxt, Builder } = require('nuxt')
 let config = require('./nuxt.config.js')
@@ -24,6 +35,7 @@ server.listen(3000)
  */
 let win = null // Current window
 const electron = require('electron')
+
 const path = require('path')
 
 //Define entry point with settings as args
@@ -45,9 +57,15 @@ const newWin = () => {
     },
     icon: path.join(__dirname, 'favicon.ico'),
   })
-
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.type == 'keyUp' && input.key == 'Escape') {
+      console.log('closing...')
+      win.close()
+    }
+  })
   win.on('closed', () => (win = null))
   if (config.dev) {
+    console.log('is CONFIG DEV')
     // Install vue dev tool and open chrome dev tools
     const {
       default: installExtension,
@@ -73,6 +91,7 @@ const newWin = () => {
     }
     pollServer()
   } else {
+    console.log('is NOT CONFIG DEV')
     return win.loadURL(_NUXT_URL_)
   }
 }

@@ -268,6 +268,7 @@
                 "fr": "Est-ce que la longueur du béluga se situe dans la moyenne d’un adulte ?",
                 "en": "Is this beluga’s length normal for an adult?"
               },
+              "noBack": true,
               "validate": true,
               "choices": [
                 {
@@ -656,20 +657,22 @@
                 "fr": "Parmi les choix suivants, quelle est la cause de la mort du béluga  ?",
                 "en": "Which of the following caused the beluga’s death ?"
               },
+              "noBack": true,
               "validate": true,
               "choices": [
                 {
-                  "fr": "Les polluants toxiques retrouvés dans l’eau.",
-                  "en": "Toxic pollutants in the water",
-                  "isAnswer": true
+                  "fr": "Une mauvaise alimentation.",
+                  "en": "A poor diet"
                 },
                 {
                   "fr": "Le transport maritime et les engins de pêche.",
                   "en": " Maritime transport and fishing gear"
                 },
+
                 {
-                  "fr": "Une mauvaise alimentation.",
-                  "en": "A poor diet"
+                  "fr": "Les polluants toxiques retrouvés dans l’eau.",
+                  "en": "Toxic pollutants in the water",
+                  "isAnswer": true
                 },
                 {
                   "fr": "Les complications dues à l’accouchement.",

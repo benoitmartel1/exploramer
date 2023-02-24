@@ -18,8 +18,9 @@
           {{ c[lang] }}
         </div>
       </div>
+
       <div
-        v-show="!rightAnswer"
+        v-show="!rightAnswer && content.noBack !== true"
         class="back-button"
         @click="$parent.decrement()"
       >

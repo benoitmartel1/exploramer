@@ -1,5 +1,8 @@
 <template>
-  <div :class="[{ appro: approMode }, 'app-wrapper']">
+  <div
+    :class="[{ appro: approMode }, 'app-wrapper']"
+    :style="approMode == false ? 'overflow: hidden;' : ''"
+  >
     <div id="app">
       <Nuxt :key="count" />
     </div>
@@ -46,7 +49,7 @@
 export default {
   data() {
     return {
-      approMode: true,
+      approMode: 1,
       count: 0,
     }
   },
@@ -111,7 +114,6 @@ body {
   display: flex;
   width: var(--app-width);
   height: var(--app-height);
-  /* overflow: hidden; */
 }
 .approMode {
   cursor: pointer;

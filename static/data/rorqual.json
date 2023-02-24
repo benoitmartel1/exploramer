@@ -270,6 +270,7 @@
                 "fr": "Est-ce que la longueur du rorqual se situe dans la moyenne d’un adulte ?",
                 "en": "Does this humpback whale have an average length for an adult?"
               },
+              "noBack": true,
               "validate": true,
               "choices": [
                 {
@@ -658,6 +659,7 @@
                 "en": "Which of the following caused the humpback whale’s death?"
               },
               "validate": true,
+              "noBack": true,
               "choices": [
                 {
                   "fr": "Les polluants toxiques retrouvés dans l’eau",
