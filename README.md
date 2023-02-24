@@ -23,3 +23,4 @@ $ yarn generate
 
 scp -r dist/\* benoitma@50.87.233.33:public_html/dev/exploramer
 scp -r "app/exploramer Setup 1.0.0.exe" benoitma@50.87.233.33:public_html/dev/exploramer/exploramer-setup.exe
+scp -r "exploramer.bat" benoitma@50.87.233.33:public_html/dev/exploramer/
