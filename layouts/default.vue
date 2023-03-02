@@ -49,7 +49,7 @@
 export default {
   data() {
     return {
-      approMode: 1,
+      approMode: 0,
       count: 0,
     }
   },

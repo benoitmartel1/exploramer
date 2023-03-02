@@ -194,7 +194,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid white;
+  /* border: 3px solid white; */
   border-radius: 50%;
   width: 300px;
   height: 300px;
