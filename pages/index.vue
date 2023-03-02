@@ -190,7 +190,7 @@ export default {
 .ok {
   border: none;
 }
-.circle {
+.setup .circle {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -38,7 +38,7 @@ export default {}
   height: 150px;
   background: #333;
   border-radius: 50%;
-  border: 1px solid #cdcbd0;
+  /* border: 1px solid #cdcbd0; */
   mask-image: radial-gradient(
     circle farthest-side at center,
     transparent 69%,
