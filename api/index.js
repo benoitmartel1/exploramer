@@ -1,5 +1,6 @@
 var express = require('express')
 var cors = require('cors')
+const path = require('path')
 
 var bodyParser = require('body-parser')
 var app = express()
@@ -13,30 +14,30 @@ app.use(express.static('public'))
 
 const sqlite3 = require('sqlite3').verbose()
 
-console.log(sqlite3)
+const dbpath = path.join(
+  process.env.LOCALAPPDATA,
+  '/Programs/exploramer/settings.db'
+)
+
 console.log('Connecting...')
 
 //Initial connect to db
-let db = new sqlite3.Database(
-  './settings.db',
-  sqlite3.OPEN_READWRITE,
-  (err) => {
-    //if db doesnt exist...
-    if (err && err.code == 'SQLITE_CANTOPEN') {
-      //create db
-      createDatabase()
-      return
-    } else if (err) {
-      console.log('Getting error ' + err)
-      //exit(1);
-    }
-    console.log('Connected to the in-memory SQlite database.')
+let db = new sqlite3.Database(dbpath, sqlite3.OPEN_READWRITE, (err) => {
+  //if db doesnt exist...
+  if (err && err.code == 'SQLITE_CANTOPEN') {
+    //create db
+    createDatabase()
+    return
+  } else if (err) {
+    console.log('Getting error ' + err)
+    //exit(1);
   }
-)
+  console.log('Connected to the in-memory SQlite database.')
+})
 
 function createDatabase() {
   //Create db only if doesnt exist...
-  var newdb = new sqlite3.Database('./settings.db', (err) => {
+  var newdb = new sqlite3.Database(dbpath, (err) => {
     if (err) {
       console.log('Getting error ' + err)
       //   exit(1);
@@ -53,15 +54,11 @@ function createDatabase() {
 
 async function getDBConnection() {
   //Connect to db
-  const db = new sqlite3.Database(
-    './settings.db',
-    sqlite3.OPEN_READWRITE,
-    (err) => {
-      if (err) {
-        return console.error(err.message)
-      }
+  const db = new sqlite3.Database(dbpath, sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+      return console.error(err.message)
     }
-  )
+  })
   return db
 }
 

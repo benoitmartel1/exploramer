@@ -42,13 +42,15 @@
                 :class="[
                   subtheme.isLast || step.type == 'intro' ? 'last-theme' : '',
                   'main-wrapper',
+                  step.lastSlide == true && !showRapport ? 'last-slide' : '',
                 ]"
               >
                 <Nav
-                  v-if="step.type !== 'outro' && step.type !== 'intro'"
+                  v-if="!step.noNav"
                   :isRapport="step.type == 'rapport'"
                   :unlocks="step.unlocks"
                   :themeIndex="tindex"
+                  :isLast="step.lastSlide"
                 />
 
                 <div id="main">
@@ -58,6 +60,7 @@
                       :status="status(tindex, sindex, index)"
                       :content="stepContent(theme[lang], subtheme, step)"
                     />
+
                     <Intro v-if="step.type == 'intro'" :content="step" />
                     <Outro v-if="step.type == 'outro'" :content="step" />
                     <Rapport

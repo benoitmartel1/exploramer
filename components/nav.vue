@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div :class="['nav', { last: isLast }]">
     <div v-if="theme < nbOfThemes + 1" class="theme-wrapper">
       <div
         :class="[
@@ -99,7 +99,7 @@ export default {
       themeUnlockModifier: 0,
     }
   },
-  props: ['isRapport', 'unlocks', 'themeIndex'],
+  props: ['isRapport', 'isLast', 'unlocks', 'themeIndex'],
   computed: {
     isRapportVisible() {
       return this.$parent.showRapport
@@ -198,5 +198,19 @@ export default {
 }
 .last-theme .theme-wrapper {
   background-color: white;
+}
+.last-slide .theme:not(:first-child) {
+  opacity: 0;
+}
+.last-slide .theme-wrapper {
+  background: none;
+}
+.last-slide .theme:first-child {
+  background: none;
+
+  border: 2px solid white;
+}
+.last-slide .theme:first-child svg {
+  filter: brightness(200) saturate(0);
 }
 </style>

@@ -5,13 +5,10 @@
   "main": "main.js",
   "build": {
     "appId": "com.benoitmartel.exploramer",
-    "extraResources": [
+    "extraFiles": [
       {
         "from": "./static/extraResources/",
-        "to": "extraResources",
-        "filter": [
-          "**/*"
-        ]
+        "to": "."
       }
     ],
     "win": {
@@ -19,6 +16,9 @@
         "target": "NSIS"
       },
       "icon": "static/icon.png"
+    },
+    "nsis": {
+      "include": "build/installer.nsh"
     },
     "directories": {
       "output": "app"

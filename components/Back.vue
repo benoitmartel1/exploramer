@@ -3,7 +3,7 @@
     :class="[{ outro: type == 'outro' }, { intro: type == 'intro' }, 'back']"
   >
     <svg
-      v-if="type !== 'outro' && type !== 'intro'"
+      v-if="(type !== 'outro' && type !== 'intro') || isLast"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       width="1273.001"
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  props: ['type'],
+  props: ['type', 'isLast'],
 }
 </script>
 

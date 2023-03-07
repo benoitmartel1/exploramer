@@ -69,8 +69,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo ! Tu as trouvé le poids de la baleine !",
-                  "en": "Good work! You found the weight of the whale!"
+                  "fr": "Bravo ! Tu as trouvé le poids de la baleine ! Elle pèse bien 1 400 kg.",
+                  "en": "Good work! You found the weight of the whale! She weighs 1,400 kg."
                 },
                 "wrong": {
                   "fr": "As-tu  bien ajusté ta balance ?<br>Essaie de nouveau.",
@@ -305,7 +305,7 @@
             },
             {
               "type": "scan",
-              "tag": "b_sexe_s6",
+              "tag": "b_sexe_s7",
               "overlay": "b_sexe.jpg",
               "actions": [
                 {
@@ -588,7 +588,7 @@
             {
               "__comment": "55",
               "type": "scan",
-              "tag": "b_sexe_s6",
+              "tag": "b_sexe_s7",
               "overlay": "b_accouchement.jpg",
               "actions": [
                 {
@@ -689,7 +689,7 @@
             },
             {
               "type": "outro",
-              "noNav": true,
+              "lastSlide": true,
               "fr": "Les bélugas sont exposés à plusieurs contaminants dans le Saint-Laurent. Les hauts taux de toxicité dans leur corps créent des problèmes de santé tels que des cancers ou des difficultés lors de l’accouchement.",
               "en": "Belugas are exposed to a variety of contaminants in the St. Lawrence Estuary. The high levels of toxins in their bodies create health problems, including cancers and difficulties while giving birth."
             }

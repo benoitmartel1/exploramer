@@ -70,8 +70,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Bravo ! Tu as trouvé le poids de la baleine !",
-                  "en": "Good work! You determined the whale’s weight!"
+                  "fr": "Bravo ! Tu as trouvé le poids de la baleine ! Elle pèse bien 28 000 kg.",
+                  "en": "Good work! You determined the whale’s weight! She weighs<br>28,000 kg."
                 },
                 "wrong": {
                   "fr": "As-tu bien ajusté ta balance ?<br>Essaie de nouveau.",
@@ -689,7 +689,7 @@
             },
             {
               "type": "outro",
-              "noNav": true,
+              "lastSlide": true,
               "fr": "Malheureusement, dans le Saint-Laurent, le rorqual à bosse est à risque de se faire prendre dans des engins de pêche et de rentrer en collision avec des navires. Pour sauver les baleines et limiter les accidents, il y a maintenant des limites de vitesse imposées pour les navires. Les secteurs de pêche sont également réglementés.",
               "en": "Unfortunately, in the St. Lawrence River, humpback whales are at risk of being caught in fishing gear and colliding with ships. As a result, speed limits have been imposed on vessels and fishing areas are regulated to save the whales and reduce these accidents."
             }

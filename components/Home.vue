@@ -1,11 +1,14 @@
 <template>
   <div>
     <div
-      @touchstart="startTimer()"
-      @touchend="stopTimer()"
-      @mousedown="startTimer()"
-      @mouseup="stopTimer()"
-      class="home-button"
+      @touchend="handleTouch(0)"
+      @mouseup="handleTouch(0)"
+      class="home-button left"
+    ></div>
+    <div
+      @touchend="handleTouch(1)"
+      @mouseup="handleTouch(1)"
+      class="home-button right"
     ></div>
   </div>
 </template>
@@ -13,15 +16,32 @@
 <script>
 let timer
 export default {
+  data() {
+    return {
+      touchCount: 0,
+    }
+  },
   methods: {
+    handleTouch(side) {
+      if (this.touchCount % 2 == side) {
+        this.touchCount++
+        console.log(this.touchCount)
+
+        this.startTimer()
+        if (this.touchCount > 3) {
+          this.$router.push('/')
+          this.touchCount = 0
+          clearTimeout(timer)
+        }
+      }
+    },
     startTimer() {
+      clearTimeout(timer)
       let that = this
       timer = setTimeout(() => {
-        that.$router.push('/')
-      }, 2000)
-    },
-    stopTimer() {
-      clearTimeout(timer)
+        this.touchCount = 0
+        console.log(this.touchCount)
+      }, 600)
     },
   },
 }
@@ -42,5 +62,9 @@ export default {
   bottom: 50px;
   right: 50px;
   z-index: 999;
+}
+.home-button.left {
+  top: 50px;
+  left: 50px;
 }
 </style>

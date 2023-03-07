@@ -10,12 +10,14 @@
         stepContent.subtheme.isLast || stepContent.step.type == 'intro'
           ? 'last-theme'
           : '',
+        stepContent.step.lastSlide == true && !showRapport ? 'last-slide' : '',
         'main-wrapper',
       ]"
     >
       <Nav
         v-if="!stepContent.step.noNav"
         :isRapport="stepContent.step.type == 'rapport'"
+        :isLast="stepContent.step.isLast"
         :unlocks="stepContent.step.unlocks"
         :themeIndex="status.theme"
       />
@@ -64,7 +66,10 @@
             :showInfo="showInfo"
           />
         </div>
-        <Back :type="stepContent.step.type" />
+        <Back
+          :type="stepContent.step.type"
+          :isLast="stepContent.subtheme.isLast && showRapport"
+        />
       </div>
     </div>
   </div>
@@ -73,14 +78,10 @@
 <script>
 var showInfoTimeout
 
-// import beluga from '~/static/data/beluga.json'
-// import rorqual from '~/static/data/rorqual.json'
-
 export default {
   data() {
     return {
-      content: this.$store.state.content, // Uncomment for production
-      //   content: beluga, //Comment for production
+      content: this.$store.state.content,
       settings: this.$store.state.settings,
       showRapport: false,
       showInfo: false,
@@ -97,20 +98,6 @@ export default {
       return this.$store.getters.getStatus
     },
     stepContent() {
-      //   If in dev mode
-      // if (beluga || rorqual) {
-      //   console.log('IN DEV MODE')
-      //   const s = this.status
-      //   const theme = this.content.themes[s.theme]
-      //   const subtheme = theme.subthemes[s.subtheme]
-
-      //   return {
-      //     theme: theme[this.lang],
-      //     subtheme: subtheme,
-      //     step: subtheme.steps[s.step],
-      //   }
-      // }
-
       return this.$store.getters.getStepContent
     },
   },
@@ -120,9 +107,6 @@ export default {
       this.clearAll()
       //If first apparition of info button in sequence, then auto show info popup
       if (old.step.hasInfo == undefined && val.step.hasInfo !== undefined) {
-        // showInfoTimeout = setTimeout(() => {
-        //   this.showInfo = true
-        // }, 0)
         this.showInfo = true
       }
     },
@@ -201,6 +185,5 @@ button {
 
   margin: auto;
   display: block;
-  /* margin: auto; */
 }
 </style>

@@ -1,6 +1,6 @@
 // const { exec } = require('child_process')
 // const child = exec(
-//   'cd "%userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu" & dir'
+//   'IF NOT EXIST "%userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\exploramer.bat" copy static\\extraResources\\exploramer.bat "%userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\exploramer.bat"'
 // )
 // child.stdout.on('data', (data) => {
 //   console.log(`child stdout:\n${data}`)
@@ -9,8 +9,6 @@
 // child.stderr.on('data', (data) => {
 //   console.error(`child stderr:\n${data}`)
 // })
-
-// throw new Error('Something went badly wrong!')
 
 const http = require('http')
 const { Nuxt, Builder } = require('nuxt')

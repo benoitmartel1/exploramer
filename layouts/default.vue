@@ -100,11 +100,9 @@ body {
 }
 #app .main-wrapper {
   width: 1180px;
-  /* background-color: white; */
   height: calc(106px + 1704px);
   margin: auto;
   margin-top: 47px;
-  /* background-color: #65adad; */
 }
 .appro {
   transform: scale(0.4);

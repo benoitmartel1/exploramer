@@ -416,7 +416,7 @@ ul {
   flex-grow: 1;
 }
 .value.empty {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   width: 100%;
 }
 .rapport:has(.message) .button {
