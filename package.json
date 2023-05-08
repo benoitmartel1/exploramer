@@ -26,11 +26,7 @@
   },
   "scripts": {
     "dev": "nuxt",
-    "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:prettier",
-    "lintfix": "prettier --write --list-different .",
     "electron": "cross-env NODE_ENV=dev electron .",
     "e:build": "cross-env NODE_ENV=production nuxt build && electron-builder --win"
   },

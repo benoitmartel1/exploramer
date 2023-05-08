@@ -1,14 +1,28 @@
-// const { exec } = require('child_process')
-// const child = exec(
-//   'IF NOT EXIST "%userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\exploramer.bat" copy static\\extraResources\\exploramer.bat "%userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\exploramer.bat"'
-// )
-// child.stdout.on('data', (data) => {
-//   console.log(`child stdout:\n${data}`)
-// })
+const path = require('path')
+var fs = require('fs')
+const os = require('os')
 
-// child.stderr.on('data', (data) => {
-//   console.error(`child stderr:\n${data}`)
-// })
+const userHomeDir = os.homedir()
+const destDir = path.join(
+  userHomeDir,
+  'AppData/Roaming/Microsoft/Windows/Start Menu/exploramer.bat'
+)
+
+const srcDir = path.join(
+  path.dirname(path.dirname(__dirname)),
+  'exploramer.bat'
+)
+fs.stat(destDir, (err, stat) => {
+  if (err) {
+    fs.copyFile(srcDir, destDir, (err) => {
+      if (err) {
+        console.error(err)
+      }
+    })
+  } else {
+    console.log('Exploramer.bat already exists.')
+  }
+})
 
 const http = require('http')
 const { Nuxt, Builder } = require('nuxt')
@@ -34,7 +48,7 @@ server.listen(3000)
 let win = null // Current window
 const electron = require('electron')
 
-const path = require('path')
+// const path = require('path')
 
 //Define entry point with settings as args
 const _NUXT_URL_ = `http://localhost:${server.address().port}/exploramer/`
