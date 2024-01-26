@@ -35,8 +35,8 @@
                     "width": 40
                   },
                   "roles": ["t", "v"],
-                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur.trice pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
-                  "en": "To weigh the humpback whale, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
+                  "fr": "Pour trouver le poids du rorqual, utilise la balance qui se trouve dans la mallette pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
+                  "en": "To weigh the humpback whale, take the scale out of the case, and find the model. Hang the model on the scale and observe the result."
                 },
                 {
                   "roles": ["b"],
@@ -71,7 +71,7 @@
               "resolve": {
                 "right": {
                   "fr": "Bravo ! Tu as trouvé le poids de la baleine ! Elle pèse bien 28 000 kg.",
-                  "en": "Good work! You determined the whale’s weight! She weighs<br>28,000 kg."
+                  "en": "Good work! You determined the whale’s weight! It weighs<br>28,000 kg."
                 },
                 "wrong": {
                   "fr": "As-tu bien ajusté ta balance ?<br>Essaie de nouveau.",
@@ -96,8 +96,8 @@
               "actions": [
                 {
                   "roles": ["t", "b", "v"],
-                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du rorqual.",
-                  "en": "Go see the scientific animator; they will help you figure out the age of the humpback whale."
+                  "fr": "Allez voir le/la responsable des interventions qui vous aidera à trouver l'âge du rorqual.",
+                  "en": "Go see the intervention manager; they will help you figure out the age of the humpback whale."
                 },
                 {
                   "roles": ["b"],
@@ -135,8 +135,8 @@
                   "en": "Correct! The humpback whale is<br>41 years old."
                 },
                 "wrong": {
-                  "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.trice.",
-                  "en": "Hmmm … maybe you should go back to see<br>the scientific animator.",
+                  "fr": "Ummm… Tu devrais peut-être retourner voir le/la responsable.",
+                  "en": "Hmmm … maybe you should go back to see<br>the intervention manager.",
                   "retry": true
                 }
               }
@@ -417,8 +417,8 @@
                     "name": "r_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.trice.",
-                  "en": "In a team, compare the contents of the humpback whale’s stomach with the containers of food and the pictures on the scientific animator’s table."
+                  "fr": "En équipe, comparez la nourriture qui se retrouve dans l’estomac avec les contenants de nourriture et les photos qui sont entre les mains du responsable des interventions.",
+                  "en": "In a team, compare the contents of the humpback whale’s stomach with the containers of food and the pictures in the intervention manager's hands."
                 }
               ]
             },
@@ -443,8 +443,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as bien vu. Du plastique se trouve dans l'estomac du rorqual. Toutefois, la quantité n’est pas assez élevée pour que ce soit dangereux pour la baleine.",
-                  "en": "You saw correctly. There is plastic in the whale’s stomach. However, the amount is not enough to be hazardous to the whale."
+                  "fr": "Tu as bien vu. Du plastique se trouve dans l'estomac du rorqual. Toutefois, la quantité n’est pas assez élevée pour que ce soit dangereux pour la baleine.<p>Maintenant que tu sais ce que mange le rorqual, demande au responsable comme il fait pour boire dans l'eau salée.</p>",
+                  "en": "You saw correctly. There is plastic in the whale’s stomach. However, the amount is not enough to be hazardous to the whale.<p>Now that you know how the whale eats, ask the intervention manager how they drink in salted water.</p>"
                 },
                 "wrong": {
                   "fr": "As-tu bien regardé ? Essaie à nouveau.",
@@ -484,8 +484,8 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité.",
-                  "en": "Go see the scientific animator, and observe the skin and blubber of the humpback whale to discover the concentration of toxins in the whale."
+                  "fr": "Allez voir le/la responsable et observez la peau et la graisse du rorqual pour découvrir son taux de toxicité.",
+                  "en": "Go see the intervention manager, and observe the skin and blubber of the humpback whale to discover the concentration of toxins in the whale."
                 },
                 {
                   "roles": ["b"],
@@ -523,8 +523,8 @@
                   "en": "Well done! That is the correct concentration of toxins."
                 },
                 "wrong": {
-                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.trice.",
-                  "en": "Hmmm... did you record the results corectly? Go back to see the scientific animator.",
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir le/la responsable.",
+                  "en": "Hmmm... did you record the results corectly? Go back to see the intervention manager.",
                   "retry": true
                 }
               }
@@ -566,8 +566,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as raison, le taux de toxicité obtenu est normal.",
-                  "en": "You are right. This concentration of toxins is acceptable."
+                  "fr": "Tu as raison, le taux de toxicité obtenu est normal.<p>Va voir le/la responsable des interventions pour en apprendre plus sur une autre menace qui peut affecter les rorquals.</p>",
+                  "en": "You are right. This concentration of toxins is acceptable.<p>Go back to the intervention manager to learn about another threat that can affect the humpback whale.</p>"
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix ?<br>Essaie à nouveau.",

@@ -194,6 +194,9 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.footer-wrapper .row {
+  display: flex;
+}
 .resolve {
   height: 100%;
 }
@@ -245,7 +248,7 @@ export default {
 
 .check {
   float: left;
-  margin-right: 50px;
+  /* margin-right: 50px; */
   height: 100%;
   /* margin: auto; */
   margin-bottom: 30px;

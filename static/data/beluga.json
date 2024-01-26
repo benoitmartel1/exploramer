@@ -34,8 +34,8 @@
                     "width": 25
                   },
                   "roles": ["t", "v"],
-                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette et rends-toi à la table de l'animateur.trice pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
-                  "en": "To weigh the beluga, take the scale out of the case, bring it to the scientific animator’s table, and find the model. Hang the model on the scale and observe the result."
+                  "fr": "Pour trouver le poids du béluga, utilise la balance qui se trouve dans la mallette pour peser le modèle miniature. Suspend le modèle à la balance et observe le résultat sur le cadran.",
+                  "en": "To weigh the beluga, take the scale out of the case, and find the model. Hang the model on the scale and observe the result."
                 },
                 {
                   "roles": ["b"],
@@ -70,7 +70,7 @@
               "resolve": {
                 "right": {
                   "fr": "Bravo ! Tu as trouvé le poids de la baleine ! Elle pèse bien 1 400 kg.",
-                  "en": "Good work! You found the weight of the whale! She weighs 1,400 kg."
+                  "en": "Good work! You found the weight of the whale! It weighs 1,400 kg."
                 },
                 "wrong": {
                   "fr": "As-tu  bien ajusté ta balance ?<br>Essaie de nouveau.",
@@ -95,8 +95,8 @@
               "actions": [
                 {
                   "roles": ["t", "b", "v"],
-                  "fr": "Allez voir l’animateur.trice qui vous aidera à trouver l'âge du béluga.",
-                  "en": "Go see the scientific animator; they will help you determine the beluga’s age."
+                  "fr": "Allez voir le/la responsable des interventions qui vous aidera à trouver l'âge du béluga.",
+                  "en": "Go see the intervention manager; they will help you determine the beluga’s age."
                 },
                 {
                   "roles": ["b"],
@@ -134,8 +134,8 @@
                   "en": "Correct! The beluga is 27 years old."
                 },
                 "wrong": {
-                  "fr": "Ummm… Tu devrais peut-être retourner voir l'animateur.trice.",
-                  "en": "Hmmm … maybe you should go back to see<br>the scientific animator.",
+                  "fr": "Ummm… Tu devrais peut-être retourner voir le/la responsable des interventions.",
+                  "en": "Hmmm … maybe you should go back to see<br>the intervention manager.",
                   "retry": true
                 }
               }
@@ -416,8 +416,8 @@
                     "name": "b_estomac.jpg"
                   },
                   "roles": ["b", "v", "t"],
-                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui se retrouvent sur la table de l’animateur.trice.",
-                  "en": "In a team, compare the contents of the beluga’s stomach with the containers of food and the pictures on the scientific animator’s table."
+                  "fr": "En équipe, comparez la composition de l’estomac avec les contenants de nourriture et les photos qui sont entre les mains du responsable des interventions.",
+                  "en": "In a team, compare the contents of the beluga’s stomach with the containers of food and the pictures in the intervention manager's hands."
                 }
               ]
             },
@@ -442,8 +442,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle.<p>Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques.</p>",
-                  "en": "Yes! The contents of the beluga’s stomach correspond to the whale’s normal feeding habits. But be careful! The beluga’s diet is contaminated because the St. Lawrence River is, unfortunately, full of toxic pollutants."
+                  "fr": "Tout à fait ! Le contenu de l'estomac correspond à l'alimentation habituelle.<p>Mais attention ! La nourriture est contaminée, car le fleuve Saint-Laurent est malheureusement rempli de polluants toxiques.</p><p>Maintenant que tu sais ce que mange le béluga, demande au responsable comme il fait pour boire dans l'eau salée.</p>",
+                  "en": "Yes! The contents of the beluga’s stomach correspond to the whale’s normal feeding habits. But be careful! The beluga’s diet is contaminated because the St. Lawrence River is, unfortunately, full of toxic pollutants.<p>Now that you know how the beluga eats, ask the intervention manager how they drink in salted water.</p>"
                 },
                 "wrong": {
                   "fr": "As-tu bien regardé ?<br>Essaie à nouveau.",
@@ -483,8 +483,8 @@
               "actions": [
                 {
                   "roles": ["b", "v", "t"],
-                  "fr": "Allez voir l'animateur.trice et observez la peau et la graisse du béluga pour découvrir son taux de toxicité.",
-                  "en": "Go see the scientific animator, and study the skin and blubber of the beluga to discover the level of toxins in the whale."
+                  "fr": "Allez voir le/la responsable et observez la peau et la graisse du béluga pour découvrir son taux de toxicité.",
+                  "en": "Go see the intervention manager, and study the skin and blubber of the beluga to discover the level of toxins in the whale."
                 },
                 {
                   "roles": ["b"],
@@ -522,8 +522,8 @@
                   "en": "Well done! That is the correct concentration of toxicity."
                 },
                 "wrong": {
-                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir l'animateur.trice.",
-                  "en": "Hmmm ... did you record the results correctly? Go back to see the scientific animator.",
+                  "fr": "Ummm... Es-tu certain.e d'avoir bien noté<br>la donnée ? Retourne voir le/la responsable.",
+                  "en": "Hmmm ... did you record the results correctly? Go back to see the intervention manager.",
                   "retry": true
                 }
               }
@@ -565,8 +565,8 @@
               ],
               "resolve": {
                 "right": {
-                  "fr": "Tu as raison, ce n'est pas normal. Une femelle béluga peut avoir une quantité de toxines qui se situe autour de 7 ng/g. Une quantité plus élevée peut être nocive et causer des problèmes lors de l’accouchement.",
-                  "en": "You are right. It is above the acceptable amount. A female beluga can have around 7 ng/g<br>of toxins in her skin and blubber. Levels above that can be harmful and cause problems when it is time for her to give birth (calve)."
+                  "fr": "Tu as raison, ce n'est pas normal. Une femelle béluga peut avoir une quantité de toxines qui se situe autour de 7 ng/g. Une quantité plus élevée peut être nocive et causer des problèmes lors de l’accouchement.<p>Va voir le/la responsable des interventions pour en apprendre plus sur une autre menace qui peut affecter les bélugas.</p>",
+                  "en": "You are right. It is above the acceptable amount. A female beluga can have around 7 ng/g<br>of toxins in her skin and blubber. Levels above that can be harmful and cause problems when it is time for her to give birth (calve).<p>Go back to the intervention manager to learn about another threat that can affect the beluga.</p>"
                 },
                 "wrong": {
                   "fr": "Es-tu certain.e de ton choix ?<br>Essaie à nouveau.",
